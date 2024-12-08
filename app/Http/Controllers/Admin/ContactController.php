@@ -15,7 +15,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $items = Contact::latest()->get();
+        return view('admin.pages.contact.index', compact('items'));
     }
 
     /**
@@ -90,7 +91,7 @@ class ContactController extends Controller
         ]);
 
         // Toastr::success('Thank You. We have received your message. We will contact with you very soon.');
-        return redirect()->back()->with('success','Thank You. We have received your message. We will contact with you very soon.');
+        return redirect()->back()->with('success', 'Thank You. We have received your message. We will contact with you very soon.');
     }
 
     /**
@@ -120,8 +121,11 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Contact $contact)
+    public function destroy(string $id)
     {
-        $contact->delete();
+        $item = Contact::findOrFail($id);
+
+
+        $item->delete();
     }
 }

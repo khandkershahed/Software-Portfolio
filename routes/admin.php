@@ -3,33 +3,25 @@
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\LogController;
-use App\Http\Controllers\Admin\RoleController;
+
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\PermissionController;
-use App\Http\Controllers\Admin\ActivityLogController;
-use App\Http\Controllers\Admin\EmailSettingController;
+
 use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\BrandController;
+
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\EmployeeController;
-use App\Http\Controllers\Admin\FaqCategoryController;
-use App\Http\Controllers\Admin\FaqController;
-use App\Http\Controllers\Admin\IconController;
-use App\Http\Controllers\Admin\NewsletterController;
-use App\Http\Controllers\Admin\ServiceController;
-use App\Http\Controllers\Admin\UserManagementController;
+
+use App\Http\Controllers\Admin\PageBannerController;
 
 
 Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(function () {
@@ -52,7 +44,8 @@ Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(functio
         ->name('password.store');
 });
 
-Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth:admin'])->prefix(LaravelLocalization::setLocale() . '/admin')->name('admin.')->group(function () {
+Route::middleware(['auth:admin'])->prefix('/admin')->name('admin.')->group(function () {
+
     Route::get('verify-email', EmailVerificationPromptController::class)
         ->name('verification.notice');
 
@@ -78,17 +71,10 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewP
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->middleware(['verified'])->name('dashboard');
 
-
-
-
- 
-
-    
+    ////////////// For Crud Operation 
 
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::put('/settings', [SettingController::class, 'updateOrcreateSetting'])->name('settings.updateOrCreate');
-
-    
 
     Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us.index');
     Route::put('/about-us', [AboutUsController::class, 'updateOrcreateAboutUs'])->name('about-us.updateOrCreate');
@@ -99,8 +85,16 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewP
         [
             'employee'              => EmployeeController::class,
             'contacts'              => ContactController::class,
+            'page-banner'           => PageBannerController::class,
         ],
     );
+});
 
 
+//Other Routes
+Route::middleware(['auth:admin'])->group(function () {
+
+    // routes
+    Route::put('admin/page-banner/{id}/toggle-status', [PageBannerController::class, 'toggleStatus'])
+        ->name('admin.page-banner.toggle-status');
 });

@@ -49,7 +49,7 @@
                                     <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
                                         fill="currentColor"></rect>
                                 </svg>
-                                
+
                             </span>
                         </span>
                         <span class="menu-title">Dashboard</span>
@@ -59,30 +59,46 @@
                 {{-- Site Content  --}}
                 @php
                     $menuItems = [
-
                         // Frontend Management Start
                         [
                             'title' => 'Frontend Management',
 
                             'icon' => 'icons/duotune/general/gen051.svg',
 
-                            'routes' => [
-                                'admin.contacts.index',
-                            ],
+                            'routes' => ['admin.contacts.index', 'admin.page-banner.index'],
 
                             'subMenu' => [
                                 [
                                     'title' => 'Contact',
-                                    'routes' => ['admin.contacts.index', 'admin.contacts.create', 'admin.contacts.edit'],
+                                    'routes' => [
+                                        'admin.contacts.index',
+                                        // 'admin.contacts.create',
+                                        // 'admin.contacts.edit',
+                                    ],
                                     'subMenu' => [
                                         ['title' => 'Contact List', 'route' => 'admin.contacts.index'],
-                                        ['title' => 'Add Contact', 'route' => 'admin.contacts.create'],
+                                        // ['title' => 'Add Contact', 'route' => 'admin.contacts.create'],
                                     ],
                                 ],
+                                //Page Banner
+                                [
+                                    'title' => 'Page Banner',
+
+                                    'routes' => [
+                                        'admin.page-banner.index',
+                                        'admin.page-banner.create',
+                                        'admin.page-banner.edit',
+                                    ],
+
+                                    'subMenu' => [
+                                        ['title' => 'Page Banner List', 'route' => 'admin.page-banner.index'],
+                                        ['title' => 'Add Page Banner', 'route' => 'admin.page-banner.create'],
+                                    ],
+                                ],
+
                             ],
                         ],
                         // Frontend Management End
-
 
                         // [
                         //     'title' => 'Customer Support',
@@ -109,7 +125,6 @@
                         //         ],
                         //     ],
                         // ],
-
 
                         // [
                         //     'title' => 'HR Management',
@@ -196,8 +211,6 @@
                         //         ],
                         //     ],
                         // ],
-
-
                     ];
                 @endphp
 
