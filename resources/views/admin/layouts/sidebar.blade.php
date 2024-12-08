@@ -3,11 +3,12 @@
     data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start"
     data-kt-drawer-toggle="#kt_aside_mobile_toggle">
     <div class="aside-logo flex-column-auto" id="kt_aside_logo">
-        <a href="{{ route('dashboard') }}">
+        {{-- <a href="{{ route('dashboard') }}">
             <img alt="Logo"
                 src="{{ !empty($site->site_logo) && file_exists(public_path('storage/settings/' . $site->site_logo)) ? asset('storage/settings/' . $site->site_logo) : asset('images') }}"
                 class="h-60px logo w-200px">
-        </a>
+        </a> --}}
+        <h2 class="text-light">NGenIt</h2>
         <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle active"
             data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"
             data-kt-toggle-name="aside-minimize">
@@ -36,6 +37,7 @@
                         href="{{ route('admin.dashboard') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
+
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none">
                                     <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor">
@@ -47,6 +49,7 @@
                                     <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
                                         fill="currentColor"></rect>
                                 </svg>
+                                
                             </span>
                         </span>
                         <span class="menu-title">Dashboard</span>
@@ -56,149 +59,145 @@
                 {{-- Site Content  --}}
                 @php
                     $menuItems = [
+
+                        // Frontend Management Start
                         [
-                            'title' => 'Product Management',
+                            'title' => 'Frontend Management',
+
                             'icon' => 'icons/duotune/general/gen051.svg',
-                            'routes' => [
-                                'admin.brands.index',
-                                'admin.brands.create',
-                                'admin.brands.edit',
-                                'admin.categories.index',
-                                'admin.categories.create',
-                                'admin.categories.edit',
-                            ],
-                            'subMenu' => [
-                                [
-                                    'title' => 'Brand',
-                                    'routes' => ['admin.brands.index', 'admin.brands.create', 'admin.brands.edit'],
-                                    'subMenu' => [
-                                        ['title' => 'Brand List', 'route' => 'admin.brands.index'],
-                                        ['title' => 'Add Brand', 'route' => 'admin.brands.create'],
-                                    ],
-                                ],
-                                [
-                                    'title' => 'Category',
-                                    'routes' => [
-                                        'admin.categories.index',
-                                        'admin.categories.create',
-                                        'admin.categories.edit',
-                                    ],
-                                    'subMenu' => [
-                                        ['title' => 'Category List', 'route' => 'admin.categories.index'],
-                                        ['title' => 'Add Category', 'route' => 'admin.categories.create'],
-                                    ],
-                                ],
-                            ],
-                        ],
-                        [
-                            'title' => 'Customer Support',
-                            'icon' => 'icons/duotune/ecommerce/ecm002.svg',
+
                             'routes' => [
                                 'admin.contacts.index',
-                                'admin.faq.index',
-                                'admin.faq.create',
-                                'admin.faq.edit',
-                                'admin.newsletters.index',
                             ],
+
                             'subMenu' => [
                                 [
-                                    'title' => 'Contact Messages',
-                                    'route' => 'admin.contacts.index',
-                                ],
-                                [
-                                    'title' => 'FAQ Lists',
-                                    'route' => 'admin.faq.index',
-                                ],
-                                [
-                                    'title' => 'Subscribed Emails List',
-                                    'route' => 'admin.newsletters.index',
-                                ],
-                            ],
-                        ],
-                        [
-                            'title' => 'HR Management',
-                            'icon' => 'icons/duotune/general/gen051.svg',
-                            'routes' => [
-                                'admin.employee.index',
-                                'admin.employee.create',
-                                'admin.employee.edit',
-                                'admin.employee.show',
-                                'admin.role.index',
-                                'admin.role.create',
-                                'admin.role.edit',
-                                'admin.role.show',
-                                'admin.permission.index',
-                                'admin.permission.create',
-                                'admin.permission.edit',
-                                'admin.permission.show',
-                            ],
-                            'subMenu' => [
-                                [
-                                    'title' => 'Employee Management',
-                                    'routes' => [
-                                        'admin.employee.index',
-                                        'admin.employee.create',
-                                        'admin.employee.edit',
-                                        'admin.employee.show',
-                                        'admin.role.index',
-                                        'admin.role.create',
-                                        'admin.role.edit',
-                                        'admin.role.show',
-                                        'admin.permission.index',
-                                        'admin.permission.create',
-                                        'admin.permission.edit',
-                                        'admin.permission.show',
-                                    ],
+                                    'title' => 'Contact',
+                                    'routes' => ['admin.contacts.index', 'admin.contacts.create', 'admin.contacts.edit'],
                                     'subMenu' => [
-                                        [
-                                            'title' => 'Employees',
-                                            'routes' => [
-                                                'admin.employee.index',
-                                                'admin.employee.create',
-                                                'admin.employee.edit',
-                                                'admin.employee.show',
-                                            ],
-                                            'route' => 'admin.employee.index',
-                                        ],
-                                        [
-                                            'title' => 'Roles',
-                                            'routes' => [
-                                                'admin.role.index',
-                                                'admin.role.create',
-                                                'admin.role.edit',
-                                                'admin.role.show',
-                                            ],
-                                            'route' => 'admin.role.index',
-                                        ],
-                                        [
-                                            'title' => 'Permissions',
-                                            'routes' => [
-                                                'admin.permission.index',
-                                                'admin.permission.create',
-                                                'admin.permission.edit',
-                                                'admin.permission.show',
-                                            ],
-                                            'route' => 'admin.permission.index',
-                                        ],
+                                        ['title' => 'Contact List', 'route' => 'admin.contacts.index'],
+                                        ['title' => 'Add Contact', 'route' => 'admin.contacts.create'],
                                     ],
                                 ],
                             ],
                         ],
-                        [
-                            'title' => 'Settings',
-                            'icon' => 'icons/duotune/ecommerce/ecm002.svg',
-                            'routes' => ['admin.settings.index', 'admin.email-settings.index'],
-                            'subMenu' => [
-                                [
-                                    'title' => 'Website Setting',
-                                    'route' => 'admin.settings.index',
-                                ],
-                                [
-                                    'title' => 'Email Setting',
-                                    'route' => 'admin.email-settings.index',
-                                ],
-                            ],
-                        ],
+                        // Frontend Management End
+
+
+                        // [
+                        //     'title' => 'Customer Support',
+                        //     'icon' => 'icons/duotune/ecommerce/ecm002.svg',
+                        //     'routes' => [
+                        //         'admin.contacts.index',
+                        //         'admin.faq.index',
+                        //         'admin.faq.create',
+                        //         'admin.faq.edit',
+                        //         'admin.newsletters.index',
+                        //     ],
+                        //     'subMenu' => [
+                        //         [
+                        //             'title' => 'Contact Messages',
+                        //             'route' => 'admin.contacts.index',
+                        //         ],
+                        //         [
+                        //             'title' => 'FAQ Lists',
+                        //             'route' => 'admin.faq.index',
+                        //         ],
+                        //         [
+                        //             'title' => 'Subscribed Emails List',
+                        //             'route' => 'admin.newsletters.index',
+                        //         ],
+                        //     ],
+                        // ],
+
+
+                        // [
+                        //     'title' => 'HR Management',
+                        //     'icon' => 'icons/duotune/general/gen051.svg',
+                        //     'routes' => [
+                        //         'admin.employee.index',
+                        //         'admin.employee.create',
+                        //         'admin.employee.edit',
+                        //         'admin.employee.show',
+                        //         'admin.role.index',
+                        //         'admin.role.create',
+                        //         'admin.role.edit',
+                        //         'admin.role.show',
+                        //         'admin.permission.index',
+                        //         'admin.permission.create',
+                        //         'admin.permission.edit',
+                        //         'admin.permission.show',
+                        //     ],
+                        //     'subMenu' => [
+                        //         [
+                        //             'title' => 'Employee Management',
+                        //             'routes' => [
+                        //                 'admin.employee.index',
+                        //                 'admin.employee.create',
+                        //                 'admin.employee.edit',
+                        //                 'admin.employee.show',
+                        //                 'admin.role.index',
+                        //                 'admin.role.create',
+                        //                 'admin.role.edit',
+                        //                 'admin.role.show',
+                        //                 'admin.permission.index',
+                        //                 'admin.permission.create',
+                        //                 'admin.permission.edit',
+                        //                 'admin.permission.show',
+                        //             ],
+                        //             'subMenu' => [
+                        //                 [
+                        //                     'title' => 'Employees',
+                        //                     'routes' => [
+                        //                         'admin.employee.index',
+                        //                         'admin.employee.create',
+                        //                         'admin.employee.edit',
+                        //                         'admin.employee.show',
+                        //                     ],
+                        //                     'route' => 'admin.employee.index',
+                        //                 ],
+                        //                 [
+                        //                     'title' => 'Roles',
+                        //                     'routes' => [
+                        //                         'admin.role.index',
+                        //                         'admin.role.create',
+                        //                         'admin.role.edit',
+                        //                         'admin.role.show',
+                        //                     ],
+                        //                     'route' => 'admin.role.index',
+                        //                 ],
+                        //                 [
+                        //                     'title' => 'Permissions',
+                        //                     'routes' => [
+                        //                         'admin.permission.index',
+                        //                         'admin.permission.create',
+                        //                         'admin.permission.edit',
+                        //                         'admin.permission.show',
+                        //                     ],
+                        //                     'route' => 'admin.permission.index',
+                        //                 ],
+                        //             ],
+                        //         ],
+                        //     ],
+                        // ],
+
+                        // [
+                        //     'title' => 'Settings',
+                        //     'icon' => 'icons/duotune/ecommerce/ecm002.svg',
+                        //     'routes' => ['admin.settings.index', 'admin.email-settings.index'],
+                        //     'subMenu' => [
+                        //         [
+                        //             'title' => 'Website Setting',
+                        //             'route' => 'admin.settings.index',
+                        //         ],
+                        //         [
+                        //             'title' => 'Email Setting',
+                        //             'route' => 'admin.email-settings.index',
+                        //         ],
+                        //     ],
+                        // ],
+
+
                     ];
                 @endphp
 

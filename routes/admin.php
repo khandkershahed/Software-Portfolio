@@ -31,9 +31,6 @@ use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\UserManagementController;
 
-// Route::get('/', function () {
-//     return redirect()->route('admin.dashboard');
-// });
 
 Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(function () {
 
@@ -81,64 +78,29 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewP
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->middleware(['verified'])->name('dashboard');
 
-    Route::resources(
-        [
-            'faq-category'          => FaqCategoryController::class, //done
-        ],
-        ['except' => ['show','index',]]
-    );
-    Route::resources(
-        [
-            'faq'            => FaqController::class,
-            'role'           => RoleController::class,
-            'permission'     => PermissionController::class,
-            'email-settings' => EmailSettingController::class,
-        ],
-        ['except' => ['show']]
-    );
-    Route::resources(
-        [
-            'employee'              => EmployeeController::class, //done
-            'user-management'       => UserManagementController::class, //done
-            'admin-managemnet'      => UserManagementController::class, //done
-            'categories'            => CategoryController::class, //done
-            'icons'                 => IconController::class, //done
-            'newsletters'           => NewsletterController::class,
-            'brands'                => BrandController::class, //done
-            'contacts'              => ContactController::class,
-        ],
-    );
 
-    Route::get('active-mail-configuration', [EmailSettingController::class, 'activeMailConfiguration'])->name('active.mail.configuration');
-    Route::put('email-settings', [EmailSettingController::class, 'emailUpdateOrCreate'])->name('email.settings.updateOrCreate');
-    Route::post('send-test-mail', [EmailSettingController::class, 'sendTestMail'])->name('send.test.mail');
 
-    Route::post('email-settings/toggle-status/{id}', [EmailSettingController::class, 'toggleStatus'])->name('email-settings.toggle-status');
 
-    Route::post('icons/toggle-status/{id}', [IconController::class, 'toggleStatus'])->name('icons.toggle-status');
-    Route::post('brands/toggle-status/{id}', [BrandController::class, 'toggleStatus'])->name('brands.toggle-status');
-    Route::post('banners/toggle-status/{id}', [BrandController::class, 'toggleStatus'])->name('banners.toggle-status');
+ 
 
-    Route::get('/backup', [Controller::class, 'downloadBackup']);
-
-    Route::get('role/{roleId}/give-permission', [RoleController::class, 'givePermission'])->name('role.give-permission');
-    Route::patch('role/{roleId}/give-permission', [RoleController::class, 'storePermission'])->name('role.store-permission');
-
-    Route::get('log', [LogController::class, 'index'])->name('log.index');
-    Route::get('log/{id}', [LogController::class, 'show'])->name('log.show');
-    Route::delete('log/{id}', [LogController::class, 'destroy'])->name('log.destroy');
-    Route::get('log/download/{id}', [LogController::class, 'download'])->name('log.download');
-
-    Route::get('activity_logs', [ActivityLogController::class, 'index'])->name('activity_logs.index');
-    Route::get('activity_logs/{activity_log}', [ActivityLogController::class, 'show'])->name('activity_logs.show');
-    Route::delete('activity_logs/{activity_log}', [ActivityLogController::class, 'destroy'])->name('activity_logs.destroy');
+    
 
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::put('/settings', [SettingController::class, 'updateOrcreateSetting'])->name('settings.updateOrCreate');
 
-    Route::get('/banner', [BannerController::class, 'index'])->name('banner.index');
-    Route::put('/banner', [BannerController::class, 'updateOrcreateBanner'])->name('banner.updateOrCreate');
+    
 
     Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us.index');
     Route::put('/about-us', [AboutUsController::class, 'updateOrcreateAboutUs'])->name('about-us.updateOrCreate');
+
+    // All Resource Section 
+
+    Route::resources(
+        [
+            'employee'              => EmployeeController::class,
+            'contacts'              => ContactController::class,
+        ],
+    );
+
+
 });
