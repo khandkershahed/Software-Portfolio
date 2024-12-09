@@ -65,7 +65,7 @@
 
                             'icon' => 'icons/duotune/general/gen051.svg',
 
-                            'routes' => ['admin.contacts.index', 'admin.page-banner.index'],
+                            'routes' => ['admin.contacts.index', 'admin.page-banner.index','admin.categories.index'],
 
                             'subMenu' => [
                                 [
@@ -93,6 +93,21 @@
                                     'subMenu' => [
                                         ['title' => 'Page Banner List', 'route' => 'admin.page-banner.index'],
                                         ['title' => 'Add Page Banner', 'route' => 'admin.page-banner.create'],
+                                    ],
+                                ],
+                                //Category
+                                [
+                                    'title' => 'Category',
+
+                                    'routes' => [
+                                        'admin.categories.index',
+                                        'admin.categories.create',
+                                        'admin.categories.edit',
+                                    ],
+
+                                    'subMenu' => [
+                                        ['title' => 'Category List', 'route' => 'admin.categories.index'],
+                                        ['title' => 'Add Category', 'route' => 'admin.categories.create'],
                                     ],
                                 ],
 
