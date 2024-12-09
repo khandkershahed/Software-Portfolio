@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Admin\SettingRequest;
@@ -101,8 +102,8 @@ class SettingController extends Controller
             'service_time'       => $request->service_time,
 
             // Meta Fields
-            'created_by'         => $request->created_by,
-            'updated_by'         => $request->updated_by,
+            'created_by'         => Auth::guard('admin')->user()->id,
+            'updated_by'         => Auth::guard('admin')->user()->id,
         ];
 
         if ($request->hasFile('og_image')) {
@@ -118,7 +119,7 @@ class SettingController extends Controller
                 $dataToUpdateOrCreate['og_image'] = $siteWhiteLogoPath;
             }
         }
-        
+
         if ($request->hasFile('site_white_logo')) {
             $siteWhiteLogoPath = handaleFileUpload($request->file('site_white_logo'), 'settings');
 
