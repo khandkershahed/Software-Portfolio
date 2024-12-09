@@ -211,21 +211,17 @@
                         //     ],
                         // ],
 
-                        // [
-                        //     'title' => 'Settings',
-                        //     'icon' => 'icons/duotune/ecommerce/ecm002.svg',
-                        //     'routes' => ['admin.settings.index', 'admin.email-settings.index'],
-                        //     'subMenu' => [
-                        //         [
-                        //             'title' => 'Website Setting',
-                        //             'route' => 'admin.settings.index',
-                        //         ],
-                        //         [
-                        //             'title' => 'Email Setting',
-                        //             'route' => 'admin.email-settings.index',
-                        //         ],
-                        //     ],
-                        // ],
+                        [
+                            'title' => 'Settings',
+                            'icon' => 'icons/duotune/ecommerce/ecm002.svg',
+                            'routes' => ['admin.settings.index'],
+                            'subMenu' => [
+                                [
+                                    'title' => 'Website Setting',
+                                    'route' => 'admin.settings.index',
+                                ],
+                            ],
+                        ],
                     ];
                 @endphp
 
