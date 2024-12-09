@@ -162,10 +162,10 @@ class SettingController extends Controller
             }
         }
 
-        $setting = Setting::updateOrCreate([], $dataToUpdateOrCreate);
+        Setting::updateOrCreate([], $dataToUpdateOrCreate);
 
-        $toastrMessage = $setting->wasRecentlyCreated ? 'Setting created successfully' : 'Setting updated successfully';
+        // $toastrMessage = $setting->wasRecentlyCreated ? 'Setting created successfully' : 'Setting updated successfully';
 
-        return redirect()->route('admin.settings.index')->with('toast_success', $toastrMessage);
+        return redirect()->route('admin.settings.index')->with('success', 'Data Create Or Update Successfully!!');
     }
 }

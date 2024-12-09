@@ -21,10 +21,21 @@ return new class extends Migration
             $table->text('address_line_one')->nullable();
             $table->text('address_line_two')->nullable();
             $table->string('default_language', 50)->nullable();
-            $table->string('default_currency', 10)->nullable();
+            $table->string('default_currency', 100)->nullable();
             $table->string('currency_symbol', 10)->nullable();
             $table->string('date_format', 50)->default('Y-m-d');
             $table->string('time_format', 50)->default('H:i');
+
+            // Social Media
+            $table->text('facebook_url')->nullable();
+            $table->text('twitter_url')->nullable();
+            $table->text('instagram_url')->nullable();
+            $table->text('linkedin_url')->nullable();
+            $table->text('youtube_url')->nullable();
+            $table->text('github_url')->nullable();
+            $table->text('portfolio_url')->nullable();
+            $table->text('fiverr_url')->nullable();
+            $table->text('upwork_url')->nullable();
 
             // Logo & Favicon
             $table->string('site_white_logo', 255)->nullable();
@@ -61,16 +72,7 @@ return new class extends Migration
             $table->text('og_description')->nullable();
             $table->text('canonical_url')->nullable();
 
-            // Social Media
-            $table->text('facebook_url')->nullable();
-            $table->text('twitter_url')->nullable();
-            $table->text('instagram_url')->nullable();
-            $table->text('linkedin_url')->nullable();
-            $table->text('youtube_url')->nullable();
-            $table->text('github_url')->nullable();
-            $table->text('portfolio_url')->nullable();
-            $table->text('fiverr_url')->nullable();
-            $table->text('upwork_url')->nullable();
+
 
             // Advanced Settings
             $table->string('theme_color', 50)->nullable();
@@ -94,9 +96,9 @@ return new class extends Migration
             // Meta Fields
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
+
             $table->timestamps();
         });
-            
     }
 
     /**
@@ -107,12 +109,3 @@ return new class extends Migration
         Schema::dropIfExists('settings');
     }
 };
-
-
-//$table->string('currency', 10)->default('USD');
-//$table->string('timezone', 50)->default('UTC');
-//$table->integer('pagination_count')->default(15);
-//$table->string('analytics_code', 255)->nullable();
-//$table->string('google_maps_key', 255)->nullable();
-//$table->string('recaptcha_site_key', 255)->nullable();
-//$table->string('recaptcha_secret_key', 255)->nullable();
