@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('designation')->nullable();
             $table->string('address')->nullable();
             $table->string('mail_status')->default('no_mail');
+            $table->string('status')->nullable();
 
             $table->rememberToken();
             $table->timestamps();
