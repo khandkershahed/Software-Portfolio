@@ -9,6 +9,7 @@
                 class="h-60px logo w-200px">
         </a> --}}
         <h2 class="text-light">NGenIt</h2>
+
         <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle active"
             data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"
             data-kt-toggle-name="aside-minimize">
@@ -65,7 +66,21 @@
 
                             'icon' => 'icons/duotune/general/gen051.svg',
 
-                            'routes' => ['admin.contacts.index', 'admin.page-banner.index', 'admin.categories.index'],
+                            'routes' => [
+                                'admin.contacts.index',
+
+                                'admin.page-banner.index',
+
+                                'admin.categories.index',
+
+                                'admin.company-data.index',
+                                'admin.company-data.create',
+
+                                'admin.company-client.index',
+                                'admin.company-client.create',
+
+                                'admin.about.index',
+                            ],
 
                             'subMenu' => [
                                 [
@@ -73,6 +88,7 @@
                                     'routes' => ['admin.contacts.index'],
                                     'subMenu' => [['title' => 'Contact List', 'route' => 'admin.contacts.index']],
                                 ],
+
                                 //Page Banner
                                 [
                                     'title' => 'Page Banner',
@@ -104,23 +120,50 @@
                                         ['title' => 'Add Category', 'route' => 'admin.categories.create'],
                                     ],
                                 ],
-                                //
+
+                                //Company Data
                                 [
-                                    'title' => 'Category',
+                                    'title' => 'Company Data',
 
                                     'routes' => [
-                                        'admin.categories.index',
-                                        'admin.categories.create',
-                                        'admin.categories.edit',
+                                        'admin.company-data.index',
+                                        'admin.company-data.create',
+                                        'admin.company-data.edit',
                                     ],
 
                                     'subMenu' => [
-                                        ['title' => 'Category List', 'route' => 'admin.categories.index'],
-                                        ['title' => 'Add Category', 'route' => 'admin.categories.create'],
+                                        ['title' => 'Company Data', 'route' => 'admin.company-data.index'],
+                                        // ['title' => 'Add Company Data', 'route' => 'admin.company-data.create'],
                                     ],
                                 ],
 
+                                //Company Client
+                                [
+                                    'title' => 'Company Client',
 
+                                    'routes' => ['admin.company-client.index'],
+
+                                    'subMenu' => [
+                                        [
+                                            'title' => 'Company Client',
+                                            'route' => 'admin.company-client.index',
+                                        ],
+                                    ],
+                                ],
+
+                                //About
+                                [
+                                    'title' => 'About Us',
+
+                                    'routes' => ['admin.about.index'],
+
+                                    'subMenu' => [
+                                        [
+                                            'title' => 'About Us',
+                                            'route' => 'admin.about.index',
+                                        ],
+                                    ],
+                                ],
                             ],
                         ],
                         //Settings

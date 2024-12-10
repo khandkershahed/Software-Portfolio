@@ -13,14 +13,15 @@
     <meta property="og:title"
         content="{{ !empty($setting->site_motto) ? $setting->site_motto : config('app.name') }}" />
     <meta property="og:url" content="{{ !empty($setting->site_url) ? $setting->site_name : config('app.url') }}" />
-    <meta property="og:site_name" content="{{ !empty($setting->site_name) ? $setting->site_name : config('app.name') }}" />
+    <meta property="og:site_name"
+        content="{{ !empty($setting->site_name) ? $setting->site_name : config('app.name') }}" />
     <link rel="canonical" href="{{ !empty($setting->site_url) ? $setting->site_name : config('app.url') }}" />
     <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="{{ asset('admin/assets/css/bootstrap_icons.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('admin/assets/css/font_awesome_6.css') }}"> --}}
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css"/>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 
 
@@ -122,6 +123,24 @@
     <script src="{{ asset('admin/assets/plugins/custom/tinymce/tinymce.bundle.js') }}"></script>
 
     <script src="{{ asset('admin/js/custom.js') }}"></script>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Initialize CKEditor for each textarea with the class 'editor'
+            document.querySelectorAll('.editor').forEach(function(textarea) {
+                ClassicEditor
+                    .create(textarea)
+                    .then(editor => {
+                        console.log("CKEditor initialized successfully:", editor);
+                    })
+                    .catch(error => {
+                        console.error("CKEditor initialization error:", error);
+                    });
+            });
+        });
+    </script>
+
     @include('toastr')
     @stack('scripts')
 

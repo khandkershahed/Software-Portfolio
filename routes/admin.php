@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,8 @@ use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
-
+use App\Http\Controllers\Admin\CompanyClientController;
+use App\Http\Controllers\Admin\CompanyDataController;
 
 Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(function () {
 
@@ -79,8 +81,6 @@ Route::middleware(['auth:admin'])->prefix('/admin')->name('admin.')->group(funct
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::put('/settings', [SettingController::class, 'updateOrcreateSetting'])->name('settings.updateOrCreate');
 
-    Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us.index');
-    Route::put('/about-us', [AboutUsController::class, 'updateOrcreateAboutUs'])->name('about-us.updateOrCreate');
 
     // All Resource Section 
 
@@ -91,6 +91,10 @@ Route::middleware(['auth:admin'])->prefix('/admin')->name('admin.')->group(funct
             'page-banner'           => PageBannerController::class,
 
             'categories'            => CategoryController::class,
+            'company-data'          => CompanyDataController::class,
+            'company-client'        => CompanyClientController::class,
+
+            'about'                 => AboutController::class,
         ],
     );
 });
@@ -102,6 +106,14 @@ Route::middleware(['auth:admin'])->group(function () {
     // routes
     Route::put('admin/page-banner/{id}/toggle-status', [PageBannerController::class, 'toggleStatus'])
         ->name('admin.page-banner.toggle-status');
+
+    //Company Data    
+    Route::put('admin/company-data/{id}/toggle-status', [CompanyDataController::class, 'companyData'])
+        ->name('admin.company-data.toggle-status');
+
+    //Company Client    
+    Route::put('admin/company-client/{id}/toggle-status', [CompanyClientController::class, 'companyClient'])
+        ->name('admin.company-client.toggle-status');
 });
 
 
@@ -142,5 +154,3 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::get('/admin-active/{id}', 'ActiveAdmin')->name('admin.active');
     });
 });
-
-
