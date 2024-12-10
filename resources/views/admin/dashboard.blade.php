@@ -20,7 +20,7 @@
 
                 <div class="card-body p-0">
 
-                    <div class="card-rounded-bottom bg-danger" style="height: 180px"></div>
+                    <div class="bg-danger" style="height: 180px"></div>
 
 
                     <div class="card-p mt-n20 position-relative">
