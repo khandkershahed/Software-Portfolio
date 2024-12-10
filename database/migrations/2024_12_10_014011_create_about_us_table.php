@@ -24,7 +24,8 @@ return new class extends Migration
 
             $table->string('row_three_badge')->nullable();//
             $table->string('row_three_title')->nullable();//
-            $table->string('row_three_image')->nullable();//size(636*334)
+            $table->string('row_three_image_big')->nullable();//size(636*334)
+            $table->string('row_three_image_small')->nullable();//size(636*608)
             $table->longText('row_three_description')->nullable();//
             $table->string('row_three_button_name')->nullable();//
             $table->string('row_three_button_url')->nullable();//
