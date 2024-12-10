@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('page_banners', function (Blueprint $table) {
+        Schema::create('company_data', function (Blueprint $table) {
             $table->id();
-            $table->string('page_name', 191)->nullable();
-            $table->string('slug', 150)->nullable();
-            $table->string('image', 255)->nullable();
-            $table->string('badge', 200)->nullable();
-            $table->string('title', 250)->nullable();
-            $table->string('button_name', 200)->nullable();
-            $table->text('button_link')->nullable();
-            $table->text('banner_link')->nullable();
+            $table->string('title', 191)->nullable();
+            $table->string('slug')->nullable();
+            $table->string('icon', 255)->nullable();
+            $table->text('link')->nullable();
+            $table->integer('data')->nullable();
             $table->string('status')->default('active')->comment('inactive,active');
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('page_banners');
+        Schema::dropIfExists('company_data');
     }
 };

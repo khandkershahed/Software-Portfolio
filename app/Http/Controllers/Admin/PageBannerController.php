@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\PageBanner;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class PageBannerController extends Controller
@@ -59,17 +60,15 @@ class PageBannerController extends Controller
         // Create the event in the database
         PageBanner::create([
 
-            'badge' => $request->badge,
-            'title' => $request->title,
-            'page_name' => $request->page_name,
-
+            'badge'       => $request->badge,
+            'title'       => $request->title,
+            'page_name'   => $request->page_name,
             'button_name' => $request->button_name,
             'button_link' => $request->button_link,
             'banner_link' => $request->banner_link,
-
-            'status' => $request->status,
-
-            'image' => $uploadedFiles['image']['status'] == 1 ? $uploadedFiles['image']['file_path'] : null,
+            'status'      => $request->status,
+            'image'       => $uploadedFiles['image']['status'] == 1 ? $uploadedFiles['image']['file_path'] : null,
+            'created_by'  => Auth::guard('admin')->user()->id,
         ]);
 
         return redirect()->route('admin.page-banner.index')->with('success', 'Data Inserted Successfully!');
@@ -133,17 +132,15 @@ class PageBannerController extends Controller
         // Update the item with new values
         $item->update([
 
-            'badge' => $request->badge,
-            'title' => $request->title,
-            'page_name' => $request->page_name,
-
+            'badge'       => $request->badge,
+            'title'       => $request->title,
+            'page_name'   => $request->page_name,
             'button_name' => $request->button_name,
             'button_link' => $request->button_link,
             'banner_link' => $request->banner_link,
-
-            'status' => $request->status,
-
-            'image' => $uploadedFiles['image']['status'] == 1 ? $uploadedFiles['image']['file_path'] : $item->image,
+            'status'      => $request->status,
+            'image'       => $uploadedFiles['image']['status'] == 1 ? $uploadedFiles['image']['file_path'] : $item->image,
+            'updated_by'  => Auth::guard('admin')->user()->id,
 
         ]);
 
