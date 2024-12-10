@@ -1,7 +1,53 @@
+<style>
+    #kt_header_nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #clock {
+        font-family: 'Arial', sans-serif;
+        font-size: 20px;
+        color: #fff;
+        background: linear-gradient(135deg, #023154, #302b63, #023154);
+        padding: 13px 25px;
+        /* Increased padding for larger font */
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .time-segment {
+        font-weight: bold;
+        font-size: 20px;
+        /* Larger font for time segments */
+    }
+
+    .colon {
+        color: #ffcc00;
+        font-weight: bold;
+        font-size: 20px;
+        /* Match size of time segments */
+    }
+
+    #day {
+        font-size: 19px;
+        font-weight: bolder;
+        margin-right: 10px;
+        background: linear-gradient(90deg, #a6b0e9, #96c4cc);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+</style>
 <!--begin::Header-->
 <div id="kt_header" class="header align-items-stretch">
+
     <!--begin::Container-->
     <div class="container-fluid d-flex align-items-stretch justify-content-between">
+
+
         <!--begin::Aside mobile toggle-->
         <div class="d-flex align-items-center d-lg-none ms-n2 me-2" title="Show aside menu">
             <div class="btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px"
@@ -21,6 +67,7 @@
             </div>
         </div>
         <!--end::Aside mobile toggle-->
+
         <!--begin::Mobile logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
             <a href="../../demo1/dist/index.html" class="d-lg-none">
@@ -28,11 +75,37 @@
             </a>
         </div>
         <!--end::Mobile logo-->
+
         <!--begin::Wrapper-->
         <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
             <!--begin::Navbar-->
+            <!--begin::Navbar-->
             <div class="d-flex align-items-stretch" id="kt_header_nav">
+
+                {{-- Frontend  --}}
+                <div class="my-auto"
+                    style="background: linear-gradient(135deg, #023154, #302b63, #023154); border-radius: 4px;">
+                    <a href="" class=""
+                        style="color: white; text-decoration: none; font-size: 16px; display: inline-block;padding:10px 30px">Frontend</a>
+                </div>
+                {{-- Frontend  --}}
+
             </div>
+
+            {{-- Clock --}}
+            <div class="d-flex align-items-stretch" id="kt_header_nav">
+                <div class="my-auto" id="clock">
+                    <span class="time-segment" id="day">Monday</span>
+                    <span class="time-segment" id="hours">00</span>
+                    <span class="colon">:</span>
+                    <span class="time-segment" id="minutes">00</span>
+                    <span class="colon">:</span>
+                    <span class="time-segment" id="seconds">00</span>
+                    <span class="time-segment" id="am-pm">AM</span>
+                </div>
+            </div>
+            {{-- Clock --}}
+
             <!--end::Navbar-->
             <!--begin::Toolbar wrapper-->
             <div class="d-flex align-items-stretch flex-shrink-0">
@@ -398,22 +471,24 @@
                     <!--end::Menu wrapper-->
                 </div>
                 <!--end::Notifications-->
+
                 <!--begin::Theme mode-->
-                <div class="d-flex align-items-center ms-1 ms-lg-3">
+                {{-- <div class="d-flex align-items-center ms-1 ms-lg-3">
                     <!--begin::Theme mode docs-->
                     <a class="btn btn-icon btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px"
                         href="../../demo1/dist/documentation/getting-started/dark-mode.html">
                         <i class="fonticon-sun fs-2"></i>
                     </a>
                     <!--end::Theme mode docs-->
-                </div>
+                </div> --}}
                 <!--end::Theme mode-->
+
                 <!--begin::User menu-->
                 <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
                     <!--begin::Menu wrapper-->
                     <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click"
                         data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                        <img src="{{ 'https://ui-avatars.com/api/?name=' . urlencode(Auth::guard('admin')->user()->name) }}"
+                        <img src="{{ !empty(Auth::user()->photo) ? url('upload/admin_images/' . Auth::user()->photo) : 'https://ui-avatars.com/api/?name=' . urlencode(Auth::user()->name) }}"
                             alt="user" />
                     </div>
                     <!--begin::User account menu-->
@@ -424,8 +499,10 @@
                             <div class="menu-content d-flex align-items-center px-3">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-50px me-5">
+
                                     <img alt="Logo"
-                                        src="{{ 'https://ui-avatars.com/api/?name=' . urlencode(Auth::guard('admin')->user()->name) }}" />
+                                        src="{{ !empty(Auth::user()->photo) ? url('upload/admin_images/' . Auth::user()->photo) : 'https://ui-avatars.com/api/?name=' . urlencode(Auth::user()->name) }}" />
+
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Username-->
@@ -433,7 +510,8 @@
                                     <div class="fw-bolder d-flex align-items-center fs-5">
                                         {{ Auth::guard('admin')->user()->name }}
                                     </div>
-                                    <a href="#" class="fw-bold text-muted text-hover-primary fs-7">
+                                    <a href="#" style="word-break: break-word"
+                                        class="fw-bold text-muted text-hover-primary fs-7">
                                         {{ Auth::guard('admin')->user()->email }}
                                     </a>
                                 </div>
@@ -446,103 +524,16 @@
                         <!--end::Menu separator-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="{{ route('admin.profile.edit') }}" class="menu-link px-5">My
-                                Profile</a>
+                            <a href="{{ route('admin.profile') }}" class="menu-link px-5">My Profile</a>
                         </div>
                         <!--end::Menu item-->
-                        <!--begin::Menu separator-->
-                        <div class="separator my-2"></div>
-                        <!--end::Menu separator-->
-                        <!--begin::Menu item-->
-                        <div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
-                            <a href="#" class="menu-link px-5">
-                                <span class="menu-title position-relative">Language
-                                    <span
-                                        class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-                                        <img class="w-15px h-15px rounded-1 ms-2"
-                                            src="{{ asset('admin/assets/media/flags/united-states.svg') }}"
-                                            alt="" /></span></span>
-                            </a>
-                            <!--begin::Menu sub-->
-                            {{-- <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="../../demo1/dist/account/settings.html"
-                                        class="menu-link d-flex px-5 active">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1"
-                                                src="{{ asset('admin/assets/media/flags/united-states.svg') }}"
-                                                alt="" />
-                                        </span>English</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1"
-                                                src="{{ asset('admin/assets/media/flags/spain.svg') }}"
-                                                alt="" />
-                                        </span>Spanish</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1"
-                                                src="{{ asset('admin/assets/media/flags/germany.svg') }}"
-                                                alt="" />
-                                        </span>German</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1"
-                                                src="{{ asset('admin/assets/media/flags/japan.svg') }}"
-                                                alt="" />
-                                        </span>Japanese</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1"
-                                                src="{{ asset('admin/assets/media/flags/france.svg') }}"
-                                                alt="" />
-                                        </span>French</a>
-                                </div>
-                                <!--end::Menu item-->
-                            </div> --}}
-                            <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                <!--begin::Menu item-->
-                                @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                    <div class="menu-item px-3">
-                                        <a rel="alternate" hreflang="{{ $localeCode }}"
-                                            href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
-                                            class="menu-link d-flex px-5">
-                                            <span class="symbol symbol-20px me-4">
-                                                <img class="rounded-1"
-                                                    src="{{ asset('admin/assets/media/flags/' . $localeCode . '.svg') }}"
-                                                    alt="" />
-                                            </span>{{ $properties['native'] }}
-                                        </a>
-                                    </div>
-                                @endforeach
-                                <!--end::Menu item-->
-                            </div>
-                            <!--end::Menu sub-->
-                        </div>
-                        <!--end::Menu item-->
+
                         <!--begin::Menu item-->
                         <div class="menu-item px-5 my-1">
-                            <a href="../../demo1/dist/account/settings.html" class="menu-link px-5">Account
-                                Settings</a>
+                            <a href="{{ route('admin.password.page') }}" class="menu-link px-5">Account Settings</a>
                         </div>
                         <!--end::Menu item-->
+
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
                             <form method="POST" action="{{ route('admin.logout') }}">
@@ -555,24 +546,6 @@
                         </div>
 
                         <!--end::Menu item-->
-                        <!--begin::Menu separator-->
-                        <div class="separator my-2"></div>
-                        <!--end::Menu separator-->
-                        <!--begin::Menu item-->
-                        <div class="menu-item px-5">
-                            <div class="menu-content px-5">
-                                <label
-                                    class="form-check form-switch form-check-custom form-check-solid pulse pulse-success"
-                                    for="kt_user_menu_dark_mode_toggle">
-                                    <input class="form-check-input w-30px h-20px" type="checkbox" value="1"
-                                        name="mode" id="kt_user_menu_dark_mode_toggle"
-                                        data-kt-url="../../demo1/dist/index.html" />
-                                    <span class="pulse-ring ms-n1"></span>
-                                    <span class="form-check-label text-gray-600 fs-7">Dark Mode</span>
-                                </label>
-                            </div>
-                        </div>
-                        <!--end::Menu item-->
                     </div>
                     <!--end::User account menu-->
                     <!--end::Menu wrapper-->
@@ -582,7 +555,40 @@
             <!--end::Toolbar wrapper-->
         </div>
         <!--end::Wrapper-->
+
     </div>
     <!--end::Container-->
 </div>
 <!--end::Header-->
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const day = now.toLocaleString('en-US', {
+            weekday: 'long'
+        }); // Get the day of the week
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+
+        // Determine AM or PM
+        const amPm = hours >= 12 ? 'PM' : 'AM';
+
+        // Convert 24-hour format to 12-hour format
+        hours = hours % 12 || 12; // The '|| 12' ensures that 0 becomes 12 (midnight)
+        hours = String(hours).padStart(2, '0');
+
+        // Update the clock
+        document.getElementById('day').textContent = day;
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
+        document.getElementById('am-pm').textContent = amPm;
+    }
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+
+    // Initial clock setup
+    updateClock();
+</script>

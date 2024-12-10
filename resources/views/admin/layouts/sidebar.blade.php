@@ -222,6 +222,22 @@
                                 ],
                             ],
                         ],
+
+                        [
+                            'title' => 'Role & Permission',
+                            'icon' => 'icons/duotune/ecommerce/ecm002.svg',
+                            'routes' => ['all.role','all.permission'],
+                            'subMenu' => [
+                                [
+                                    'title' => 'Role',
+                                    'route' => 'all.role',
+                                ],
+                                [
+                                    'title' => 'Permission',
+                                    'route' => 'all.permission',
+                                ],
+                            ],
+                        ],
                     ];
                 @endphp
 

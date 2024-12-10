@@ -31,10 +31,22 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth:admin'])->prefix(LaravelLocalization::setLocale() . '/admin')->name('admin.')->group(function () {
-    Route::get('/profile', [AdminProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [AdminProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [AdminProfileController::class, 'destroy'])->name('profile.destroy');
+// Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth:admin'])->prefix(LaravelLocalization::setLocale() . '/admin')->name('admin.')->group(function () {
+//     Route::get('/profile', [AdminProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [AdminProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [AdminProfileController::class, 'destroy'])->name('profile.destroy');
+// });
+
+Route::middleware(['auth:admin', 'verified'])->group(function () {
+
+    //Admin Profile
+    Route::get('/admin/profile', [AdminProfileController::class, 'AdminProfile'])->name('admin.profile');
+    Route::post('/admin/profile/update', [AdminProfileController::class, 'AdminProfileUpdate'])->name('admin.profile.update');
+
+    //Admin Password
+    Route::get('/admin-password', [AdminProfileController::class, 'AdminPasswordPage'])->name('admin.password.page');
+    Route::post('/admin/password/update/submit', [AdminProfileController::class, 'AdminPasswordUpdateSubmit'])->name('admin.password.update.submit');
+
 });
 
 require __DIR__ . '/auth.php';
