@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('about_us', function (Blueprint $table) {
             $table->id();
+
             $table->string('row_one_badge')->nullable();//
             $table->string('row_one_title')->nullable();//
             $table->string('row_one_image_big')->nullable();//size(420*510)
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->longText('row_three_description')->nullable();//
             $table->string('row_three_button_name')->nullable();//
             $table->string('row_three_button_url')->nullable();//
+            
             $table->timestamps();
         });
     }

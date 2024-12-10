@@ -88,6 +88,7 @@
                                         ['title' => 'Add Page Banner', 'route' => 'admin.page-banner.create'],
                                     ],
                                 ],
+
                                 //Category
                                 [
                                     'title' => 'Category',
@@ -103,6 +104,23 @@
                                         ['title' => 'Add Category', 'route' => 'admin.categories.create'],
                                     ],
                                 ],
+                                //
+                                [
+                                    'title' => 'Category',
+
+                                    'routes' => [
+                                        'admin.categories.index',
+                                        'admin.categories.create',
+                                        'admin.categories.edit',
+                                    ],
+
+                                    'subMenu' => [
+                                        ['title' => 'Category List', 'route' => 'admin.categories.index'],
+                                        ['title' => 'Add Category', 'route' => 'admin.categories.create'],
+                                    ],
+                                ],
+
+
                             ],
                         ],
                         //Settings
