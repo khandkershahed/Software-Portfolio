@@ -1,4 +1,4 @@
-<x-admin-app-layout :title="'Service Section'">
+<x-admin-app-layout :title="'Service'">
 
     <style>
         /* Styling the switch container */
@@ -96,7 +96,7 @@
         <div class="card-header mt-6">
             <div class="card-title"></div>
             <div class="card-toolbar">
-                <a href="{{ route('admin.about.create') }}" class="btn btn-light-primary rounded-2">
+                <a href="{{ route('admin.service.create') }}" class="btn btn-light-primary rounded-2">
                     <span class="svg-icon svg-icon-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none">
@@ -118,7 +118,8 @@
                     <tr>
                         <th width="5%">No</th>
                         <th width="7%">Image</th>
-                        <th width="15%">Title</th>
+                        <th width="10%">Name</th>
+                        <th width="8%">Status</th>
                         <th width="10%">Actions</th>
                     </tr>
                 </thead>
@@ -129,18 +130,32 @@
                             <td>{{ $key + 1 }}</td>
 
                             <td>
-                                <img src="{{ !empty($item->row_one_image_big) ? url('storage/' . $item->row_one_image_big) : 'https://ui-avatars.com/api/?name=' . urlencode($item->row_one_title) }}"
+                                <img src="{{ !empty($item->image) ? url('storage/' . $item->image) : 'https://ui-avatars.com/api/?name=' . urlencode($item->name) }}"
                                     style="width: 60px;height: 40px;" alt="">
                             </td>
 
-                            <td class="text-start">{{ $item->row_one_title }}</td>
+                            <td class="text-start">{{ $item->name }}</td>
+
+                            <td class="text-start">
+                                <!-- Toggle Switch with ON/OFF Text -->
+                                <label class="switch">
+                                    <input type="checkbox" class="status-toggle" data-id="{{ $item->id }}"
+                                        {{ $item->status == 'active' ? 'checked' : '' }}
+                                        data-url="{{ route('admin.service.toggle-status', $item->id) }}">
+                                    <span class="slider round">
+                                        <span class="status-label" data-on="ON"
+                                            data-off="OFF">{{ $item->status == 'active' ? '' : '' }}</span>
+                                    </span>
+                                </label>
+                            </td>
+
 
 
                             <td>
-                                <a href="{{ route('admin.about.edit', $item->id) }}" class="text-primary">
+                                <a href="{{ route('admin.service.edit', $item->id) }}" class="text-primary">
                                     <i class="fa fa-edit text-primary fs-4"></i>
                                 </a>
-                                <a href="{{ route('admin.about.destroy', $item->id) }}" class="delete">
+                                <a href="{{ route('admin.service.destroy', $item->id) }}" class="delete">
                                     <i class="fa fa-trash text-danger fs-4"></i>
                                 </a>
                             </td>

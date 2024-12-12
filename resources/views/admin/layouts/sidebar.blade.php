@@ -67,6 +67,9 @@
                             'icon' => 'icons/duotune/general/gen051.svg',
 
                             'routes' => [
+
+                                'admin.homepage.index',
+
                                 'admin.contacts.index',
 
                                 'admin.page-banner.index',
@@ -86,11 +89,22 @@
                             ],
 
                             'subMenu' => [
+
+                                //HomePage
+                                [
+                                    'title' => 'HomePage',
+                                    'routes' => ['admin.homepage.index'],
+                                    'subMenu' => [['title' => 'HomePage List', 'route' => 'admin.homepage.index']],
+                                ],
+
+                                //Contact
                                 [
                                     'title' => 'Contact',
                                     'routes' => ['admin.contacts.index'],
                                     'subMenu' => [['title' => 'Contact List', 'route' => 'admin.contacts.index']],
                                 ],
+
+
 
                                 //Page Banner
                                 [

@@ -28,6 +28,7 @@ use App\Http\Controllers\Admin\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Admin\CompanyClientController;
 use App\Http\Controllers\Admin\CompanyDataController;
+use App\Http\Controllers\Admin\HomePageController;
 use App\Http\Controllers\Admin\ServiceController;
 
 Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(function () {
@@ -97,6 +98,7 @@ Route::middleware(['auth:admin'])->prefix('/admin')->name('admin.')->group(funct
 
             'about'                 => AboutController::class,
             'service'               => ServiceController::class,
+            'homepage'              => HomePageController::class,
         ],
     );
 });
@@ -116,6 +118,10 @@ Route::middleware(['auth:admin'])->group(function () {
     //Company Client    
     Route::put('admin/company-client/{id}/toggle-status', [CompanyClientController::class, 'companyClient'])
         ->name('admin.company-client.toggle-status');
+
+    //Service Client    
+    Route::put('admin/service/{id}/toggle-status', [ServiceController::class, 'serviceStatus'])
+        ->name('admin.service.toggle-status');
 });
 
 
