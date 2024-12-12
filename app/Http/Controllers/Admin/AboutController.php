@@ -6,6 +6,7 @@ use App\Models\AboutUs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AboutController extends Controller
 {
@@ -107,7 +108,8 @@ class AboutController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $item = AboutUs::findOrFail($id);
+        return view('admin.pages.about.edit', compact('item'));
     }
 
     /**
@@ -115,7 +117,70 @@ class AboutController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Validate the incoming request data
+        $request->validate([
+            'row_one_image_big' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'row_one_image_small' => 'image|mimes:jpeg,png,jpg,gif|max:1024',
+            'row_three_image_big' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'row_three_image_small' => 'image|mimes:jpeg,png,jpg,gif|max:1024',
+        ]);
+
+        $item = AboutUs::findOrFail($id);
+
+        // Define upload paths
+        $uploadedFiles = [];
+
+        // Array of files to upload
+        $files = [
+            'row_one_image_big' => $request->file('row_one_image_big'),
+            'row_one_image_small' => $request->file('row_one_image_small'),
+            'row_three_image_big' => $request->file('row_three_image_big'),
+            'row_three_image_small' => $request->file('row_three_image_small'),
+        ];
+
+        foreach ($files as $key => $file) {
+            if (!empty($file)) {
+                $filePath = 'about/' . $key;
+                $oldFile = $item->$key ?? null;
+
+                if ($oldFile) {
+                    Storage::delete("public/" . $oldFile);
+                }
+                $uploadedFiles[$key] = customUpload($file, $filePath);
+                if ($uploadedFiles[$key]['status'] === 0) {
+                    return redirect()->back()->with('error', $uploadedFiles[$key]['error_message']);
+                }
+            } else {
+                $uploadedFiles[$key] = ['status' => 0];
+            }
+        }
+
+        // Update the item with new values
+        $item->update([
+
+            'row_one_badge'       => $request->row_one_badge,
+            'row_one_title'       => $request->row_one_title,
+            'row_one_description'   => $request->row_one_description,
+            'row_one_button_name' => $request->row_one_button_name,
+            'row_one_button_url' => $request->row_one_button_url,
+
+            'row_three_badge' => $request->row_three_badge,
+            'row_three_title' => $request->row_three_title,
+            'row_three_description' => $request->row_three_description,
+            'row_three_button_name' => $request->row_three_button_name,
+            'row_three_button_url' => $request->row_three_button_url,
+
+            'row_one_image_big'       => $uploadedFiles['row_one_image_big']['status'] == 1 ? $uploadedFiles['row_one_image_big']['file_path'] : $item->row_one_image_big,
+
+            'row_one_image_small'       => $uploadedFiles['row_one_image_small']['status'] == 1 ? $uploadedFiles['row_one_image_small']['file_path'] : $item->row_one_image_small,
+
+            'row_three_image_big'       => $uploadedFiles['row_three_image_big']['status'] == 1 ? $uploadedFiles['row_three_image_big']['file_path'] : $item->row_three_image_big,
+
+            'row_three_image_small'       => $uploadedFiles['row_three_image_small']['status'] == 1 ? $uploadedFiles['row_three_image_small']['file_path'] : $item->row_three_image_small,
+
+        ]);
+
+        return redirect()->route('admin.about.index')->with('success', 'Data Updated Successfully!!');
     }
 
     /**
@@ -123,6 +188,22 @@ class AboutController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = AboutUs::findOrFail($id);
+
+        $files = [
+            'row_one_image_big' => $item->row_one_image_big,
+            'row_one_image_small' => $item->row_one_image_small,
+            'row_three_image_big' => $item->row_three_image_big,
+            'row_three_image_small' => $item->row_three_image_small,
+        ];
+        foreach ($files as $key => $file) {
+            if (!empty($file)) {
+                $oldFile = $item->$key ?? null;
+                if ($oldFile) {
+                    Storage::delete("public/" . $oldFile);
+                }
+            }
+        }
+        $item->delete();
     }
 }
