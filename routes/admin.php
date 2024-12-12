@@ -28,6 +28,7 @@ use App\Http\Controllers\Admin\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Admin\CompanyClientController;
 use App\Http\Controllers\Admin\CompanyDataController;
+use App\Http\Controllers\Admin\ServiceController;
 
 Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(function () {
 
@@ -95,6 +96,7 @@ Route::middleware(['auth:admin'])->prefix('/admin')->name('admin.')->group(funct
             'company-client'        => CompanyClientController::class,
 
             'about'                 => AboutController::class,
+            'service'               => ServiceController::class,
         ],
     );
 });

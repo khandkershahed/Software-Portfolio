@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+
             $table->string('name')->nullable();
             $table->string('slug')->unique()->nullable();
             $table->text('short_description')->nullable()->nullable();
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->string('middle_image_two', 191)->nullable();//image
             $table->text('footer')->nullable()->nullable();
             $table->string('status')->default('active')->comment('inactive,active');
+            
             $table->timestamps();
         });
     }

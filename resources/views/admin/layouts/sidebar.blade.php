@@ -80,6 +80,9 @@
                                 'admin.company-client.create',
 
                                 'admin.about.index',
+
+                                'admin.service.index',
+                                'admin.service.create',
                             ],
 
                             'subMenu' => [
@@ -161,6 +164,20 @@
                                         [
                                             'title' => 'About Us',
                                             'route' => 'admin.about.index',
+                                        ],
+                                    ],
+                                ],
+
+                                //Service
+                                [
+                                    'title' => 'Service',
+
+                                    'routes' => ['admin.service.index'],
+
+                                    'subMenu' => [
+                                        [
+                                            'title' => 'Service',
+                                            'route' => 'admin.service.index',
                                         ],
                                     ],
                                 ],
