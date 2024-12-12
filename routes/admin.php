@@ -103,7 +103,7 @@ Route::middleware(['auth:admin'])->prefix('/admin')->name('admin.')->group(funct
 //Other Routes
 Route::middleware(['auth:admin'])->group(function () {
 
-    // routes
+    //routes
     Route::put('admin/page-banner/{id}/toggle-status', [PageBannerController::class, 'toggleStatus'])
         ->name('admin.page-banner.toggle-status');
 
