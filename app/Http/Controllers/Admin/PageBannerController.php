@@ -68,7 +68,7 @@ class PageBannerController extends Controller
             'banner_link' => $request->banner_link,
             'status'      => $request->status,
             'image'       => $uploadedFiles['image']['status'] == 1 ? $uploadedFiles['image']['file_path'] : null,
-            'created_by'  => Auth::guard('admin')->user()->id,
+            // 'created_by'  => Auth::guard('admin')->user()->id,
         ]);
 
         return redirect()->route('admin.page-banner.index')->with('success', 'Data Inserted Successfully!');
@@ -140,7 +140,7 @@ class PageBannerController extends Controller
             'banner_link' => $request->banner_link,
             'status'      => $request->status,
             'image'       => $uploadedFiles['image']['status'] == 1 ? $uploadedFiles['image']['file_path'] : $item->image,
-            'updated_by'  => Auth::guard('admin')->user()->id,
+            // 'updated_by'  => Auth::guard('admin')->user()->id,
 
         ]);
 

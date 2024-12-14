@@ -7,6 +7,7 @@
 
 <body>
     @include('frontend.layouts.header')
+
     <div id="smooth-wrapper">
         <div id="smooth-content">
             <main>
@@ -15,7 +16,9 @@
             @include('frontend.layouts.footer')
         </div>
     </div>
+
     @include('frontend.layouts.script')
+    
 </body>
 
 </html>

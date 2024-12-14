@@ -141,7 +141,7 @@
         });
     </script>
 
-    @include('toastr')
+    {{-- @include('toastr') --}}
     @stack('scripts')
 
 

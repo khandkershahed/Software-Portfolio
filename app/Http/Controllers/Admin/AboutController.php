@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\AboutUs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,7 +17,9 @@ class AboutController extends Controller
     public function index()
     {
         $items = AboutUs::latest()->get();
-        return view('admin.pages.about.index', compact('items'));
+        $setting = Setting::latest('id')->first();
+
+        return view('admin.pages.about.index', compact('items','setting'));
     }
 
     /**
