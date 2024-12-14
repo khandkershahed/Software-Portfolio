@@ -67,6 +67,9 @@
                             'icon' => 'icons/duotune/general/gen051.svg',
 
                             'routes' => [
+
+                                'admin.homepage.index',
+
                                 'admin.contacts.index',
 
                                 'admin.page-banner.index',
@@ -80,14 +83,28 @@
                                 'admin.company-client.create',
 
                                 'admin.about.index',
+
+                                'admin.service.index',
+                                'admin.service.create',
                             ],
 
                             'subMenu' => [
+
+                                //HomePage
+                                [
+                                    'title' => 'HomePage',
+                                    'routes' => ['admin.homepage.index'],
+                                    'subMenu' => [['title' => 'HomePage List', 'route' => 'admin.homepage.index']],
+                                ],
+
+                                //Contact
                                 [
                                     'title' => 'Contact',
                                     'routes' => ['admin.contacts.index'],
                                     'subMenu' => [['title' => 'Contact List', 'route' => 'admin.contacts.index']],
                                 ],
+
+
 
                                 //Page Banner
                                 [
@@ -161,6 +178,20 @@
                                         [
                                             'title' => 'About Us',
                                             'route' => 'admin.about.index',
+                                        ],
+                                    ],
+                                ],
+
+                                //Service
+                                [
+                                    'title' => 'Service',
+
+                                    'routes' => ['admin.service.index'],
+
+                                    'subMenu' => [
+                                        [
+                                            'title' => 'Service',
+                                            'route' => 'admin.service.index',
                                         ],
                                     ],
                                 ],
