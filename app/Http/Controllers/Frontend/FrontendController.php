@@ -27,9 +27,17 @@ class FrontendController extends Controller
         $company_clients = CompanyClient::where('status', 'active')->latest()->get();
         $services = Service::where('status', 'active')->latest()->get();
 
-        $catgorys = Category::where('status', 'active')->latest()->get();
+        $catgorys = Category::where('status', 'active')->where('parent_id', null)->latest()->get();
 
-        return view('frontend.pages.home', compact('banner', 'item', 'company_datas', 'company_clients', 'services','catgorys'));
+        $categoryOne = Category::with('children')->where('status', 'active')->where('parent_id', null)->inRandomOrder()->first();
+
+        $categoryTwo = Category::with('children')->where('status', 'active')->where('parent_id', null)->where('id', '!=', $categoryOne->id)->inRandomOrder()->first();
+
+        $categoryThree = Category::with('children')->where('status', 'active')->where('parent_id', null)->where('id', '!=', $categoryOne->id)->where('id', '!=', $categoryTwo->id)->inRandomOrder()->first();
+
+
+
+        return view('frontend.pages.home', compact('banner', 'item', 'company_datas', 'company_clients', 'services', 'catgorys', 'categoryOne','categoryTwo','categoryThree'));
     }
 
     //All About
@@ -37,7 +45,7 @@ class FrontendController extends Controller
     {
         $about = AboutUs::latest('id')->first();
         $company_datas = CompanyData::where('status', 'active')->latest()->get();
-        return view('frontend.pages.about',compact('about','company_datas'));
+        return view('frontend.pages.about', compact('about', 'company_datas'));
     }
 
     //All Contact
