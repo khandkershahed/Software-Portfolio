@@ -116,4 +116,10 @@ class FrontendController extends Controller
             return redirect()->back()->with('error', 'There was an issue processing your request. Please try again later.');
         }
     }
+
+    //All Query
+    public function query()
+    {
+        return view('frontend.pages.query_page');
+    }
 }

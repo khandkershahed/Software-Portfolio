@@ -23,7 +23,6 @@
     {{-- About Us  --}}
     @include('frontend.pages.homePage_about')
 
-
     <!-- Query Section Here -->
     @include('frontend.pages.query')
 

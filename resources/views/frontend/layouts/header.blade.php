@@ -2,7 +2,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-0" id="navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img class="img-fluid site-logo" src="{{ asset('frontend/assets/images/logo-white.png') }}" alt="" />
+                <img class="img-fluid site-logo" src="{{ asset('frontend/assets/images/logo-white.png') }}"
+                    alt="" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id2"
                 aria-controls="Id2">
@@ -10,16 +11,18 @@
                     <i class="fa-solid fa-bars text-black"></i>
                 </span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="allprojects.html">Projects</a>
+                        <a class="nav-link" href="">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pricing.html">Pricing</a>
+                        <a class="nav-link" href="">Pricing</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('about') }}">About</a>
@@ -28,21 +31,28 @@
                         <a class="nav-link" href="{{ route('contact') }}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="query.html">Query</a>
+                        <a class="nav-link" href="{{ route('query') }}">Query</a>
                     </li>
                 </ul>
+
                 <div class="d-flex ms-3">
+
                     <button class="btn-sm btn btn-outline-light me-2 rounded-0" type="submit">
                         <i class="fa-brands fa-facebook-f"></i>
                     </button>
+
                     <button class="btn-sm btn btn-outline-light me-2 rounded-0" type="submit">
                         <i class="fa-brands fa-linkedin-in"></i>
                     </button>
+
                     <button class="btn-sm btn btn-outline-light rounded-0" type="submit">
                         <i class="fa-brands fa-instagram"></i>
                     </button>
+                    
                 </div>
+
             </div>
+
         </div>
     </nav>
     <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="Id2"

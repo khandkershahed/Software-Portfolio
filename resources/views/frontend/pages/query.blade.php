@@ -10,6 +10,7 @@
                         <span class="line ms-2"></span>
                     </div>
                 </div>
+
                 <div class="col-lg-3">
 
                     <div class="row">
@@ -40,7 +41,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-5">
+                <div class="col-lg-6">
                     <div class="mt-5 query-inputs-box rounded-2">
                         <p>
                             Add Technology & Others Information
@@ -120,7 +121,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="mb-3">
                                             <label class="mb-2" for="client_name">Name</label>
                                             <input type="text" class="form-control" id="client_name"
@@ -144,7 +145,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6 d-none">
                                         <div class="mb-3">
                                             <label class="mb-2" for="duration">Duration:</label>
                                             <select id="duration" class="form-select w-100">
@@ -154,13 +155,14 @@
                                             </select>
                                         </div>
                                     </div>
+
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="row mt-5">
                         <div id="query-platforms">
                             <div>
@@ -181,6 +183,7 @@
                         </button>
                     </div>
                 </div>
+
             </div>
         </form>
 
