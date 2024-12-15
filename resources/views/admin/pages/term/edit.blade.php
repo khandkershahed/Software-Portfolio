@@ -61,7 +61,7 @@
                         <div class="col-12 mb-3">
                             <div class="form-group">
                                 <label for="content" class="mb-2">Content</label>
-                                <textarea name="content" id="content" class="form-control" rows="4" placeholder="Enter content">{{ old('content', $item->content) }}</textarea>
+                                <textarea name="content" id="content" class="form-control editor" rows="4" placeholder="Enter content">{{ old('content', $item->content) }}</textarea>
                             </div>
                         </div>
 

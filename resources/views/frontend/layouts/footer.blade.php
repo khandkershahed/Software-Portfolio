@@ -4,11 +4,19 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                     <div class="logo-widget footer-widget">
+
                         <figure class="logo-box">
+
                             <a class="navbar-brand" href="index.html">
-                                <img class="img-fluid site-logo" src="./assets/images/logo-white.png" alt="" />
+
+                                <img class="img-fluid site-logo"
+                                    src="{{ !empty(optional($setting)->site_black_logo) && file_exists(public_path('storage/' . optional($setting)->site_black_logo)) ? asset('storage/' . optional($setting)->site_black_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
+                                    alt="" />
+
                             </a>
+
                         </figure>
+
                         <div class="text">
                             <p>
                                 At NGen IT, we specialize in delivering cutting-edge
@@ -17,16 +25,16 @@
                         </div>
                         <ul class="footer-social">
                             <li>
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="{{ optional($setting)->facebook_url }}"><i class="fab fa-facebook-f"></i></a>
                             </li>
                             <li>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="{{ optional($setting)->linkedin_url }}"><i class="fab fa-linkedin-in"></i></a>
                             </li>
                             <li>
-                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="{{ optional($setting)->github_url }}"><i class="fab fa-github"></i></a>
                             </li>
                             <li>
-                                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                                <a href="{{ optional($setting)->youtube_url }}"><i class="fab fa-youtube"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -48,9 +56,9 @@
                         <div class="footer-title">Contacts</div>
                         <div class="text">
                             <p>Tell us about your next project.</p>
-                            <p>+880 171 4243 446</p>
-                            <p>+1 917 720 3055</p>
-                            <p>sales@ngenitltd.com</p>
+                            <p>{{ optional($setting)->phone_one }}</p>
+                            <p>{{ optional($setting)->phone_two }}</p>
+                            <p>{{ optional($setting)->contact_email }}</p>
                         </div>
                     </div>
                 </div>
@@ -69,8 +77,8 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 column">
                 <ul class="footer-nav">
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="{{ route('term') }}">Terms of Service</a></li>
+                    <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>

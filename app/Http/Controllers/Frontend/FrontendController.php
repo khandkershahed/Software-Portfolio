@@ -176,4 +176,20 @@ class FrontendController extends Controller
 
         return redirect()->back()->with('success', 'Sent Message Successfully!');
     }
+
+    //All term
+    public function term()
+    {
+        return view('frontend.pages.term');
+    }
+
+    //All privacy
+    public function privacy()
+    {
+        return view('frontend.pages.privacy');
+    }
+
+
+
+
 }

@@ -1,10 +1,10 @@
-<x-admin-app-layout :title="'Term & Condition Create'">
+<x-admin-app-layout :title="'Privacy And Policy Create'">
     <div class="card card-flash">
         <div class="card-header">
             <div class="card-title">
             </div>
             <div class="card-toolbar">
-                <a href="{{ route('admin.term.index') }}" class="btn btn-light-primary rounded-2">
+                <a href="{{ route('admin.privacy.index') }}" class="btn btn-light-primary rounded-2">
                     <span class="svg-icon svg-icon-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none">
@@ -20,7 +20,8 @@
             </div>
         </div>
         <div class="card-body">
-            <form id="myForm" method="post" action="{{ route('admin.term.store') }}" enctype="multipart/form-data">
+            <form id="myForm" method="post" action="{{ route('admin.privacy.store') }}"
+                enctype="multipart/form-data">
                 @csrf
 
                 <div class="card bg-secondary rounded-0 p-5">
@@ -29,7 +30,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="name" class="mb-2">Name</label>
-                                <input type="text" name="name" id="name" class="form-control"
+                                <input type="text" name="title" id="title" class="form-control"
                                     value="{{ old('name') }}" placeholder="Enter name">
                             </div>
                         </div>

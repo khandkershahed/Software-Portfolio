@@ -227,6 +227,11 @@
                                     'title' => 'Terms & Condition',
                                     'route' => 'admin.term.index',
                                 ],
+
+                                [
+                                    'title' => 'Privacy & Policy',
+                                    'route' => 'admin.privacy.index',
+                                ],
                             ],
                         ],
 
