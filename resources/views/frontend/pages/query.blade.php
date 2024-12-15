@@ -1,7 +1,7 @@
 <section class="py-5 bg-light">
     <div class="container">
 
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('query.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-lg-12">
@@ -19,8 +19,9 @@
                         @foreach ($catgorys as $category)
                             <div class="col-lg-12">
                                 <div class="palatform_checkbox mb-2">
-                                    <input class="platform_input" id="platform_label-{{ $category->id }}"
-                                        type="checkbox" value="{{ $category->name }}" />
+                                    <input class="platform_input" name="category_id"
+                                        id="platform_label-{{ $category->id }}" type="checkbox"
+                                        value="{{ $category->name }}" />
                                     <label class="platform_label" for="platform_label-{{ $category->id }}">
                                         <span>
                                             <svg width="12px" height="10px" viewbox="0 0 12 10">
@@ -35,7 +36,7 @@
                     </div>
 
                     <div>
-                        <a href="query.html" class="btn-common-one animated mt-3" data-animation-in="fadeInUp">
+                        <a href="{{ route('contact') }}" class="btn-common-one animated mt-3" data-animation-in="fadeInUp">
                             Contact Us
                         </a>
                     </div>
@@ -56,10 +57,11 @@
                         <div id="toggle-div" style="display: none">
                             <form action="">
                                 <div class="row">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label class="mb-2" for="frontend">Frontend</label>
-                                            <select class="form-select w-100" id="frontend" aria-label="frontend">
+                                            <select class="form-select w-100" name="frontend" id="frontend"
+                                                aria-label="frontend">
                                                 <option selected>Select Frontend Technology</option>
                                                 <option value="html">HTML</option>
                                                 <option value="css">CSS</option>
@@ -73,10 +75,11 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label class="mb-2" for="backend">Backend</label>
-                                            <select class="form-select w-100" id="backend" aria-label="backend">
+                                            <select class="form-select w-100" name="backend" id="backend"
+                                                aria-label="backend">
                                                 <option selected>Select Backend Technology</option>
                                                 <option value="nodejs">Node.js</option>
                                                 <option value="php">PHP</option>
@@ -90,10 +93,11 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label class="mb-2" for="database">Database</label>
-                                            <select class="form-select w-100" id="database" aria-label="database">
+                                            <select class="form-select w-100" name="database" id="database"
+                                                aria-label="database">
                                                 <option selected>Select Database</option>
                                                 <option value="sql">SQL</option>
                                                 <option value="nosql">NoSQL</option>
@@ -108,31 +112,32 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label class="mb-2" for="demo_site">Demo Site Link</label>
-                                            <input type="url" class="form-control" id="demo_site"
+                                            <input type="url" class="form-control" name="demo_site" id="demo_site"
                                                 placeholder="Demo Link" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label class="mb-2" for="demo_file">Demo File</label>
+                                            <input type="file" class="form-control" name="demo_file"
+                                                id="demo_file" placeholder="your file" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label class="mb-2" for="demo_file">Demo File/Image</label>
-                                            <input type="file" class="form-control" id="demo_file"
-                                                placeholder="your file" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <div class="mb-3">
                                             <label class="mb-2" for="client_name">Name</label>
-                                            <input type="text" class="form-control" id="client_name"
-                                                placeholder="Jonson Heilson" />
+                                            <input type="text" class="form-control" name="name"
+                                                id="client_name" placeholder="Jonson Heilson" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label class="mb-2" for="phone">Phone</label>
-                                            <input type="text" class="form-control" id="phone"
+                                            <input type="text" name="phone" class="form-control" id="phone"
                                                 placeholder="015******" />
                                         </div>
                                     </div>
@@ -140,8 +145,15 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label class="mb-2" for="email">Email</label>
-                                            <input type="text" class="form-control" id="email"
+                                            <input type="text" name="email" class="form-control" id="email"
                                                 placeholder="client@mail.com" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label class="mb-2" for="email">Message</label>
+                                            <textarea name="message" class="form-control" id="" cols="10" rows="10"></textarea>
                                         </div>
                                     </div>
 
@@ -178,7 +190,8 @@
                     </div>
 
                     <div>
-                        <button class="btn-common-one animated mt-3 w-100" data-animation-in="fadeInUp">
+                        <button type="submit" class="btn-common-one animated mt-3 w-100"
+                            data-animation-in="fadeInUp">
                             Submit Project Query
                         </button>
                     </div>

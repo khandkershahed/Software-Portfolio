@@ -195,20 +195,42 @@
                                         ],
                                     ],
                                 ],
+
+                                //Query
+                                [
+                                    'title' => 'Query',
+
+                                    'routes' => ['admin.query.index'],
+
+                                    'subMenu' => [
+                                        [
+                                            'title' => 'Query',
+                                            'route' => 'admin.query.index',
+                                        ],
+                                    ],
+                                ],
                             ],
                         ],
                         //Settings
                         [
                             'title' => 'Settings',
                             'icon' => 'icons/duotune/ecommerce/ecm002.svg',
-                            'routes' => ['admin.settings.index'],
+
+                            'routes' => ['admin.settings.index','admin.term.index'],
+
                             'subMenu' => [
                                 [
                                     'title' => 'Website Setting',
                                     'route' => 'admin.settings.index',
                                 ],
+                                [
+                                    'title' => 'Terms & Condition',
+                                    'route' => 'admin.term.index',
+                                ],
                             ],
                         ],
+
+
                         // Hr Management
                         [
                             'title' => 'Hr Management',

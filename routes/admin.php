@@ -29,7 +29,9 @@ use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Admin\CompanyClientController;
 use App\Http\Controllers\Admin\CompanyDataController;
 use App\Http\Controllers\Admin\HomePageController;
+use App\Http\Controllers\Admin\QueryController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\TermController;
 
 Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(function () {
 
@@ -99,6 +101,9 @@ Route::middleware(['auth:admin'])->prefix('/admin')->name('admin.')->group(funct
             'about'                 => AboutController::class,
             'service'               => ServiceController::class,
             'homepage'              => HomePageController::class,
+
+            'query'                 => QueryController::class,
+            'term'                  => TermController::class,
         ],
     );
 });
@@ -122,6 +127,10 @@ Route::middleware(['auth:admin'])->group(function () {
     //Service Client    
     Route::put('admin/service/{id}/toggle-status', [ServiceController::class, 'serviceStatus'])
         ->name('admin.service.toggle-status');
+
+    //Term   
+    Route::put('admin/term/{id}/toggle-status', [TermController::class, 'termStatus'])
+        ->name('admin.term.toggle-status');
 });
 
 

@@ -28,9 +28,9 @@
 
     <!-- Partner Section start -->
     @include('frontend.pages.partner')
-    <!-- Partner Section End -->
-
+    
     {{-- Clinet --}}
     @include('frontend.pages.client')
+
 
 </x-frontend-app-layout>

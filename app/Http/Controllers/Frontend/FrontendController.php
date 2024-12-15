@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
 use App\Models\Category;
+use App\Models\Query;
 use Illuminate\Support\Facades\Validator;
 
 class FrontendController extends Controller
@@ -37,7 +38,16 @@ class FrontendController extends Controller
 
 
 
-        return view('frontend.pages.home', compact('banner', 'item', 'company_datas', 'company_clients', 'services', 'catgorys', 'categoryOne','categoryTwo','categoryThree'));
+        return view('frontend.pages.home', compact('banner', 'item', 'company_datas', 'company_clients', 'services', 'catgorys', 'categoryOne', 'categoryTwo', 'categoryThree'));
+    }
+
+    //All Project
+    public function project()
+    {
+        $company_clients = CompanyClient::where('status', 'active')->latest()->get();
+        $item = HomePage::latest('id')->first();
+
+        return view('frontend.pages.project', compact('company_clients', 'item'));
     }
 
     //All About
@@ -120,6 +130,50 @@ class FrontendController extends Controller
     //All Query
     public function query()
     {
-        return view('frontend.pages.query_page');
+        $catgorys = Category::where('status', 'active')->where('parent_id', null)->latest()->get();
+        return view('frontend.pages.query_page', compact('catgorys'));
+    }
+
+    //queryStore
+    public function queryStore(Request $request)
+    {
+
+        $uploadedFiles = [];
+
+        // Array of files to upload
+        $files = [
+            'demo_file' => $request->file('demo_file'),
+        ];
+
+        foreach ($files as $key => $file) {
+            if (!empty($file)) {
+                $filePath = 'query/' . $key;
+                $uploadedFiles[$key] = customUpload($file, $filePath);
+                if ($uploadedFiles[$key]['status'] === 0) {
+                    return redirect()->back()->with('error', $uploadedFiles[$key]['error_message']);
+                }
+            } else {
+                $uploadedFiles[$key] = ['status' => 0];
+            }
+        }
+
+        // Create the event in the database
+        Query::create([
+
+            'category_id'       => $request->category_id,
+            'frontend'       => $request->frontend,
+            'backend'       => $request->backend,
+            'database'   => $request->database,
+            'demo_site' => $request->demo_site,
+            'demo_file' => $request->demo_file,
+            'name' => $request->name,
+            'phone'      => $request->phone,
+            'email'      => $request->email,
+            'message'      => $request->message,
+
+            'demo_file'       => $uploadedFiles['demo_file']['status'] == 1 ? $uploadedFiles['demo_file']['file_path'] : null,
+        ]);
+
+        return redirect()->back()->with('success', 'Sent Message Successfully!');
     }
 }
