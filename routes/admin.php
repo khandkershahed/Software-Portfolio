@@ -32,6 +32,8 @@ use App\Http\Controllers\Admin\HomePageController;
 
 use App\Http\Controllers\Admin\PrivacyController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ProjectGalleryController;
+use App\Http\Controllers\Admin\ProjectQueryController;
 use App\Http\Controllers\Admin\QueryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TermController;
@@ -98,6 +100,8 @@ Route::middleware(['auth:admin'])->prefix('/admin')->name('admin.')->group(funct
             'page-banner'           => PageBannerController::class,
 
             'project'               => ProjectController::class,
+            'project-query'         => ProjectQueryController::class,
+            'project-gallery'       => ProjectGalleryController::class,
 
             'categories'            => CategoryController::class,
             'company-data'          => CompanyDataController::class,

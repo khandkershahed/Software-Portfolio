@@ -71,6 +71,10 @@
 
                                 'admin.project.index',
 
+                                'admin.project-query.index',
+
+                                'admin.project-gallery.index',
+
                                 'admin.contacts.index',
 
                                 'admin.page-banner.index',
@@ -102,6 +106,20 @@
                                     'title' => 'Project',
                                     'routes' => ['admin.project.index'],
                                     'subMenu' => [['title' => 'Project', 'route' => 'admin.project.index']],
+                                ],
+
+                                //Project Query 
+                                [
+                                    'title' => 'Project Query',
+                                    'routes' => ['admin.project-query.index'],
+                                    'subMenu' => [['title' => 'Project Query', 'route' => 'admin.project-query.index']],
+                                ],
+
+                                //Project Gallery 
+                                [
+                                    'title' => 'Project Gallery',
+                                    'routes' => ['admin.project-gallery.index'],
+                                    'subMenu' => [['title' => 'Project Gallery', 'route' => 'admin.project-gallery.index']],
                                 ],
 
                                 //Contact

@@ -1,102 +1,12 @@
-<x-admin-app-layout :title="'Project'">
+<x-admin-app-layout :title="'Project Query'">
 
-    <style>
-        /* Styling the switch container */
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 30px;
-        }
-
-        /* Hide the default checkbox */
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        /* The slider (the round part of the switch) */
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: 0.4s;
-            border-radius: 34px;
-        }
-
-        /* The dot inside the slider */
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 22px;
-            width: 22px;
-            border-radius: 50%;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: 0.4s;
-        }
-
-        /* ON state (when checkbox is checked) */
-        input:checked+.slider {
-            background-color: #4CAF50;
-            /* Green when active */
-        }
-
-        /* OFF state (when checkbox is unchecked) */
-        input:not(:checked)+.slider {
-            background-color: #f44336;
-            /* Red when inactive */
-        }
-
-        /* Dot position when active */
-        input:checked+.slider:before {
-            transform: translateX(30px);
-        }
-
-        /* Dot position when inactive */
-        input:not(:checked)+.slider:before {
-            transform: translateX(0);
-        }
-
-        /* Text inside the switch */
-        .status-label {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 12px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        /* Show OFF label for inactive state */
-        input:not(:checked)+.slider .status-label {
-            display: block;
-        }
-
-        /* Show ON label for active state */
-        input:checked+.slider .status-label {
-            display: block;
-        }
-
-        /* Optional: Add transition for text switching */
-        .slider {
-            transition: background-color 0.4s ease;
-        }
-    </style>
+    
 
     <div class="card card-flash">
         <div class="card-header mt-6">
             <div class="card-title"></div>
             <div class="card-toolbar">
-                <a href="{{ route('admin.project.create') }}" class="btn btn-light-primary rounded-2">
+                <a href="{{ route('admin.project-query.create') }}" class="btn btn-light-primary rounded-2">
                     <span class="svg-icon svg-icon-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none">
@@ -117,10 +27,10 @@
                 <thead class="bg-dark text-light">
                     <tr>
                         <th width="5%">No</th>
-                        <th width="7%">Logo</th>
-                        <th width="10%">Category</th>
-                        <th width="15%">Name</th>
-                        <th width="8%">Status</th>
+                        <th width="10%">Project Name</th>
+                        <th width="10%">Name</th>
+                        <th width="10%">Email</th>
+                        <th width="10%">Phone</th>
                         <th width="10%">Actions</th>
                     </tr>
                 </thead>
@@ -130,34 +40,16 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
 
-                            <td>
-                                <img src="{{ !empty($item->logo) ? url('storage/' . $item->logo) : 'https://ui-avatars.com/api/?name=' . urlencode($item->name) }}"
-                                    style="width: 60px;height: 40px;" alt="">
-                            </td>
-
-                            <td class="text-start">{{ $item->category->name }}</td>
+                            <td class="text-start">{{ $item->project->name }}</td>
                             <td class="text-start">{{ $item->name }}</td>
-
-                            <td class="text-start">
-                                <!-- Toggle Switch with ON/OFF Text -->
-                                <label class="switch">
-                                    <input type="checkbox" class="status-toggle" data-id="{{ $item->id }}"
-                                        {{ $item->status == 'active' ? 'checked' : '' }}
-                                        data-url="{{ route('admin.project.project-status', $item->id) }}">
-                                    <span class="slider round">
-                                        <span class="status-label" data-on="ON"
-                                            data-off="OFF">{{ $item->status == 'active' ? '' : '' }}</span>
-                                    </span>
-                                </label>
-                            </td>
-
-
+                            <td class="text-start">{{ $item->email }}</td>
+                            <td class="text-start">{{ $item->phone }}</td>
 
                             <td>
-                                <a href="{{ route('admin.project.edit', $item->id) }}" class="text-primary">
+                                <a href="{{ route('admin.project-query.edit', $item->id) }}" class="text-primary">
                                     <i class="fa fa-edit text-primary fs-4"></i>
                                 </a>
-                                <a href="{{ route('admin.project.destroy', $item->id) }}" class="delete">
+                                <a href="{{ route('admin.project-query.destroy', $item->id) }}" class="delete">
                                     <i class="fa fa-trash text-danger fs-4"></i>
                                 </a>
                             </td>
