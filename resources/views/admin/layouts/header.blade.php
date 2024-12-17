@@ -85,7 +85,7 @@
                 {{-- Frontend  --}}
                 <div class="my-auto"
                     style="background: linear-gradient(135deg, #023154, #302b63, #023154); border-radius: 4px;">
-                    <a href="" class=""
+                    <a href="{{ route('home') }}" class=""
                         style="color: white; text-decoration: none; font-size: 16px; display: inline-block;padding:10px 30px">Frontend</a>
                 </div>
                 {{-- Frontend  --}}
