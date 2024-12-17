@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('queries', function (Blueprint $table) {
             $table->id();
-
-            $table->string('category_id')->nullable();
+            $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('cascade'); //input will be category id
             $table->string('frontend')->nullable();
             $table->string('backend')->nullable();
             $table->string('database')->nullable();
+            $table->string('duration')->nullable();
             $table->string('demo_site')->nullable();
             $table->string('demo_file')->nullable();
             $table->string('name')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->longText('message')->nullable();
-
+            $table->string('status')->default('active')->nullable();
             $table->timestamps();
         });
     }
