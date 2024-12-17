@@ -216,7 +216,7 @@
                             'title' => 'Settings',
                             'icon' => 'icons/duotune/ecommerce/ecm002.svg',
 
-                            'routes' => ['admin.settings.index','admin.term.index'],
+                            'routes' => ['admin.settings.index','admin.term.index','admin.privacy.index'],
 
                             'subMenu' => [
                                 [
