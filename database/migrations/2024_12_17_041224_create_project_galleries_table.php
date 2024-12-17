@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('privacies', function (Blueprint $table) {
+        Schema::create('project_galleries', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('project_id')->nullable()->constrained('projects')->onDelete('cascade');
+            $table->string('name')->nullable(); //selectbox
             $table->string('title')->nullable();
-            $table->longText('content')->nullable();
-            $table->string('version')->nullable();
-            $table->date('effective_date')->nullable();
-            $table->date('expiration_date')->nullable();
+            $table->date('date')->nullable();
+            $table->string('image')->nullable();
             $table->string('status')->default('active')->nullable();
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('privacies');
+        Schema::dropIfExists('project_galleries');
     }
 };
