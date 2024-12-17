@@ -67,8 +67,9 @@
                             'icon' => 'icons/duotune/general/gen051.svg',
 
                             'routes' => [
-
                                 'admin.homepage.index',
+
+                                'admin.project.index',
 
                                 'admin.contacts.index',
 
@@ -89,12 +90,18 @@
                             ],
 
                             'subMenu' => [
-
                                 //HomePage
                                 [
                                     'title' => 'HomePage',
                                     'routes' => ['admin.homepage.index'],
                                     'subMenu' => [['title' => 'HomePage List', 'route' => 'admin.homepage.index']],
+                                ],
+
+                                //Project
+                                [
+                                    'title' => 'Project',
+                                    'routes' => ['admin.project.index'],
+                                    'subMenu' => [['title' => 'Project', 'route' => 'admin.project.index']],
                                 ],
 
                                 //Contact
@@ -103,8 +110,6 @@
                                     'routes' => ['admin.contacts.index'],
                                     'subMenu' => [['title' => 'Contact List', 'route' => 'admin.contacts.index']],
                                 ],
-
-
 
                                 //Page Banner
                                 [
@@ -216,7 +221,7 @@
                             'title' => 'Settings',
                             'icon' => 'icons/duotune/ecommerce/ecm002.svg',
 
-                            'routes' => ['admin.settings.index','admin.term.index','admin.privacy.index'],
+                            'routes' => ['admin.settings.index', 'admin.term.index', 'admin.privacy.index'],
 
                             'subMenu' => [
                                 [
@@ -234,7 +239,6 @@
                                 ],
                             ],
                         ],
-
 
                         // Hr Management
                         [

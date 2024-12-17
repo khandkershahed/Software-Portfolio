@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('project_queries', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('project_id')->nullable()->constrained('projects')->onDelete('cascade');
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->longText('message')->nullable();
             $table->boolean('complete_template')->nullable();
+            
             $table->timestamps();
         });
     }

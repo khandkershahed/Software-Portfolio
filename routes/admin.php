@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\CompanyDataController;
 use App\Http\Controllers\Admin\HomePageController;
 
 use App\Http\Controllers\Admin\PrivacyController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\QueryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TermController;
@@ -96,6 +97,8 @@ Route::middleware(['auth:admin'])->prefix('/admin')->name('admin.')->group(funct
             'contacts'              => ContactController::class,
             'page-banner'           => PageBannerController::class,
 
+            'project'               => ProjectController::class,
+
             'categories'            => CategoryController::class,
             'company-data'          => CompanyDataController::class,
             'company-client'        => CompanyClientController::class,
@@ -138,6 +141,9 @@ Route::middleware(['auth:admin'])->group(function () {
     //Privacy
     Route::put('admin/privacy/{id}/toggle-status', [PrivacyController::class, 'privacyStatus'])
         ->name('admin.privacy.toggle-status');
+
+    Route::put('admin/project/{id}/project-status', [ProjectController::class, 'projectStatus'])
+        ->name('admin.project.project-status');
 });
 
 
