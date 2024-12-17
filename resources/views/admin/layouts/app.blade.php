@@ -16,7 +16,11 @@
     <meta property="og:site_name"
         content="{{ !empty($setting->site_name) ? $setting->site_name : config('app.name') }}" />
     <link rel="canonical" href="{{ !empty($setting->site_url) ? $setting->site_name : config('app.url') }}" />
-    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+
+    <link rel="icon"
+        href="{{ !empty(optional($setting)->site_favicon) && file_exists(public_path('storage/' . optional($setting)->site_favicon)) ? asset('storage/' . optional($setting)->site_favicon) : asset('frontend/images/no-logo(217-55).jpg') }}"
+        type="image/x-icon">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="{{ asset('admin/assets/css/bootstrap_icons.css') }}">
@@ -141,7 +145,7 @@
         });
     </script>
 
-    @include('toastr')
+    {{-- @include('toastr') --}}
     @stack('scripts')
 
 

@@ -29,7 +29,14 @@ use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Admin\CompanyClientController;
 use App\Http\Controllers\Admin\CompanyDataController;
 use App\Http\Controllers\Admin\HomePageController;
+
+use App\Http\Controllers\Admin\PrivacyController;
+use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ProjectGalleryController;
+use App\Http\Controllers\Admin\ProjectQueryController;
+use App\Http\Controllers\Admin\QueryController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\TermController;
 
 Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(function () {
 
@@ -92,6 +99,10 @@ Route::middleware(['auth:admin'])->prefix('/admin')->name('admin.')->group(funct
             'contacts'              => ContactController::class,
             'page-banner'           => PageBannerController::class,
 
+            'project'               => ProjectController::class,
+            'project-query'         => ProjectQueryController::class,
+            'project-gallery'       => ProjectGalleryController::class,
+
             'categories'            => CategoryController::class,
             'company-data'          => CompanyDataController::class,
             'company-client'        => CompanyClientController::class,
@@ -99,6 +110,10 @@ Route::middleware(['auth:admin'])->prefix('/admin')->name('admin.')->group(funct
             'about'                 => AboutController::class,
             'service'               => ServiceController::class,
             'homepage'              => HomePageController::class,
+
+            'query'                 => QueryController::class,
+            'term'                  => TermController::class,
+            'privacy'               => PrivacyController::class,
         ],
     );
 });
@@ -122,6 +137,17 @@ Route::middleware(['auth:admin'])->group(function () {
     //Service Client    
     Route::put('admin/service/{id}/toggle-status', [ServiceController::class, 'serviceStatus'])
         ->name('admin.service.toggle-status');
+
+    //Term & Condition
+    Route::put('admin/term/{id}/toggle-status', [TermController::class, 'termStatus'])
+        ->name('admin.term.toggle-status');
+
+    //Privacy
+    Route::put('admin/privacy/{id}/toggle-status', [PrivacyController::class, 'privacyStatus'])
+        ->name('admin.privacy.toggle-status');
+
+    Route::put('admin/project/{id}/project-status', [ProjectController::class, 'projectStatus'])
+        ->name('admin.project.project-status');
 });
 
 

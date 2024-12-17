@@ -67,8 +67,13 @@
                             'icon' => 'icons/duotune/general/gen051.svg',
 
                             'routes' => [
-
                                 'admin.homepage.index',
+
+                                'admin.project.index',
+
+                                'admin.project-query.index',
+
+                                'admin.project-gallery.index',
 
                                 'admin.contacts.index',
 
@@ -89,12 +94,32 @@
                             ],
 
                             'subMenu' => [
-
                                 //HomePage
                                 [
                                     'title' => 'HomePage',
                                     'routes' => ['admin.homepage.index'],
                                     'subMenu' => [['title' => 'HomePage List', 'route' => 'admin.homepage.index']],
+                                ],
+
+                                //Project
+                                [
+                                    'title' => 'Project',
+                                    'routes' => ['admin.project.index'],
+                                    'subMenu' => [['title' => 'Project', 'route' => 'admin.project.index']],
+                                ],
+
+                                //Project Query 
+                                [
+                                    'title' => 'Project Query',
+                                    'routes' => ['admin.project-query.index'],
+                                    'subMenu' => [['title' => 'Project Query', 'route' => 'admin.project-query.index']],
+                                ],
+
+                                //Project Gallery 
+                                [
+                                    'title' => 'Project Gallery',
+                                    'routes' => ['admin.project-gallery.index'],
+                                    'subMenu' => [['title' => 'Project Gallery', 'route' => 'admin.project-gallery.index']],
                                 ],
 
                                 //Contact
@@ -103,8 +128,6 @@
                                     'routes' => ['admin.contacts.index'],
                                     'subMenu' => [['title' => 'Contact List', 'route' => 'admin.contacts.index']],
                                 ],
-
-
 
                                 //Page Banner
                                 [
@@ -195,20 +218,46 @@
                                         ],
                                     ],
                                 ],
+
+                                //Query
+                                [
+                                    'title' => 'Query',
+
+                                    'routes' => ['admin.query.index'],
+
+                                    'subMenu' => [
+                                        [
+                                            'title' => 'Query',
+                                            'route' => 'admin.query.index',
+                                        ],
+                                    ],
+                                ],
                             ],
                         ],
                         //Settings
                         [
                             'title' => 'Settings',
                             'icon' => 'icons/duotune/ecommerce/ecm002.svg',
-                            'routes' => ['admin.settings.index'],
+
+                            'routes' => ['admin.settings.index', 'admin.term.index', 'admin.privacy.index'],
+
                             'subMenu' => [
                                 [
                                     'title' => 'Website Setting',
                                     'route' => 'admin.settings.index',
                                 ],
+                                [
+                                    'title' => 'Terms & Condition',
+                                    'route' => 'admin.term.index',
+                                ],
+
+                                [
+                                    'title' => 'Privacy & Policy',
+                                    'route' => 'admin.privacy.index',
+                                ],
                             ],
                         ],
+
                         // Hr Management
                         [
                             'title' => 'Hr Management',
