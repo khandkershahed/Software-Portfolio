@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('cascade');
             $table->string('name')->nullable();
             $table->string('slug')->unique()->nullable();
+            $table->mediumText('short_description')->nullable();
             $table->text('live_link')->nullable();
             $table->string('client_name')->nullable();
             $table->text('facebook_link')->nullable();
@@ -30,7 +31,7 @@ return new class extends Migration
             $table->string('team')->nullable();
 
             $table->string('logo', 191)->nullable();
-            
+
             $table->string('image_one', 191)->nullable();
             $table->string('image_two', 191)->nullable();
             $table->string('image_three', 191)->nullable();
