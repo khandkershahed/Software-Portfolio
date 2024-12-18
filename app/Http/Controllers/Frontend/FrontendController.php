@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
 use App\Models\Category;
+use App\Models\Project;
 use App\Models\Query;
 use Illuminate\Support\Facades\Validator;
 
@@ -49,7 +50,14 @@ class FrontendController extends Controller
 
         $categorys = Category::where('status', 'active')->where('parent_id', null)->latest()->get();
 
-        return view('frontend.pages.project', compact('company_clients', 'item','categorys'));
+        return view('frontend.pages.project', compact('company_clients', 'item', 'categorys'));
+    }
+
+    //projectDetails 
+    public function projectDetails($slug)
+    {
+        $project = Project::where('slug', $slug)->firstOrFail();
+        return view('frontend.pages.project_details', compact('project'));
     }
 
     //All About
@@ -190,8 +198,4 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.privacy');
     }
-
-
-
-
 }

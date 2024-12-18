@@ -9,6 +9,7 @@ Route::get('/', [FrontendController::class, 'home'])->name('home');
 
 //Project Section
 Route::get('/project', [FrontendController::class, 'project'])->name('project');
+Route::get('/projects/{slug}', [FrontendController::class, 'projectDetails'])->name('projects.details');
 
 //About Section
 Route::get('/about', [FrontendController::class, 'about'])->name('about');

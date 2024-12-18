@@ -1,4 +1,4 @@
-<x-frontend-app-layout :title="'About'">
+<x-frontend-app-layout :title="'Project'">
 
 
 
@@ -52,7 +52,7 @@
                             <!-- Loop through each project for the current category -->
                             @foreach ($category->projects as $project)
                                 <div class="col-md-6">
-                                    <a href="">
+                                    <a href="{{ route('projects.details', $project->slug) }}">
                                         <div class="card mb-3 border-0 shadow-sm">
 
                                             <div class="slick-slider-projects">
@@ -92,7 +92,6 @@
 
     {{-- Project Section End --}}
 
-
     @include('frontend.pages.partner')
 
     @include('frontend.pages.client')
@@ -130,6 +129,7 @@
                 ],
             });
         </script>
+
         <script>
             $(document).ready(function() {
                 $(".slick-slider-projects").slick({
