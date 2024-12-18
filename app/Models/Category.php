@@ -27,4 +27,9 @@ class Category extends Model
     {
         return $query->where('status', 'active');
     }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class, 'category_id');
+    }
 }

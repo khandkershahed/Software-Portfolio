@@ -47,7 +47,9 @@ class FrontendController extends Controller
         $company_clients = CompanyClient::where('status', 'active')->latest()->get();
         $item = HomePage::latest('id')->first();
 
-        return view('frontend.pages.project', compact('company_clients', 'item'));
+        $categorys = Category::where('status', 'active')->where('parent_id', null)->latest()->get();
+
+        return view('frontend.pages.project', compact('company_clients', 'item','categorys'));
     }
 
     //All About

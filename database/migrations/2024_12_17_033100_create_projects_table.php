@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('team')->nullable();
 
             $table->string('logo', 191)->nullable();
+            
             $table->string('image_one', 191)->nullable();
             $table->string('image_two', 191)->nullable();
             $table->string('image_three', 191)->nullable();
