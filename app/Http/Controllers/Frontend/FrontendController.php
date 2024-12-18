@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Query;
+use App\Models\AboutUs;
 use App\Models\Contact;
+use App\Models\Project;
 use App\Models\Service;
+use App\Models\Category;
 use App\Models\HomePage;
 use App\Models\PageBanner;
 use App\Models\CompanyData;
+use App\Models\ProjectQuery;
 use Illuminate\Http\Request;
 use App\Models\CompanyClient;
+use App\Models\ProjectGallery;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Models\AboutUs;
-use App\Models\Category;
-use App\Models\Project;
-use App\Models\Query;
 use Illuminate\Support\Facades\Validator;
 
 class FrontendController extends Controller
@@ -57,7 +59,32 @@ class FrontendController extends Controller
     public function projectDetails($slug)
     {
         $project = Project::where('slug', $slug)->firstOrFail();
-        return view('frontend.pages.project_details', compact('project'));
+        $allprojects = Project::where('status', 'active')->where('id', '!=', $project->id)->latest()->get();
+
+        $gallerys = ProjectGallery::where('status', 'active')->where('project_id', $project->id)->get();
+
+        $company_clients = CompanyClient::where('status', 'active')->latest()->get();
+        $item = HomePage::latest('id')->first();
+
+        return view('frontend.pages.project_details', compact('project', 'company_clients', 'item', 'allprojects'));
+    }
+    //user Project Query
+    public function userProjectQuery(Request $request)
+    {
+        // Create the event in the database
+        ProjectQuery::create([
+
+            'project_id'       => $request->project_id,
+            'name'       => $request->name,
+            'email'       => $request->email,
+
+            'phone'       => $request->phone,
+            'message'       => $request->message,
+
+            'complete_template'       => $request->complete_template,
+        ]);
+
+        return redirect()->back()->with('success', 'Project Query Send Successfully!');
     }
 
     //All About

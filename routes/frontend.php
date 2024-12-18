@@ -11,6 +11,9 @@ Route::get('/', [FrontendController::class, 'home'])->name('home');
 Route::get('/project', [FrontendController::class, 'project'])->name('project');
 Route::get('/projects/{slug}', [FrontendController::class, 'projectDetails'])->name('projects.details');
 
+//
+Route::post('/project/query', [FrontendController::class, 'userProjectQuery'])->name('user.project-query.store');
+
 //About Section
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 

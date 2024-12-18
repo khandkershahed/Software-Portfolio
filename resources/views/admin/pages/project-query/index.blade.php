@@ -40,7 +40,7 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
 
-                            <td class="text-start">{{ $item->project->name }}</td>
+                            <td class="text-start">{{ optional($item->project)->name }}</td>
                             <td class="text-start">{{ $item->name }}</td>
                             <td class="text-start">{{ $item->email }}</td>
                             <td class="text-start">{{ $item->phone }}</td>
