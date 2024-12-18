@@ -5,10 +5,10 @@
                 <div class="agency_box">
                     <div class="row align-items-center agency_box_row">
                         <div class="col-lg-6">
-                            <p class="mb-0 agency_badge">{{ $item->row_one_badge }}</p>
+                            <p class="mb-0 agency_badge">{{ optional($item)->row_one_badge }}</p>
                             <div class="agency_title">
                                 <h1 class="pt-3">
-                                    {{ $item->row_one_title }}
+                                    {{ optional($item)->row_one_title }}
 
                                     {{-- <span class="word wisteria ps-2">Innovative</span>
                                     <span class="word belize ps-2">Branding</span>
@@ -20,7 +20,7 @@
                         </div>
                         <div class="col-lg-6">
                             <p class="mb-0 agency_details">
-                                {!! $item->row_one_description !!}
+                                {!! optional($item)->row_one_description !!}
                             </p>
                         </div>
                     </div>
@@ -37,17 +37,17 @@
                 <div class="col-lg-12">
                     <div class="d-flex justify-content-center py-5 home-feature">
                         <p class="pe-0 pe-lg-5 text-uppercase agency_feature">
-                            <i class="{{ $item->row_two_icon_one }} pe-2"></i> {{ $item->row_two_icon_one_title }}
+                            <i class="{{ optional($item)->row_two_icon_one }} pe-2"></i> {{ optional($item)->row_two_icon_one_title }}
                         </p>
                         <p class="pe-0 pe-lg-5 text-uppercase agency_feature">
-                            <i class="{{ $item->row_two_icon_two }} pe-2"></i> {{ $item->row_two_icon_two_title }}
+                            <i class="{{ optional($item)->row_two_icon_two }} pe-2"></i> {{ optional($item)->row_two_icon_two_title }}
                         </p>
                         <p class="pe-0 pe-lg-5 text-uppercase agency_feature">
-                            <i class="{{ $item->row_two_icon_three }} pe-2"></i>
-                            {{ $item->row_two_icon_three_title }}
+                            <i class="{{ optional($item)->row_two_icon_three }} pe-2"></i>
+                            {{ optional($item)->row_two_icon_three_title }}
                         </p>
                         <p class="pe-0 pe-lg-5 text-uppercase agency_feature">
-                            <i class="{{ $item->row_two_icon_four }} pe-2"></i> {{ $item->row_two_icon_four_title }}
+                            <i class="{{ optional($item)->row_two_icon_four }} pe-2"></i> {{ optional($item)->row_two_icon_four_title }}
                         </p>
                     </div>
                 </div>

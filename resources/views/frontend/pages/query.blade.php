@@ -36,7 +36,8 @@
                     </div>
 
                     <div>
-                        <a href="{{ route('contact') }}" class="btn-common-one animated mt-3" data-animation-in="fadeInUp">
+                        <a href="{{ route('contact') }}" class="btn-common-one animated mt-3"
+                            data-animation-in="fadeInUp">
                             Contact Us
                         </a>
                     </div>
