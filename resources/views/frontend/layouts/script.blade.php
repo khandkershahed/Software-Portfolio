@@ -217,3 +217,4 @@
         ],
     });
 </script>
+@stack('scripts')

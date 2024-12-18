@@ -556,7 +556,8 @@ ul {
   color: #9ea0a9;
 }
 .footer-content .service-widget .list li a:hover {
-  color: #2e3138;
+  /* color: #2e3138; */
+  color: #5fffea;
 }
 .footer-content .contact-widget p {
   color: #9ea0a9;
