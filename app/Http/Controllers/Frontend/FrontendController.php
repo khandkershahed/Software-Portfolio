@@ -117,12 +117,15 @@ class FrontendController extends Controller
         $project = Project::where('slug', $slug)->firstOrFail();
         $allprojects = Project::where('status', 'active')->where('id', '!=', $project->id)->latest()->get();
 
-        $gallerys = ProjectGallery::where('status', 'active')->where('project_id', $project->id)->get();
+
+        $galleryHomePages = ProjectGallery::where('status', 'active')->where('name', 'home_page')->where('project_id', $project->id)->get();
+        $galleryAdmins = ProjectGallery::where('status', 'active')->where('name', 'back_admin')->where('project_id', $project->id)->get();
+        $galleryAuthentications = ProjectGallery::where('status', 'active')->where('name', 'authentication')->where('project_id', $project->id)->get();
 
         $company_clients = CompanyClient::where('status', 'active')->latest()->get();
         $item = HomePage::latest('id')->first();
 
-        return view('frontend.pages.project_details', compact('project', 'company_clients', 'item', 'allprojects'));
+        return view('frontend.pages.project_details', compact('project', 'company_clients', 'item', 'allprojects', 'galleryHomePages', 'galleryAuthentications','galleryAdmins'));
     }
     //user Project Query
     public function userProjectQuery(Request $request)

@@ -58,10 +58,10 @@
 
                                     <option disabled selected>Select an option</option>
 
-                                    <option value="all_pages">All Pages</option>
+                                    {{-- <option value="all_pages">All Pages</option> --}}
                                     <option value="home_page">Home Page</option>
                                     <option value="authentication">Authentication</option>
-                                    <option value="back+admin">Back Admin</option>
+                                    <option value="back_admin">Back Admin</option>
 
                                 </select>
                             </div>

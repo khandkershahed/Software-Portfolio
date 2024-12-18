@@ -58,9 +58,9 @@
                                 <select name="name" id="page_name" class="form-select form-select-sm"
                                     data-control="select2" data-placeholder="Select an option">
                                     <option disabled selected>Select an option</option>
-                                    <option value="all_pages"
+                                    {{-- <option value="all_pages"
                                         {{ old('name', $item->name) == 'all_pages' ? 'selected' : '' }}>All Pages
-                                    </option>
+                                    </option> --}}
                                     <option value="home_page"
                                         {{ old('name', $item->name) == 'home_page' ? 'selected' : '' }}>Home Page
                                     </option>

@@ -241,15 +241,13 @@
                             <h1 class="design-title text-black">{{ $project->gallery_title }}</h1>
                             <span class="line ms-2"></span>
                         </div>
-                        <p class="py-3">{!! $project->gallery_description !!}
-                        </p>
+                        <p class="py-3">{!! $project->gallery_description !!}</p>
                     </div>
                 </div>
             </div>
+
             <div class="row gallery-box-area">
                 <div class="col-lg-2 px-0 gallery-box-sidebar">
-
-
                     <div class="portfolio__filter filter__home p-0">
                         <button class="filter-button" data-filter="all" data-text="All Site Images">
                             All Pages
@@ -257,133 +255,91 @@
                         <button class="filter-button" data-filter="home-page" data-text="Home Page">
                             Home Page
                         </button>
-                        <button class="filter-button" data-filter="astel-page" data-text="Astell Page">
+                        {{-- <button class="filter-button" data-filter="astel-page" data-text="Astel Page">
                             Astell Page
-                        </button>
+                        </button> --}}
                         <button class="filter-button" data-filter="authentication" data-text="Authentication">
                             Authentication
                         </button>
-                        <button class="filter-button" data-filter="back-office" data-text="DadaBhaai Backend Pages">
+                        <button class="filter-button" data-filter="back-office" data-text="Admin Pages">
                             Back Admin
                         </button>
                     </div>
-
-
                 </div>
+
                 <div class="col-lg-10 px-0">
                     <div class="d-flex justify-content-between align-items-center bg-light mb-2">
                         <h5 class="py-3 ps-4 text-center mb-0" id="dynamic-title">
                             All Pages
                         </h5>
-                        <h5 class="py-3 pe-4 text-center mb-0">
+                        {{-- <h5 class="py-3 pe-4 text-center mb-0">
                             <i class="fa-regular fa-clock"></i> 25-11-2024
-                        </h5>
+                        </h5> --}}
                     </div>
+
                     <div class="portfolio__img row ps-4">
                         <!-- Home Page Start -->
-                        <div class="col-lg-3 col-md-3 px-1">
-                            <div class="filter p0 mb-2 home-page">
-                                <a class="" href="./assets/images/New folder/Pages/home1.png"
-                                    data-fancybox="gallery">
-                                    <img src="./assets/images/New folder/Pages/home1.png" alt="Home One" />
-                                </a>
+                        @foreach ($galleryHomePages as $galleryHomePage)
+                            <div class="col-lg-3 col-md-3 px-1">
+                                <div class="filter p0 mb-2 home-page">
+                                    <a href="{{ !empty($galleryHomePage->image) ? url('storage/' . $galleryHomePage->image) : '' }}"
+                                        data-fancybox="gallery">
+                                        <img src="{{ !empty($galleryHomePage->image) ? url('storage/' . $galleryHomePage->image) : '' }}"
+                                            alt="Home Page Image" />
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 px-1">
-                            <div class="filter p0 mb-2 home-page">
-                                <a class="" href="./assets/images/New folder/Pages/home2.png"
-                                    data-fancybox="gallery">
-                                    <img src="./assets/images/New folder/Pages/home2.png" alt="" />
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 px-1">
-                            <div class="filter p0 mb-2 home-page">
-                                <a class="" href="./assets/images/New folder/Pages/home3.png"
-                                    data-fancybox="gallery">
-                                    <img src="./assets/images/New folder/Pages/home3.png" alt="" />
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 px-1">
-                            <div class="filter p0 mb-2 home-page">
-                                <a class="" href="./assets/images/New folder/Pages/home4.png"
-                                    data-fancybox="gallery">
-                                    <img src="./assets/images/New folder/Pages/home4.png" alt="" />
-                                </a>
-                            </div>
-                        </div>
-                        <!-- <!-Home Pageon End -->
+                        @endforeach
+                        <!-- Home Page End -->
+
                         <!-- Astel Pages Start -->
-                        <div class="col-lg-3 col-md-3 px-1">
+                        {{-- <div class="col-lg-3 col-md-3 px-1">
                             <div class="filter p0 mb-2 astel-page">
-                                <a class="" href="./assets/images/New folder/Pages/astel-Home-hero.png"
+                                <a href="./assets/images/New folder/Pages/astel-Home-hero.png"
                                     data-fancybox="gallery">
-                                    <img src="./assets/images/New folder/Pages/astel-Home-hero.png" alt="" />
+                                    <img src="./assets/images/New folder/Pages/astel-Home-hero.png"
+                                        alt="Astel Page Image" />
                                 </a>
                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 px-1">
-                            <div class="filter p0 mb-2 astel-page">
-                                <a class="" href="./assets/images/New folder/Pages/astel-home-section-2.png"
-                                    data-fancybox="gallery">
-                                    <img src="./assets/images/New folder/Pages/astel-home-section-2.png"
-                                        alt="" />
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 px-1">
-                            <div class="filter p0 mb-2 astel-page">
-                                <a class="" href="./assets/images/New folder/Pages/astel-home-section-2.png"
-                                    data-fancybox="gallery">
-                                    <img src="./assets/images/New folder/Pages/astel-home-section-2.png"
-                                        alt="" />
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 px-1">
-                            <div class="filter p0 mb-2 astel-page">
-                                <a class="" href="./assets/images/New folder/Pages/astel-home-section-2.png"
-                                    data-fancybox="gallery">
-                                    <img src="./assets/images/New folder/Pages/astel-home-section-2.png"
-                                        alt="" />
-                                </a>
-                            </div>
-                        </div>
-                        <!-- <!-Astel Pageson End -->
+                        </div> --}}
+                        <!-- Astel Pages End -->
+
                         <!-- Authentication Start -->
-                        <div class="col-lg-3 col-md-3 px-1">
-                            <div class="filter p0 mb-2 authentication">
-                                <a class="" href="./assets/images/New folder/Pages/login.png"
-                                    data-fancybox="gallery">
-                                    <img src="./assets/images/New folder/Pages/login.png" alt="" />
-                                </a>
+                        @foreach ($galleryAuthentications as $galleryAuthentication)
+                            <div class="col-lg-3 col-md-3 px-1">
+                                <div class="filter p0 mb-2 authentication">
+                                    <a href="{{ !empty($galleryAuthentication->image) ? url('storage/' . $galleryAuthentication->image) : '' }}"
+                                        data-fancybox="galleryAuthentication">
+                                        <img src="{{ !empty($galleryAuthentication->image) ? url('storage/' . $galleryAuthentication->image) : '' }}"
+                                            alt="Authentication Image" />
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 px-1">
-                            <div class="filter p0 mb-2 authentication">
-                                <a class="" href="./assets/images/New folder/Pages/register.png"
-                                    data-fancybox="gallery">
-                                    <img src="./assets/images/New folder/Pages/register.png" alt="" />
-                                </a>
-                            </div>
-                        </div>
+                        @endforeach
                         <!-- Authentication End -->
+
                         <!-- Admin Gallery Start -->
-                        <div class="col-lg-3 col-md-3 px-1">
-                            <div class="filter p0 mb-2 back-office">
-                                <a class="" href="./assets/images/New folder/Pages/register.png"
-                                    data-fancybox="gallery">
-                                    <img src="./assets/images/New folder/Pages/register.png" alt="" />
-                                </a>
+                        @foreach ($galleryAdmins as $galleryAdmin)
+                            <div class="col-lg-3 col-md-3 px-1">
+                                <div class="filter p0 mb-2 back-office">
+                                    <a href="{{ !empty($galleryAdmin->image) ? url('storage/' . $galleryAdmin->image) : '' }}"
+                                        data-fancybox="gallery">
+                                        <img src="{{ !empty($galleryAdmin->image) ? url('storage/' . $galleryAdmin->image) : '' }}"
+                                            alt="Back Office Image" />
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                         <!-- Admin Gallery End -->
+
                     </div>
                 </div>
+
             </div>
+
         </div>
     </section>
+
     <!-- Gallery End -->
 
     <!-- Row Four -->
@@ -518,6 +474,138 @@
                     toggleFormBtn.style.display = "none";
                 });
         </script>
+
+        <script>
+            // 1. querySelector
+            var containerEl = document.querySelector("ul.container");
+            var mixer = mixitup(containerEl, {
+                animation: {
+                    effects: "fade translateZ(-100px)",
+                    effectsIn: "fade translateY(-100%)",
+                    easing: "cubic-bezier(0.645, 0.045, 0.355, 1)",
+                },
+            });
+
+            // fancybox insilaze & options //
+            $("[data-fancybox]").fancybox({
+                /* "TRICK" selector - group only visible items */
+                selector: ".mix:visible a",
+                loop: true,
+                hash: true,
+                transitionEffect: "slide",
+                /* zoom VS next////////////////////
+                clickContent - i modify the deafult - now when you click on the image you go to the next image - i more like this approach than zoom on desktop (This idea was in the classic/first lightbox) */
+                clickContent: function(current, event) {
+                    return current.type === "image" ? "next" : false;
+                },
+            });
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                // Initially show only the first 4 items and set "all" as active
+                $(".filter").hide(); // Hide all items initially
+                $(".filter").show(); // Show only the first 4 items
+                $(".filter-button[data-filter='all']").addClass("active");
+
+                $(".filter-button").click(function() {
+                    var value = $(this).attr("data-filter");
+
+                    if (value === "all") {
+                        // Show only the first 4 items for "all"
+                        $(".filter").hide("1000");
+                        $(".filter").show("1000");
+                    } else {
+                        // Show items matching the selected filter
+                        $(".filter")
+                            .not("." + value)
+                            .hide("3000");
+                        $(".filter")
+                            .filter("." + value)
+                            .show("3000");
+                    }
+
+                    // Update active button class
+                    $(".filter-button").removeClass("active");
+                    $(this).addClass("active");
+                });
+            });
+            document.addEventListener("DOMContentLoaded", function() {
+                const buttons = document.querySelectorAll(".filter-button");
+                const dynamicTitle = document.getElementById("dynamic-title");
+
+                buttons.forEach((button) => {
+                    button.addEventListener("click", function() {
+                        const newText = button.getAttribute("data-text");
+                        dynamicTitle.textContent = newText;
+                    });
+                });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                $(".carousel").slick({
+                    slidesToShow: 3,
+                    margin: 10,
+                    gap: 10,
+                    dots: true,
+                    centerMode: true,
+                });
+            });
+
+            // Slick version 1.5.8
+        </script>
+        <script>
+            $(document).ready(function() {
+                $(".explore-now-btn").click(function() {
+                    $(".hidden-section").fadeToggle(1000); // Toggles the visibility of the section
+                });
+            });
+        </script>
+
+        {{-- <script>
+            $(".partners-carousel").slick({
+                speed: 5000, // Control the speed of continuous scrolling
+                autoplay: true, // Enable autoplay
+                autoplaySpeed: 0, // Make it seamless
+                cssEase: "linear", // Smooth linear animation
+                slidesToShow: 8, // Number of slides visible
+                slidesToScroll: 1, // Number of slides to scroll at once
+                infinite: true, // Enable infinite scrolling
+                swipeToSlide: true, // Allow swiping directly to a slide
+                centerMode: true, // Center the current slide
+                focusOnSelect: true, // Select slide on focus
+                pauseOnHover: false, // Prevent pausing on hover
+                pauseOnFocus: false, // Prevent pausing on focus
+                arrows: false, // Disable navigation arrows
+                draggable: true, // Enable dragging with mouse
+                responsive: [{
+                        breakpoint: 750,
+                        settings: {
+                            slidesToShow: 3, // Adjust slides for small screens
+                        },
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 2, // Adjust slides for very small screens
+                        },
+                    },
+                ],
+            });
+        </script> --}}
+
+        <!-- JavaScript (Bootstrap) -->
+        {{-- <script>
+            // Initialize tooltips
+            var tooltipTriggerList = [].slice.call(
+                document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            );
+            tooltipTriggerList.forEach(function(tooltipTriggerEl) {
+                new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        </script> --}}
     @endpush
 
 </x-frontend-app-layout>
