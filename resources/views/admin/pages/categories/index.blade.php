@@ -78,13 +78,16 @@
 
                                         <td>
                                             <a href="{{ route('admin.categories.show', $category->id) }}"
-                                                class="menu-link"><i class="fa-solid fa-eye text-success fs-3 ms-2"></i></a>
+                                                class="menu-link"><i
+                                                    class="fa-solid fa-eye text-success fs-3 ms-2"></i></a>
 
                                             <a href="{{ route('admin.categories.edit', $category->id) }}"
-                                                class="menu-link"><i class="fa-solid fa-pen-to-square text-primary fs-3 ms-2"></i></a>
+                                                class="menu-link"><i
+                                                    class="fa-solid fa-pen-to-square text-primary fs-3 ms-2"></i></a>
 
                                             <a href="{{ route('admin.categories.destroy', $category->id) }}"
-                                                class="menu-link delete"><i class="fa-solid fa-trash fs-3 text-danger"></i></a>
+                                                class="menu-link delete"><i
+                                                    class="fa-solid fa-trash fs-3 text-danger"></i></a>
                                         </td>
                                     </tr>
                                     <!--end::Table row-->
@@ -110,8 +113,8 @@
                                             <td>
                                                 <!--begin::Status-->
                                                 <div
-                                                    class="badge {{ $child->status == 1 ? 'badge-light-success' : 'badge-light-danger' }}">
-                                                    {{ $child->status == 1 ? 'Active' : 'InActive' }}
+                                                    class="badge {{ $child->status == 'active' ? 'badge-light-success' : 'badge-light-danger' }}">
+                                                    {{ $child->status == 'active' ? 'Active' : 'InActive' }}
                                                 </div>
                                                 <!--end::Status-->
                                             </td>
@@ -178,24 +181,6 @@
     </div>
     <!--end::Post-->
     @push('scripts')
-        {{-- <script>
-            $("#kt_datatable_example_5").DataTable({
-                "language": {
-                    "lengthMenu": "Show _MENU_",
-                },
-                "dom": "<'row'" +
-                    "<'col-sm-6 d-flex align-items-center justify-conten-start'l>" +
-                    "<'col-sm-6 d-flex align-items-center justify-content-end'f>" +
-                    ">" +
-
-                    "<'table-responsive'tr>" +
-
-                    "<'row'" +
-                    "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
-                    "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
-                    ">"
-            });
-        </script> --}}
         <script>
             $(document).ready(function() {
                 var table = $("#kt_datatable_example_5").DataTable({
