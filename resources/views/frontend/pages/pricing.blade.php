@@ -57,8 +57,11 @@
                                             @endif
                                         </span>
                                         <span>{{ $price_plan->price }}</span>
+
                                         <span class="plan-type">/ {{ $price_plan->duration }}</span>
+
                                     </div>
+                                    
                                 </header>
 
                                 <ul class="plan-features">
@@ -199,23 +202,47 @@
                         {{-- Custom Page  --}}
 
 
-                        <div class="plan">
-                            <header>
-                                <h3 class="plan-title">Premium</h3>
-                                <div class="plan-cost">
-                                    <span class="plan-price">$599</span><span class="plan-type">/monthly</span>
-                                </div>
-                            </header>
-                            <ul class="plan-features">
-                                <li>20 Pages Included</li>
-                                <li>10 MySQL Databases (Backups)</li>
-                                <li>12 Months Maintenance</li>
-                                <li>Content Upload Included</li>
-                                <li>Advanced Graphics Design Included</li>
-                                <li>10/30 (monthly) Support</li>
-                            </ul>
-                            <div class="plan-select"><a href="">Select Plan</a></div>
-                        </div>
+                        @foreach ($lastprice_plans as $lastprice_plan)
+                            @php
+                                $currency = $lastprice_plan->currency;
+                            @endphp
+
+                            <div class="plan">
+
+                                <header>
+                                    <h3 class="plan-title">{{ $lastprice_plan->name }}</h3>
+                                    <div class="plan-cost">
+
+                                        <span class="plan-price">
+                                            @if ($currency == 'taka')
+                                                {{ 'tk' }}
+                                            @elseif ($currency == 'dollar')
+                                                {{ '$' }}
+                                            @elseif ($currency == 'euro')
+                                                {{ '€' }}
+                                            @elseif ($currency == 'pound')
+                                                {{ '£' }}
+                                            @else
+                                            @endif
+                                        </span>
+
+                                        <span>{{ $lastprice_plan->price }}</span>
+                                        <span class="plan-type">/ {{ $lastprice_plan->duration }}</span>
+                                    </div>
+                                </header>
+
+                                <ul class="plan-features">
+                                    <li>20 Pages Included</li>
+                                    <li>10 MySQL Databases (Backups)</li>
+                                    <li>12 Months Maintenance</li>
+                                    <li>Content Upload Included</li>
+                                    <li>Advanced Graphics Design Included</li>
+                                    <li>10/30 (monthly) Support</li>
+                                </ul>
+
+                                <div class="plan-select"><a href="">Select Plan</a></div>
+                            </div>
+                        @endforeach
 
 
                     </div>

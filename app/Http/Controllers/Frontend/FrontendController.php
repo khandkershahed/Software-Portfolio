@@ -297,7 +297,7 @@ class FrontendController extends Controller
         $data = [
             'price_plans' => PricingPlan::where('status', 'active')->take(2)->latest()->get(),
 
-            'lastprice_plans' => PricingPlan::where('status', 'active')->take(2)->latest()->get(),
+            'lastprice_plans' => PricingPlan::where('status', 'active')->take(1)->get(),
 
             'company_clients' => CompanyClient::where('status', 'active')->latest()->get(),
             'item' => HomePage::latest('id')->first(),
