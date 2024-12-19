@@ -238,7 +238,7 @@
 
                          //Planing
                          [
-                            'title' => 'Planing',
+                            'title' => 'Price Planing',
                             'icon' => 'icons/duotune/ecommerce/ecm002.svg',
 
                             'routes' => ['admin.plan-modules.index', 'admin.price-plan.index', 'admin.custom_builds.index'],
