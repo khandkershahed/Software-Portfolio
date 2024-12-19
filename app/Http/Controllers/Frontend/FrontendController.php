@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use App\Models\Privacy;
+use App\Models\Term;
 use Illuminate\Support\Facades\Validator;
 
 class FrontendController extends Controller
@@ -277,13 +278,14 @@ class FrontendController extends Controller
     //All term
     public function term()
     {
-        return view('frontend.pages.term');
+        $term = Term::where('status','active')->latest('id')->first();
+        return view('frontend.pages.term',compact('term'));
     }
 
     //All privacy
     public function privacy()
     {
-        $privacy = Privacy::latest('id')->first();
+        $privacy = Privacy::where('status','active')->latest('id')->first();
         return view('frontend.pages.privacy',compact('privacy'));
     }
 }
