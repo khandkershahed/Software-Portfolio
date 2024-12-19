@@ -241,7 +241,7 @@
                             'title' => 'Planing',
                             'icon' => 'icons/duotune/ecommerce/ecm002.svg',
 
-                            'routes' => ['admin.plan-modules.index', 'admin.term.index', 'admin.privacy.index'],
+                            'routes' => ['admin.plan-modules.index', 'admin.price-plan.index', 'admin.custom_builds.index'],
 
                             'subMenu' => [
                                 [
@@ -249,13 +249,13 @@
                                     'route' => 'admin.plan-modules.index',
                                 ],
                                 [
-                                    'title' => 'Terms & Condition',
-                                    'route' => 'admin.term.index',
+                                    'title' => 'Price Plan',
+                                    'route' => 'admin.price-plan.index',
                                 ],
 
                                 [
-                                    'title' => 'Privacy & Policy',
-                                    'route' => 'admin.privacy.index',
+                                    'title' => 'Custom Build',
+                                    'route' => 'admin.custom_builds.index',
                                 ],
                             ],
                         ],

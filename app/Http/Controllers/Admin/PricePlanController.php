@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\PlanModule;
+use App\Models\PricingPlan;
 use Illuminate\Http\Request;
 
-class PlanModulesController extends Controller
+class PricePlanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $items = PlanModule::latest()->get();
-        return view('admin.pages.plan_modules.index', compact('items'));
+        $items = PricingPlan::latest()->get();
+        return view('admin.pages.price_plan.index', compact('items'));
     }
 
     /**
@@ -22,7 +22,7 @@ class PlanModulesController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.plan_modules.create');
+        return view('admin.pages.price_plan.create');
     }
 
 
@@ -32,16 +32,15 @@ class PlanModulesController extends Controller
     public function store(Request $request)
     {
         // Create the event in the database
-        PlanModule::create([
+        PricingPlan::create([
 
-            'type'       => $request->type,
-            'title'       => $request->title,
-            'value'   => $request->value,
+            'name'       => $request->name,
+            'duration'       => $request->duration,
             'currency' => $request->currency,
             'price' => $request->price,
         ]);
 
-        return redirect()->route('admin.plan-modules.index')->with('success', 'Data Inserted Successfully!');
+        return redirect()->route('admin.price-plan.index')->with('success', 'Data Inserted Successfully!');
     }
 
     /**
@@ -52,13 +51,10 @@ class PlanModulesController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        $item = PlanModule::findOrFail($id);
-        return view('admin.pages.plan_modules.edit', compact('item'));
+        $item = PricingPlan::findOrFail($id);
+        return view('admin.pages.price_plan.edit', compact('item'));
     }
 
     /**
@@ -67,20 +63,19 @@ class PlanModulesController extends Controller
     public function update(Request $request, string $id)
     {
 
-        $item = PlanModule::findOrFail($id);
+        $item = PricingPlan::findOrFail($id);
 
         // Update the item with new values
         $item->update([
 
-            'type'       => $request->type,
-            'title'       => $request->title,
-            'value'   => $request->value,
+            'name'       => $request->name,
+            'duration'       => $request->duration,
             'currency' => $request->currency,
             'price' => $request->price,
 
         ]);
 
-        return redirect()->route('admin.plan-modules.index')->with('success', 'Data Updated Successfully!!');
+        return redirect()->route('admin.price-plan.index')->with('success', 'Data Updated Successfully!!');
     }
 
     /**
@@ -88,7 +83,8 @@ class PlanModulesController extends Controller
      */
     public function destroy(string $id)
     {
-        $item = PlanModule::findOrFail($id);
+        $item = PricingPlan::findOrFail($id);
         $item->delete();
     }
+
 }

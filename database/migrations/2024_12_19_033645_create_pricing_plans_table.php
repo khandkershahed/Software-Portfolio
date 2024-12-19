@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('pricing_plans', function (Blueprint $table) {
             $table->id();
+
             $table->string('name')->nullable();
             $table->string('slug')->unique()->nullable();
             $table->string('duration')->nullable(); //selectbox :- monthly, Yearly
             $table->string('currency')->nullable(); //selectbox
             $table->double('price')->nullable();
+            
             $table->timestamps();
         });
     }

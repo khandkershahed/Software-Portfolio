@@ -29,8 +29,10 @@ use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
 
 use App\Http\Controllers\Admin\CompanyClientController;
 use App\Http\Controllers\Admin\CompanyDataController;
+use App\Http\Controllers\Admin\CustomBuildController;
 use App\Http\Controllers\Admin\HomePageController;
 use App\Http\Controllers\Admin\PlanModulesController;
+use App\Http\Controllers\Admin\PricePlanController;
 use App\Http\Controllers\Admin\PrivacyController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectGalleryController;
@@ -87,7 +89,7 @@ Route::middleware(['auth:admin'])->prefix('/admin')->name('admin.')->group(funct
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->middleware(['verified'])->name('dashboard');
 
-    ////////////// For Crud Operation ////////////////////
+    ////////////// For Crud Operation /////////////////
 
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::put('/settings', [SettingController::class, 'updateOrcreateSetting'])->name('settings.updateOrCreate');
@@ -118,6 +120,10 @@ Route::middleware(['auth:admin'])->prefix('/admin')->name('admin.')->group(funct
             'privacy'               => PrivacyController::class,
 
             'plan-modules'          => PlanModulesController::class,
+            'price-plan'            => PricePlanController::class,
+            'custom_builds'         => CustomBuildController::class,
+
+
         ],
     );
 });
