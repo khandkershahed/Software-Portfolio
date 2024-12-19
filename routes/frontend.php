@@ -30,3 +30,8 @@ Route::get('/term', [FrontendController::class, 'term'])->name('term');
 
 //Privacy & Policy
 Route::get('/privacy', [FrontendController::class, 'privacy'])->name('privacy');
+
+//Pricing
+Route::get('/pricing', [FrontendController::class, 'pricing'])->name('pricing');
+//Pricing Store
+Route::post('/pricing/store', [FrontendController::class, 'pricingStore'])->name('pricing.store');

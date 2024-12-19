@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Term;
 use App\Models\Query;
 use App\Models\AboutUs;
 use App\Models\Contact;
+use App\Models\Privacy;
 use App\Models\Project;
 use App\Models\Service;
 use App\Models\Category;
 use App\Models\HomePage;
 use App\Models\PageBanner;
 use App\Models\CompanyData;
+use App\Models\CustomBuild;
 use App\Models\ProjectQuery;
 use Illuminate\Http\Request;
 use App\Models\CompanyClient;
@@ -18,8 +21,7 @@ use App\Models\ProjectGallery;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Models\Privacy;
-use App\Models\Term;
+use App\Models\PricingPlan;
 use Illuminate\Support\Facades\Validator;
 
 class FrontendController extends Controller
@@ -127,7 +129,7 @@ class FrontendController extends Controller
         $company_clients = CompanyClient::where('status', 'active')->latest()->get();
         $item = HomePage::latest('id')->first();
 
-        return view('frontend.pages.project_details', compact('project', 'company_clients', 'item', 'allprojects', 'galleryHomePages', 'galleryAuthentications','galleryAdmins'));
+        return view('frontend.pages.project_details', compact('project', 'company_clients', 'item', 'allprojects', 'galleryHomePages', 'galleryAuthentications', 'galleryAdmins'));
     }
     //user Project Query
     public function userProjectQuery(Request $request)
@@ -278,14 +280,56 @@ class FrontendController extends Controller
     //All term
     public function term()
     {
-        $term = Term::where('status','active')->latest('id')->first();
-        return view('frontend.pages.term',compact('term'));
+        $term = Term::where('status', 'active')->latest('id')->first();
+        return view('frontend.pages.term', compact('term'));
     }
 
     //All privacy
     public function privacy()
     {
-        $privacy = Privacy::where('status','active')->latest('id')->first();
-        return view('frontend.pages.privacy',compact('privacy'));
+        $privacy = Privacy::where('status', 'active')->latest('id')->first();
+        return view('frontend.pages.privacy', compact('privacy'));
+    }
+
+    //pricing
+    public function pricing()
+    {
+        $data = [
+            'price_plans' => PricingPlan::where('status', 'active')->take(2)->latest()->get(),
+
+            'lastprice_plans' => PricingPlan::where('status', 'active')->take(2)->latest()->get(),
+
+            'company_clients' => CompanyClient::where('status', 'active')->latest()->get(),
+            'item' => HomePage::latest('id')->first(),
+        ];
+
+
+        return view('frontend.pages.pricing', $data);
+    }
+
+    //pricingStore
+    public function pricingStore(Request $request)
+    {
+        // Manually gather the request data
+        $pageNumber = $request->input('page_number');
+        $frontendTechnology = $request->input('frontend_technology');
+        $database = $request->input('database');
+        $content = $request->input('content');
+        $maintenanceDuration = $request->input('maintenance_duration');
+        $graphicDesign = $request->input('graphic_design');
+
+        $pricingPlan = new CustomBuild();
+        $pricingPlan->page_number = $pageNumber;
+        $pricingPlan->frontend_technology = $frontendTechnology;
+        $pricingPlan->database = $database;
+        $pricingPlan->content = $content;
+        $pricingPlan->maintenance_duration = $maintenanceDuration;
+        $pricingPlan->graphic_design = $graphicDesign;
+
+        // Save the new pricing plan to the database
+        $pricingPlan->save();
+
+        // Redirect or return a success response
+        return redirect()->back()->with('success', 'Pricing plan has been created successfully!');
     }
 }

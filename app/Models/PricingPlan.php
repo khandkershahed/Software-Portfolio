@@ -24,4 +24,5 @@ class PricingPlan extends Model
     {
         return $this->hasMany(Pricing::class);
     }
+
 }
