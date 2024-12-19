@@ -61,7 +61,7 @@
                                         <span class="plan-type">/ {{ $price_plan->duration }}</span>
 
                                     </div>
-                                    
+
                                 </header>
 
                                 <ul class="plan-features">

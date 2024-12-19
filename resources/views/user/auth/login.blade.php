@@ -1,8 +1,8 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+{{-- <x-guest-layout> --}}
+<!-- Session Status -->
+{{-- <x-auth-session-status class="mb-4" :status="session('status')" /> --}}
 
-    {{-- <form method="POST" action="{{ route('login') }}">
+{{-- <form method="POST" action="{{ route('login') }}">
         @csrf
 
         <!-- Email Address -->
@@ -45,7 +45,7 @@
             </x-primary-button>
         </div>
     </form> --}}
-    <div class="row g-0 justify-content-center align-items-center">
+{{-- <div class="row g-0 justify-content-center align-items-center">
         <div class="col-lg-4 mb-5 mb-lg-0">
             <div class="card cascading-right" style="background: hsla(0, 0%, 100%, 0.55);backdrop-filter: blur(30px);">
                 <div class="card-body p-5 shadow-5 text-center">
@@ -105,4 +105,138 @@
                 alt="" />
         </div>
     </div>
-</x-guest-layout>
+</x-guest-layout> --}}
+
+<x-frontend-app-layout :title="'Login'">
+
+    <div class="login-box">
+        <section class="login-box-area">
+            <div class="container">
+                <div class="card p-0 border-0">
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="login-bg py-5">
+                                    <div class="login-side-content p-5">
+                                        <!-- Welcome Message -->
+                                        <div class="pb-5">
+                                            <h4 class="mb-0 text-white">Welcome Back</h4>
+                                            <h1 class="fw-bold text-white">
+                                                Login to Your Account!
+                                            </h1>
+                                        </div>
+                                        <p class="text-white">
+                                            Access your dashboard, manage your projects, and
+                                            stay up to date with the latest news. Please enter
+                                            your credentials below to log in.
+                                        </p>
+
+                                        <p class="text-white pt-4">
+                                            <span class="fw-bold fs-4">Need help?</span>
+                                            <br />
+                                            Visit our
+                                            <a href="/help" class="text-white fw-bold">Help Center</a>
+                                            for <a href="" class="fw-bold">FAQs</a>, or
+                                            contact our support team.
+                                        </p>
+                                        <div class="pt-3">
+                                            <p class="text-white mb-0">
+                                                <i class="fa-solid fa-call"></i> +880 171 4243
+                                                446
+                                            </p>
+                                            <p class="text-white">sales@ngenitltd.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+
+                                <form class="p-5 py-5" method="POST" action="{{ route('login') }}">
+                                    @csrf
+                                    <div>
+                                        <h1>Sign In</h1>
+                                    </div>
+
+                                    <div class="my-3 mt-5">
+                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                        <input type="email" class="form-control" placeholder="Email Address" name="email" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" />
+                                    </div>
+
+                                    <div class="">
+                                        <label for="exampleInputEmail1" class="form-label">Password</label>
+                                        <div class="input-group mb-2">
+                                            <input type="password" class="form-control" name="password" id="passwordInput"
+                                                placeholder="Enter your password" aria-label="Password"
+                                                aria-describedby="button-addon1" />
+                                            <button class="btn btn-outline-danger rounded-0" type="button"
+                                                id="button-addon1" onclick="togglePasswordVisibility()">
+                                                <i class="fa-solid fa-lock"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-check ps-0 mt-4">
+
+                                        <div class="palatform_checkbox">
+
+                                            <input class="platform_input" id="platform_label-106" type="checkbox"
+                                                value="Graphics Design" name="remember" />
+
+                                            <label class="platform_label" for="platform_label-106">
+                                                <span>
+                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                    </svg>
+                                                </span>
+                                                <span> Remember Me! With This Account. </span>
+                                            </label>
+                                        </div>
+
+                                        {{-- <div class="palatform_checkbox mb-2">
+                                            <input class="platform_input" id="platform_label-103" type="checkbox"
+                                                value="Graphics Design" onclick="handleCheckboxClick()" />
+                                            <label class="platform_label" for="platform_label-103">
+                                                <span>
+                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                    </svg>
+                                                </span>
+                                                <span>
+                                                    Yes, I accept the
+                                                    <a href="/terms-of-service" class="text-primary fw-semibold"
+                                                        target="_blank">Terms of
+                                                        Service</a>
+                                                    and
+                                                    <a href="/privacy-policy" class="text-primary fw-semibold"
+                                                        target="_blank">Privacy
+                                                        Policy</a>.
+                                                </span>
+                                            </label>
+                                        </div> --}}
+
+                                    </div>
+                                    <button type="submit" class="btn-common-three animated mt-4 w-100">
+                                        Submit
+                                    </button>
+                                    <!-- Sign Up Link -->
+                                    <div class="mt-4 text-center">
+                                        <p class="text-muted mb-0">
+                                            Don’t have an account?
+                                            <a href="{{ route('register') }}" class="text-primary">Sign Up Now</a>
+                                        </p>
+                                        <p class="text-muted mb-0">
+                                            Forgot Your
+                                            <a href="{{ route('password.request') }}" class="text-primary">Password?</a>
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</x-frontend-app-layout>
