@@ -29,6 +29,20 @@
                 <div class="card bg-secondary rounded-0 p-5">
                     <div class="row p-4">
 
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="status" class="mb-2">Choose Status</label>
+                                <select name="status" id="status" required class="form-select form-select-sm"
+                                    data-control="select2" data-placeholder="Select an option">
+                                    <option value="">Select an option</option>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                                <div id="statusError" class="invalid-feedback" style="display: none;">Please select a
+                                    status</div>
+                            </div>
+                        </div>
+
                         <!-- Page Banner Selection -->
                         <div class="col-3 mb-7">
                             <div class="form-group">
@@ -87,7 +101,8 @@
                                                 <tr>
                                                     <td width="20%">
                                                         <input type="checkbox" name="plan_module_id[]"
-                                                            id="plan_module_id" class="form-check-input" value="{{ $plan_module->id }}">
+                                                            id="plan_module_id" class="form-check-input"
+                                                            value="{{ $plan_module->id }}">
                                                     </td>
                                                     <td width="55%">{{ $plan_module->title }}</td>
                                                     <td width="25%">{{ $plan_module->price }}</td>
@@ -98,6 +113,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <!-- Submit Button -->
                         <div class="col-12 mb-7 mt-4">
                             <button type="submit" class="btn btn-dark rounded-0 px-5 btn-sm float-end">Submit

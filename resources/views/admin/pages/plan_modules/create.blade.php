@@ -29,6 +29,20 @@
                 <div class="card bg-secondary rounded-0 p-5">
                     <div class="row p-4">
 
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="status" class="mb-2">Choose Status</label>
+                                <select name="status" id="status" required class="form-select form-select-sm"
+                                    data-control="select2" data-placeholder="Select an option">
+                                    <option value="">Select an option</option>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                                <div id="statusError" class="invalid-feedback" style="display: none;">Please select a
+                                    status</div>
+                            </div>
+                        </div>
+
                         <!-- Page Banner Selection -->
                         <div class="col-3 mb-3">
                             <div class="form-group">

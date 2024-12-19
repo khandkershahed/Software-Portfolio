@@ -31,6 +31,7 @@
                         <th width="10%">Value</th>
                         <th width="10%">Currency</th>
                         <th width="8%">price</th>
+                        <th width="8%">Status</th>
                         <th width="10%">Actions</th>
                     </tr>
                 </thead>
@@ -45,6 +46,14 @@
                             <td class="text-start">{{ $item->value }}</td>
                             <td class="text-start">{{ $item->currency }}</td>
                             <td class="text-start">{{ $item->price }}</td>
+
+                            <td class="text-start">
+                                @if ($item->status == 'active')
+                                    <span class="badge bg-success">Active</span>
+                                @else
+                                    <span class="badge bg-danger">Inctive</span>
+                                @endif
+                            </td>
 
 
                             <td>

@@ -30,6 +30,22 @@
                 <div class="card bg-secondary rounded-0 p-5">
                     <div class="row p-4">
 
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="status" class="mb-2">Choose Status</label>
+                                <select name="status" id="status" required class="form-select form-select-sm"
+                                    data-control="select2" data-placeholder="Select an option">
+                                    <option value="active" {{ $item->status == 'active' ? 'selected' : '' }}>Active
+                                    </option>
+                                    <option value="inactive" {{ $item->status == 'inactive' ? 'selected' : '' }}>
+                                        Inactive</option>
+                                </select>
+                                @error('status')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
                         <!-- Duration Selection -->
                         <div class="col-3 mb-3">
                             <div class="form-group">
@@ -85,9 +101,33 @@
                             </div>
                         </div>
 
+                        <div class="col-12 mb-7">
+                            <div class="form-group">
+                                <label for="type" class="mb-2 required">Plan Modules</label>
+                                <div class="table-responsive">
+                                    <table class="text-center">
+                                        <tbody>
+                                            @foreach ($plan_modules as $plan_module)
+                                                <tr>
+                                                    <td width="20%">
+                                                        <input type="checkbox" name="plan_module_id[]"
+                                                            id="plan_module_id" class="form-check-input"
+                                                            value="{{ $plan_module->id }}"
+                                                            {{ in_array($plan_module->id, old('plan_module_id', $selected_modules)) ? 'checked' : '' }}>
+                                                    </td>
+                                                    <td width="55%">{{ $plan_module->title }}</td>
+                                                    <td width="25%">{{ $plan_module->price }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Submit Button -->
                         <div class="col-12 mb-3 mt-4">
-                            <button type="submit" class="btn btn-dark rounded-0 px-5 btn-sm float-end">Submit
+                            <button type="submit" class="btn btn-dark rounded-0 px-5 btn-sm float-end">Update
                                 Data</button>
                         </div>
 

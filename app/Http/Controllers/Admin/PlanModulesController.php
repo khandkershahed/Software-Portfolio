@@ -39,6 +39,7 @@ class PlanModulesController extends Controller
             'value'   => $request->value,
             'currency' => $request->currency,
             'price' => $request->price,
+            'status' => $request->status,
         ]);
 
         return redirect()->route('admin.plan-modules.index')->with('success', 'Data Inserted Successfully!');
@@ -77,6 +78,7 @@ class PlanModulesController extends Controller
             'value'   => $request->value,
             'currency' => $request->currency,
             'price' => $request->price,
+            'status' => $request->status,
 
         ]);
 

@@ -19,4 +19,9 @@ class PricingPlan extends Model
      * @var array
      */
     protected $guarded = [];
+
+    public function pricing()
+    {
+        return $this->hasMany(Pricing::class);
+    }
 }
