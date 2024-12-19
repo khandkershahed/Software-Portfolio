@@ -76,7 +76,7 @@
 
                                             <div class="card-body bg-light">
                                                 <h5 class="card-title">{{ $project->name }}</h5>
-                                                <p class="card-text">{{ $project->name }}</p>
+                                                <p class="card-text">{{ $project->short_description }}</p>
                                             </div>
                                         </div>
                                     </a>

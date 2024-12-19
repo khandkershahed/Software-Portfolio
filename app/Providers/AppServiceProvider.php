@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Project;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Pagination\Paginator;
@@ -29,14 +30,17 @@ class AppServiceProvider extends ServiceProvider
         View::share('setting', null);
 
         try {
-            
+
             if (Schema::hasTable('settings')) {
-                $setting = Setting::first(); 
-                View::share('setting', $setting); 
+                $setting = Setting::first();
+                View::share('setting', $setting);
             }
-        } 
-        
-        catch (QueryException $e) {
+
+            if (Schema::hasTable('projects')) {
+                $project = Project::where('status', 'active')->latest()->get();
+                View::share('project', $project);
+            }
+        } catch (QueryException $e) {
             // Log the exception if there's an issue with the database query
             Log::error("Database error: " . $e->getMessage());
         } catch (\Exception $e) {
@@ -48,4 +52,3 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
     }
 }
-

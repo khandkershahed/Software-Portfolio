@@ -39,15 +39,15 @@
                         </ul>
                     </div>
                 </div>
+
+
                 <div class="col-lg-3 col-md-6 col-sm-12 offset-lg-2 footer-column">
                     <div class="service-widget footer-widget">
                         <div class="footer-title">Services</div>
                         <ul class="list">
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">Software Development</a></li>
-                            <li><a href="#">Graphics & UI/UX</a></li>
-                            <li><a href="#">Apps Development</a></li>
-                            <li><a href="#">Solution Selles</a></li>
+                            @foreach ($project as $allproject)
+                                <li><a href="{{ route('projects.details', $allproject->slug) }}">{{ $allproject->name }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

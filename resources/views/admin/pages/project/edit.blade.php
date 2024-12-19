@@ -34,7 +34,7 @@
                     <div class="row p-4">
 
                         <!-- Status Field -->
-                        <div class="col-3 mb-3">
+                        <div class="col-4 mb-3">
                             <div class="form-group">
                                 <label for="status" class="mb-2">Choose Status</label>
                                 <select name="status" id="status" class="form-select form-select-sm"
@@ -51,7 +51,7 @@
                         </div>
 
                         <!-- Category -->
-                        <div class="col-3 mb-3">
+                        <div class="col-4 mb-3">
                             <div class="form-group">
                                 <label for="status" class="mb-2">Choose Category</label>
                                 <select name="category_id" id="status" class="form-select form-select-sm"
@@ -72,11 +72,19 @@
                         </div>
 
                         <!-- Name Field -->
-                        <div class="col-3 mb-3">
+                        <div class="col-4 mb-3">
                             <div class="form-group">
                                 <label for="name" class="mb-2">Name</label>
                                 <input type="text" name="name" placeholder="Project Name"
                                     class="form-control form-control-sm" value="{{ old('name', $item->name) }}">
+                            </div>
+                        </div>
+
+                        {{-- short_description --}}
+                        <div class="col-12 mb-3">
+                            <div class="form-group">
+                                <label for="name" class="mb-2">Short Description</label>
+                                <textarea name="short_description" placeholder="Short Description.........." id="" class="form-control form-control-sm" cols="5" rows="5">{{ old('short_description',$item->short_description) }}</textarea>
                             </div>
                         </div>
 

@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
+
 use App\Http\Controllers\Admin\CompanyClientController;
 use App\Http\Controllers\Admin\CompanyDataController;
 use App\Http\Controllers\Admin\HomePageController;
@@ -37,6 +38,7 @@ use App\Http\Controllers\Admin\ProjectQueryController;
 use App\Http\Controllers\Admin\QueryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TermController;
+
 
 Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(function () {
 

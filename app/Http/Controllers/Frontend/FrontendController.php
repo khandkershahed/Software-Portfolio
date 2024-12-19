@@ -18,6 +18,7 @@ use App\Models\ProjectGallery;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use App\Models\Privacy;
 use Illuminate\Support\Facades\Validator;
 
 class FrontendController extends Controller
@@ -282,6 +283,7 @@ class FrontendController extends Controller
     //All privacy
     public function privacy()
     {
-        return view('frontend.pages.privacy');
+        $privacy = Privacy::latest('id')->first();
+        return view('frontend.pages.privacy',compact('privacy'));
     }
 }

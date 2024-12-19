@@ -118,7 +118,7 @@
                     <tr>
                         <th width="5%">No</th>
                         <th width="10%">Name</th>
-                        <th width="10%">Content</th>
+                        {{-- <th width="10%">Content</th> --}}
                         <th width="10%">Version</th>
                         <th width="10%">Effective Date</th>
                         <th width="10%">Expiration Date</th>
@@ -133,7 +133,7 @@
                             <td>{{ $key + 1 }}</td>
 
                             <td class="text-start">{{ $item->title }}</td>
-                            <td class="text-start">{!! $item->content !!}</td>
+                            {{-- <td class="text-start">{!! $item->content !!}</td> --}}
                             <td class="text-start">{{ $item->version }}</td>
                             <td class="text-start">{{ $item->effective_date }}</td>
                             <td class="text-start">{{ $item->expiration_date }}</td>

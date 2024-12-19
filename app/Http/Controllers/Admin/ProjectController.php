@@ -74,6 +74,7 @@ class ProjectController extends Controller
 
             'category_id'       => $request->category_id,
             'name'       => $request->name,
+            'short_description'       => $request->short_description,
             'live_link'       => $request->live_link,
 
             'client_name'       => $request->client_name,
@@ -203,6 +204,7 @@ class ProjectController extends Controller
 
             'category_id'       => $request->category_id,
             'name'       => $request->name,
+            'short_description'       => $request->short_description,
             'live_link'       => $request->live_link,
 
             'client_name'       => $request->client_name,
