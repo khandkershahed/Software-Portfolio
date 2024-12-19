@@ -21,7 +21,7 @@
                                 <div class="palatform_checkbox mb-2">
                                     <input class="platform_input" name="category_id"
                                         id="platform_label-{{ $category->id }}" type="checkbox"
-                                        value="{{ $category->name }}" />
+                                        value="{{ $category->id }}" />
                                     <label class="platform_label" for="platform_label-{{ $category->id }}">
                                         <span>
                                             <svg width="12px" height="10px" viewbox="0 0 12 10">
