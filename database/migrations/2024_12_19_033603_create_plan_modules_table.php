@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('value')->nullable();
             $table->string('currency')->nullable(); //selectbox
             $table->double('price')->nullable();
-            
+            $table->string('status')->default('active')->nullable();
+
             $table->timestamps();
         });
     }

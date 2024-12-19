@@ -24,9 +24,9 @@ return new class extends Migration
             $table->string('graphic_design')->nullable();
             $table->string('maintenance_duration')->nullable();
             $table->string('development_duration')->nullable();
-            
-            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
 
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
+            $table->string('status')->default('active')->nullable();
             $table->timestamps();
         });
     }

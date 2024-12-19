@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\PlanModule;
 use App\Models\PricingPlan;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,10 @@ class PricePlanController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.price_plan.create');
+        $data = [
+            'plan_modules' => PlanModule::latest()->where('status','active')->get(),
+        ];
+        return view('admin.pages.price_plan.create',$data);
     }
 
 
