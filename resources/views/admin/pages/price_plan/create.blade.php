@@ -30,9 +30,9 @@
                     <div class="row p-4">
 
                         <!-- Page Banner Selection -->
-                        <div class="col-3 mb-3">
+                        <div class="col-3 mb-7">
                             <div class="form-group">
-                                <label for="type" class="mb-2">Choose Option</label>
+                                <label for="type" class="mb-2 required">Plan Duration</label>
                                 <select name="duration" required class="form-select form-select-sm"
                                     data-control="select2">
                                     <option value="">Select an option</option>
@@ -46,18 +46,18 @@
 
 
                         <!-- Title -->
-                        <div class="col-3 mb-3">
+                        <div class="col-3 mb-7">
                             <div class="form-group">
-                                <label for="name" class="mb-2">Name</label>
+                                <label for="name" class="mb-2 required">Plan Name</label>
                                 <input type="text" name="name" placeholder="Name"
                                     class="form-control form-control-sm" value="{{ old('name') }}">
                             </div>
                         </div>
 
                         <!-- Currency -->
-                        <div class="col-3 mb-3">
+                        <div class="col-3 mb-7">
                             <div class="form-group">
-                                <label for="currency" class="mb-2">Currency</label>
+                                <label for="currency" class="mb-2 required">Currency</label>
                                 <select name="currency" class="form-select form-select-sm" data-control="select2">
                                     <option value="">Select Currency</option>
                                     <option value="taka">Taka</option>
@@ -69,16 +69,37 @@
                         </div>
 
                         <!-- Price -->
-                        <div class="col-3 mb-3">
+                        <div class="col-3 mb-7">
                             <div class="form-group">
-                                <label for="price" class="mb-2">Price</label>
+                                <label for="price" class="mb-2 required">Price</label>
                                 <input type="number" name="price" step="0.01" placeholder="Enter Price"
                                     class="form-control form-control-sm" value="{{ old('price') }}">
                             </div>
                         </div>
 
+                        <div class="col-12 mb-7">
+                            <div class="form-group">
+                                <label for="type" class="mb-2 required">Plan Modules</label>
+                                <div class="table-responsive">
+                                    <table class="text-center">
+                                        <tbody>
+                                            @foreach ($plan_modules as $plan_module)
+                                                <tr>
+                                                    <td width="20%">
+                                                        <input type="checkbox" name="plan_module_id[]"
+                                                            id="plan_module_id" class="form-check-input" value="{{ $plan_module->id }}">
+                                                    </td>
+                                                    <td width="55%">{{ $plan_module->title }}</td>
+                                                    <td width="25%">{{ $plan_module->price }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Submit Button -->
-                        <div class="col-12 mb-3 mt-4">
+                        <div class="col-12 mb-7 mt-4">
                             <button type="submit" class="btn btn-dark rounded-0 px-5 btn-sm float-end">Submit
                                 Data</button>
                         </div>

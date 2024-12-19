@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->foreignId('plan_module_id')->nullable()->constrained('plan_modules')->onDelete('cascade');
             $table->foreignId('pricing_plan_id')->nullable()->constrained('pricing_plans')->onDelete('cascade');
-            
+            $table->string('status')->default('active')->nullable();
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('duration')->nullable(); //selectbox :- monthly, Yearly
             $table->string('currency')->nullable(); //selectbox
             $table->double('price')->nullable();
-            
+            $table->string('status')->default('active')->nullable();
             $table->timestamps();
         });
     }
