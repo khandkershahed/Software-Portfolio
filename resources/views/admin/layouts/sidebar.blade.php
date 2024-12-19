@@ -234,6 +234,32 @@
                                 ],
                             ],
                         ],
+
+
+                         //Planing
+                         [
+                            'title' => 'Planing',
+                            'icon' => 'icons/duotune/ecommerce/ecm002.svg',
+
+                            'routes' => ['admin.plan-modules.index', 'admin.term.index', 'admin.privacy.index'],
+
+                            'subMenu' => [
+                                [
+                                    'title' => 'Plan Module',
+                                    'route' => 'admin.plan-modules.index',
+                                ],
+                                [
+                                    'title' => 'Terms & Condition',
+                                    'route' => 'admin.term.index',
+                                ],
+
+                                [
+                                    'title' => 'Privacy & Policy',
+                                    'route' => 'admin.privacy.index',
+                                ],
+                            ],
+                        ],
+
                         //Settings
                         [
                             'title' => 'Settings',

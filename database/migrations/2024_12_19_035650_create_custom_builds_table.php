@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('custom_builds', function (Blueprint $table) {
             $table->id();
+
             $table->string('page_number')->nullable();
             $table->string('frontend_technology')->nullable();
             $table->string('backend_technology')->nullable();
@@ -23,7 +24,9 @@ return new class extends Migration
             $table->string('graphic_design')->nullable();
             $table->string('maintenance_duration')->nullable();
             $table->string('development_duration')->nullable();
+            
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

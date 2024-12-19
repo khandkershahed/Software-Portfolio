@@ -30,7 +30,7 @@ use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Admin\CompanyClientController;
 use App\Http\Controllers\Admin\CompanyDataController;
 use App\Http\Controllers\Admin\HomePageController;
-
+use App\Http\Controllers\Admin\PlanModulesController;
 use App\Http\Controllers\Admin\PrivacyController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectGalleryController;
@@ -116,6 +116,8 @@ Route::middleware(['auth:admin'])->prefix('/admin')->name('admin.')->group(funct
             'query'                 => QueryController::class,
             'term'                  => TermController::class,
             'privacy'               => PrivacyController::class,
+
+            'plan-modules'          => PlanModulesController::class,
         ],
     );
 });

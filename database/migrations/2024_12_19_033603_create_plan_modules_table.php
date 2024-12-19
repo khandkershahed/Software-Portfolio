@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('plan_modules', function (Blueprint $table) {
             $table->id();
+
             $table->string('type')->nullable(); //selectbox
             $table->string('title')->nullable();
             $table->string('slug')->unique()->nullable();
             $table->string('value')->nullable();
             $table->string('currency')->nullable(); //selectbox
             $table->double('price')->nullable();
+            
             $table->timestamps();
         });
     }
