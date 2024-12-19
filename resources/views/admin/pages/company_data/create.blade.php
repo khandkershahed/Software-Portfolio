@@ -51,7 +51,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="" class="mb-2">Title</label>
-                                <input type="text" name="text" placeholder="Company Title"
+                                <input type="text" name="title" placeholder="Company Title"
                                     class="form-control form-control-sm" value="{{ old('title') }}">
                             </div>
                         </div>

@@ -109,7 +109,7 @@
                 <div class="col-lg-6">
                     <div>
                         <img class="img-fluid"
-                            src="{{ !empty($project->image_two) ? url('storage/' . $project->image_two) : '' }}"
+                            src="{{ !empty($project->row_two_image) ? url('storage/' . $project->row_two_image) : '' }}"
                             alt="" />
                     </div>
                     <p class="text-center">
