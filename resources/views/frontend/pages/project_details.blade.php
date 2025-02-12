@@ -1,5 +1,4 @@
 <x-frontend-app-layout :title="'Project Details'">
-
     <!-- Banner Section Start -->
     <section>
         <div class="banner banner3"
@@ -140,9 +139,12 @@
                             @endphp
 
                             @if ($platforms)
-                                <!-- Check if it is an array -->
                                 @foreach ($platforms as $id => $platform)
-                                    <span class="badge p-badge rounded-pill text-black">{{ $platform }}</span>
+                                    <span class="badge p-badge rounded-pill text-black">{{ $platform }}
+                                        @if (!$loop->last)
+                                            ,
+                                        @endif
+                                    </span>
                                 @endforeach
                             @else
                                 <span>No platforms available</span>
@@ -165,16 +167,24 @@
 
                         <h6 class="mb-2">
                             Technology:
-                            <strong class="pe-2">Chat Bot,</strong>
-                            <strong class="pe-2">Chat Bot,</strong>
-                            <strong class="pe-2">Chat Bot,</strong>
-                            <strong class="pe-2">Chat Bot</strong>
+                            @foreach ($technologys as $id => $technology)
+                                <strong class="pe-2">{{ $technology }}
+                                    @if (!$loop->last)
+                                        ,
+                                    @endif
+                                </strong>
+                            @endforeach
                         </h6>
 
                         <h6 class="mb-0">
                             Plugins Used:
-                            <strong class="pe-2">Scurm,</strong>
-                            <strong class="pe-2">Bridge Etc.</strong>
+                            @foreach ($plugins as $id => $plugin)
+                                <strong class="pe-2">{{ $plugin }}
+                                    @if (!$loop->last)
+                                        ,
+                                    @endif
+                                </strong>
+                            @endforeach
                         </h6>
 
                     </div>
