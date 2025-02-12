@@ -8,7 +8,7 @@
                     <div class="contact-section">
                         <img src="{{ !empty($banner->image) && file_exists('storage/' . $banner->image) ? url('storage/' . $banner->image) : asset('images/no-banner.jpg') }}"
                                 alt="" />
-                        
+
                     </div>
                 </div>
             </div>
@@ -54,23 +54,23 @@
                         @csrf
                         <div class="row">
                             <div class="mb-3 col-lg-6">
-                                <label for="exampleFormControlInput1" class="form-label text-white">Name</label>
+                                <label for="exampleFormControlInput1" class="form-label text-white">Name <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="name" id="exampleFormControlInput1"
-                                    placeholder="Jonson Hebit" />
+                                    placeholder="Jonson Hebit" required/>
                             </div>
                             <div class="mb-3 col-lg-6">
-                                <label for="exampleFormControlInput1" class="form-label text-white">Email</label>
+                                <label for="exampleFormControlInput1" class="form-label text-white">Email <span class="text-danger">*</span></label>
                                 <input type="email" class="form-control" name="email" id="exampleFormControlInput1"
-                                    placeholder="Jonson@example.com" />
+                                    placeholder="Jonson@example.com" required/>
                             </div>
                             <div class="mb-3 col-lg-12">
-                                <label for="exampleFormControlInput1" class="form-label text-white">Phone</label>
-                                <input type="email" class="form-control" name="phone" id="exampleFormControlInput1"
-                                    placeholder="+880 1585864658" />
+                                <label for="exampleFormControlInput1" class="form-label text-white">Phone </label>
+                                <input type="text" class="form-control" name="phone" id="exampleFormControlInput1"
+                                    placeholder="+880 1585864658"/>
                             </div>
                             <div class="mb-3 col-lg-12">
-                                <label for="exampleFormControlInput1" class="form-label text-white">Your Message</label>
-                                <textarea name="message" id="" class="form-control" cols="30" rows="10"></textarea>
+                                <label for="exampleFormControlInput1" class="form-label text-white">Your Message <span class="text-danger">*</span></label>
+                                <textarea name="message" id="" class="form-control" cols="30" rows="10" required></textarea>
                             </div>
                             <div class="col-lg-12">
                                 <button type="submit" class="btn-common-two w-100">

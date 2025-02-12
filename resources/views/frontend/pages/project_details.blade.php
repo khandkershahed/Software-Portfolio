@@ -8,15 +8,15 @@
                 <div class="row gx-5 align-items-center">
                     <div class="col-sm-8">
                         <div class="slide__content--headings text-left">
-                            <p class="animated top-title" data-animation-in="fadeInLeft" data-delay-in="0.2">
+                            <h5 class="animated top-title" data-animation-in="fadeInLeft" data-delay-in="0.2">
                                 {{ $project->row_one_badge }}
-                            </p>
+                            </h5>
                             <h2 class="animated title" data-animation-in="fadeInLeft">
                                 {{ $project->row_one_title }}
                             </h2>
-                            <p class="animated top-title pt-4 pe-5 w-75" style="text-align: justify">
+                            <h6 class="animated top-title pt-4 pe-5 w-75" style="text-align: justify">
                                 {!! $project->row_one_description !!}
-                            </p>
+                            </h6>
                             <div class="d-flex align-items-center pt-5">
                                 <div class="pe-5">
                                     <a href="{{ $project->row_one_button_link }}" class="btn-common-two animated"
@@ -89,11 +89,11 @@
                 <div class="col-lg-12">
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="animated-scroll-btn">
-                            <button class="down-btn">
+                            <a href="#gallery" class="down-btn">
                                 <i class="fa-solid fa-arrow-down-long"></i>
                                 <div class="sonar-wave"></div>
                                 <!-- Sonar wave element -->
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -115,11 +115,8 @@
                     <p class="text-center">
                         <strong>{{ $project->row_two_image_title }}</strong>
                         <br />
-
                         {!! $project->row_two_image_description !!} <br />
-
                         {{-- <strong>Explore now:</strong> --}}
-
                         {{-- <a href="https://www.discountzshop.com/" class="text-primary"></a> --}}
 
                     </p>
@@ -137,7 +134,9 @@
 
                         <div class="ps-2">
                             @php
-                                $platforms[] = json_decode($project->platform, true); // Decode to array
+                                $platforms = json_decode($project->platform, true); // Decode to array
+                                $technologys = json_decode($project->technology, true); // Decode to array
+                                $plugins = json_decode($project->plugin, true); // Decode to array
                             @endphp
 
                             @if ($platforms)
@@ -165,13 +164,17 @@
                     <div class="text-start pt-3">
 
                         <h6 class="mb-2">
-                            Technology: <strong class="pe-2">Chat Bot,</strong><strong class="pe-2">Chat
-                                Bot,</strong><strong class="pe-2">Chat Bot,</strong><strong>Chat Bot</strong>,
+                            Technology:
+                            <strong class="pe-2">Chat Bot,</strong>
+                            <strong class="pe-2">Chat Bot,</strong>
+                            <strong class="pe-2">Chat Bot,</strong>
+                            <strong class="pe-2">Chat Bot</strong>
                         </h6>
 
                         <h6 class="mb-0">
-                            Plugins Used: <strong class="pe-2">Scurm,</strong><strong class="pe-2">Bridge
-                                Etc.</strong>
+                            Plugins Used:
+                            <strong class="pe-2">Scurm,</strong>
+                            <strong class="pe-2">Bridge Etc.</strong>
                         </h6>
 
                     </div>
@@ -236,7 +239,7 @@
         <div class="container pt-5">
             <div class="row">
                 <div class="col-xs-12 text-start ps-lg-0 ps-2">
-                    <div class="section__title">
+                    <div class="section__title" id="gallery">
                         <div class="d-flex align-items-center pt-4">
                             <h1 class="design-title text-black">{{ $project->gallery_title }}</h1>
                             <span class="line ms-2"></span>

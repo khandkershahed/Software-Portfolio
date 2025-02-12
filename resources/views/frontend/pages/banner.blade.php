@@ -18,10 +18,12 @@
                         <h2 class="animated title" data-animation-in="fadeInLeft">
                             {{ optional($item)->title }}
                         </h2>
-                        <a href="{{ optional($item)->button_link }}" class="btn-common-two animated mt-5"
-                            data-animation-in="fadeInUp">
-                            {{ optional($item)->button_name }}
-                        </a>
+                        @if (optional($item)->button_link && optional($item)->button_name)
+                            <a href="{{ optional($item)->button_link }}" class="btn-common-two animated mt-5"
+                                data-animation-in="fadeInUp">
+                                {{ optional($item)->button_name }}
+                            </a>
+                        @endif
                     </div>
                 </div>
 

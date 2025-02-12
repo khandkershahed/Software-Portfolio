@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
 
-            // General Settings
+            // General Settings 
             $table->string('site_name', 250)->nullable();
             $table->text('site_motto')->nullable();
             $table->text('site_url')->nullable();

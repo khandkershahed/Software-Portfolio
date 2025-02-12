@@ -1,12 +1,14 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="d-flex align-items-center">
-                    <h1>About Us</h1>
-                    <span class="line ms-2"></span>
+            @if (!empty(optional($item)->row_four_title))
+                <div class="col-lg-12">
+                    <div class="d-flex align-items-center">
+                        <h1>{{ optional($item)->row_three_title }}</h1>
+                        <span class="line ms-2"></span>
+                    </div>
                 </div>
-            </div>
+            @endif
             <div class="col-lg-12">
                 <div>
                     <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe"

@@ -159,7 +159,7 @@
                             <h5>Row Three</h5>
                         </div>
 
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <div class="form-group">
                                 <label for="row_three_title" class="mb-2">Title</label>
                                 <input type="text" name="row_three_title" id="row_three_title"
@@ -169,13 +169,13 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 mb-3">
+                        {{-- <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <label for="row_three_pdf" class="mb-2">PDF</label>
                                 <input type="file" name="row_three_pdf" id="row_three_pdf"
                                     class="form-control form-control-sm">
                             </div>
-                        </div>
+                        </div> --}}
 
                         <!-- Row Four -->
                         <div class="col-12 mb-3">

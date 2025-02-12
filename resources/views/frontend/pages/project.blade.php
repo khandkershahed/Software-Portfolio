@@ -10,7 +10,7 @@
                                 src="{{ !empty($banner->image) && file_exists('storage/' . $banner->image) ? url('storage/' . $banner->image) : asset('images/no-banner.jpg') }}"
                                 alt="" />
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -41,29 +41,24 @@
                     <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}" id="category-{{ $category->id }}"
                         role="tabpanel" aria-labelledby="category-{{ $category->id }}-tab">
                         <div class="row mt-5">
-                            <!-- Loop through each project for the current category -->
                             @foreach ($category->projects as $project)
                                 <div class="col-md-6">
                                     <a href="{{ route('projects.details', $project->slug) }}">
                                         <div class="card mb-3 border-0 shadow-sm">
 
-                                            <div class="slick-slider-projects">
-
+                                            <div class="slick-slider-projects" style="height: 300px; overflow:hidden;">
                                                 <div class="image-container">
                                                     <img src="{{ !empty($project->image_one) ? url('storage/' . $project->image_one) : '' }}"
                                                         class="card-img-top zoom-effect" alt="dadavaai template one" />
                                                 </div>
-
                                                 <div class="image-container">
                                                     <img src="{{ !empty($project->image_two) ? url('storage/' . $project->image_two) : '' }}"
                                                         class="card-img-top zoom-effect" alt="dadavaai template one" />
                                                 </div>
-
                                                 <div class="image-container">
                                                     <img src="{{ !empty($project->image_three) ? url('storage/' . $project->image_three) : '' }}"
                                                         class="card-img-top zoom-effect" alt="dadavaai template one" />
                                                 </div>
-
                                             </div>
 
                                             <div class="card-body bg-light">
