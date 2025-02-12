@@ -16,9 +16,10 @@
             @include('frontend.layouts.footer')
         </div>
     </div>
+    
 
     @include('frontend.layouts.script')
-    
+
 </body>
 
 </html>

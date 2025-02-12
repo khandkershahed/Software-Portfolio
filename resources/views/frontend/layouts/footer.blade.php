@@ -4,17 +4,12 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                     <div class="logo-widget footer-widget">
-
                         <figure class="logo-box">
-
-                            <a class="navbar-brand" href="index.html">
-
+                            <a class="navbar-brand" href="{{ route('home') }}">
                                 <img class="img-fluid site-logo"
-                                    src="{{ !empty(optional($setting)->site_black_logo) && file_exists(public_path('storage/' . optional($setting)->site_black_logo)) ? asset('storage/' . optional($setting)->site_black_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
+                                    src="{{ !empty(optional($setting)->site_white_logo) && file_exists(public_path('storage/' . optional($setting)->site_white_logo)) ? asset('storage/' . optional($setting)->site_white_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
                                     alt="" />
-
                             </a>
-
                         </figure>
 
                         <div class="text">

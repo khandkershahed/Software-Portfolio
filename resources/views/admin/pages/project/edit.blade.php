@@ -134,7 +134,7 @@
                             <div class="form-group">
                                 <label for="platform" class="mb-2">Platform</label>
                                 <input type="text" name="platform" id="platform" placeholder="Enter platform(s)"
-                                    class="form-control form-control-sm" value="{{ old('platform') }}">
+                                    class="form-control form-control-sm" value="{{ old('platform',$item->platform) }}">
                             </div>
                         </div>
 
@@ -144,7 +144,7 @@
                                 <label for="technology" class="mb-2">Technology</label>
                                 <input type="text" name="technology" id="technology"
                                     placeholder="Enter technology(ies)" class="form-control form-control-sm"
-                                    value="{{ old('technology') }}">
+                                    value="{{ old('technology',$item->technology) }}">
                             </div>
                         </div>
 
@@ -153,7 +153,7 @@
                             <div class="form-group">
                                 <label for="plugin" class="mb-2">Plugin</label>
                                 <input type="text" name="plugin" id="plugin" placeholder="Enter plugin(s)"
-                                    class="form-control form-control-sm" value="{{ old('plugin') }}">
+                                    class="form-control form-control-sm" value="{{ old('plugin',$item->plugin) }}">
                             </div>
                         </div>
 
