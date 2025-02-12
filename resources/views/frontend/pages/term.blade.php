@@ -6,11 +6,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="contact-section">
-                        <img src="https://www.openproject.org/assets/images/contact/hero-contact-4cf9fa21.png"
-                            alt="" />
-                        <div class="text-overlay">
-                            <h3>Term & Condition</h3>
-                        </div>
+                        <img src="{{ !empty($banner->image) && file_exists('storage/' . $banner->image) ? url('storage/' . $banner->image) : asset('images/no-banner.jpg') }}"
+                                alt="" />
+                       
                     </div>
                 </div>
             </div>

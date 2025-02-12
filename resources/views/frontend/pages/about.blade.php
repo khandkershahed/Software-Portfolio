@@ -6,10 +6,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="contact-section">
-                        <img src="https://socialspike.in/wp-content/uploads/2023/07/About-Us-1.jpg" alt="" />
-                        <div class="text-overlay">
-                            <!-- <h3>Contact</h3> -->
-                        </div>
+                        <img src="{{ !empty($banner->image) && file_exists('storage/' . $banner->image) ? url('storage/' . $banner->image) : asset('images/about-banner.png') }}"
+                                alt="" />
+                        
                     </div>
                 </div>
             </div>

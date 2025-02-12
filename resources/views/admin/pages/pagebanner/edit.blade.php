@@ -57,6 +57,13 @@
                                     data-control="select2" data-placeholder="Select Row One..">
                                     <option value="homeslider" {{ $item->page_name == 'homeslider' ? 'selected' : '' }}>
                                         Home Slider</option>
+                                    <option value="allproject" @selected($item->page_name == 'allproject')>All Project</option>
+                                    <option value="about" @selected($item->page_name == 'about')>About US</option>
+                                    <option value="contact" @selected($item->page_name == 'contact')>Contact US</option>
+                                    <option value="query" @selected($item->page_name == 'query')>Query</option>
+                                    <option value="terms" @selected($item->page_name == 'terms')>Terms </option>
+                                    <option value="privacy" @selected($item->page_name == 'privacy')>Privacy</option>
+                                    <option value="pricing" @selected($item->page_name == 'pricing')>Pricing Plan</option>
                                 </select>
                                 @error('page_name')
                                     <div class="invalid-feedback">{{ $message }}</div>

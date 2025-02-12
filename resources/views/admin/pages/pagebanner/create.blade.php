@@ -56,6 +56,13 @@
                                     data-placeholder="Select an option">
                                     <option value="">Select an option</option>
                                     <option value="homeslider">Home Slider</option>
+                                    <option value="allproject">All Project</option>
+                                    <option value="about">About US</option>
+                                    <option value="contact">Contact US</option>
+                                    <option value="query">Query</option>
+                                    <option value="terms">Terms </option>
+                                    <option value="privacy">Privacy</option>
+                                    <option value="pricing">Pricing Plan</option>
                                 </select>
                             </div>
                         </div>

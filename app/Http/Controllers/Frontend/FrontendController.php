@@ -109,13 +109,14 @@ class FrontendController extends Controller
     {
         $company_clients = CompanyClient::where('status', 'active')->latest()->get();
         $item = HomePage::latest('id')->first();
+        $banner = PageBanner::where('page_name', 'allproject')->first();
 
         $categorys = Category::where('status', 'active')->where('parent_id', null)->latest()->get();
 
-        return view('frontend.pages.project', compact('company_clients', 'item', 'categorys'));
+        return view('frontend.pages.project', compact('company_clients', 'item', 'categorys', 'banner'));
     }
 
-    //projectDetails 
+    //projectDetails
     public function projectDetails($slug)
     {
         $project = Project::where('slug', $slug)->firstOrFail();
@@ -153,6 +154,7 @@ class FrontendController extends Controller
     //All About
     public function about()
     {
+        $banner = PageBanner::where('page_name', 'about')->first();
         $about = AboutUs::latest('id')->first();
         $company_datas = CompanyData::where('status', 'active')->latest()->get();
         return view('frontend.pages.about', compact('about', 'company_datas'));
@@ -161,7 +163,10 @@ class FrontendController extends Controller
     //All Contact
     public function contact()
     {
-        return view('frontend.pages.contact');
+        $data = [
+            'banner' => PageBanner::where('page_name', 'contact')->first(),
+        ];
+        return view('frontend.pages.contact', $data);
     }
 
     //contactStore
@@ -230,8 +235,11 @@ class FrontendController extends Controller
     //All Query
     public function query()
     {
-        $catgorys = Category::where('status', 'active')->where('parent_id', null)->latest()->get();
-        return view('frontend.pages.query_page', compact('catgorys'));
+        $data = [
+            'banner'   => PageBanner::where('page_name', 'contact')->first(),
+            'catgorys' => Category::where('status', 'active')->where('parent_id', null)->latest()->get(),
+        ];
+        return view('frontend.pages.query_page', $data);
     }
 
     //queryStore
@@ -260,16 +268,16 @@ class FrontendController extends Controller
         // Create the event in the database
         Query::create([
 
-            'category_id'       => $request->category_id,
-            'frontend'       => $request->frontend,
-            'backend'       => $request->backend,
-            'database'   => $request->database,
-            'demo_site' => $request->demo_site,
-            'demo_file' => $request->demo_file,
-            'name' => $request->name,
-            'phone'      => $request->phone,
-            'email'      => $request->email,
-            'message'      => $request->message,
+            'category_id' => $request->category_id,
+            'frontend'    => $request->frontend,
+            'backend'     => $request->backend,
+            'database'    => $request->database,
+            'demo_site'   => $request->demo_site,
+            'demo_file'   => $request->demo_file,
+            'name'        => $request->name,
+            'phone'       => $request->phone,
+            'email'       => $request->email,
+            'message'     => $request->message,
 
             'demo_file'       => $uploadedFiles['demo_file']['status'] == 1 ? $uploadedFiles['demo_file']['file_path'] : null,
         ]);
@@ -280,27 +288,32 @@ class FrontendController extends Controller
     //All term
     public function term()
     {
-        $term = Term::where('status', 'active')->latest('id')->first();
-        return view('frontend.pages.term', compact('term'));
+        $data = [
+            'banner'   => PageBanner::where('page_name', 'terms')->first(),
+            'term'     => Term::where('status', 'active')->latest('id')->first(),
+        ];
+        return view('frontend.pages.term', $data);
     }
 
     //All privacy
     public function privacy()
     {
-        $privacy = Privacy::where('status', 'active')->latest('id')->first();
-        return view('frontend.pages.privacy', compact('privacy'));
+        $data = [
+            'banner'   => PageBanner::where('page_name', 'privacy')->first(),
+            'privacy'  => Privacy::where('status', 'active')->latest('id')->first(),
+        ];
+        return view('frontend.pages.privacy', $data);
     }
 
     //pricing
     public function pricing()
     {
         $data = [
-            'price_plans' => PricingPlan::where('status', 'active')->take(2)->latest()->get(),
-
+            'banner'          => PageBanner::where('page_name', 'pricing')->first(),
+            'price_plans'     => PricingPlan::where('status', 'active')->take(2)->latest()->get(),
             'lastprice_plans' => PricingPlan::where('status', 'active')->take(1)->get(),
-
             'company_clients' => CompanyClient::where('status', 'active')->latest()->get(),
-            'item' => HomePage::latest('id')->first(),
+            'item'            => HomePage::latest('id')->first(),
         ];
 
 

@@ -1,7 +1,4 @@
 <x-frontend-app-layout :title="'Project'">
-
-
-
     <!-- Contact Section Start -->
     <section>
         <div class="container-fluid px-0">
@@ -10,15 +7,10 @@
                     <div class="contact-section">
                         <div class="d-flex">
                             <img class="w-100 img-fluid"
-                                src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5f9d97124964309.610f693c40348.png"
-                                alt="" />
-                            <img class="w-100 img-fluid"
-                                src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5f9d97124964309.610f693c40348.png"
+                                src="{{ !empty($banner->image) && file_exists('storage/' . $banner->image) ? url('storage/' . $banner->image) : asset('images/no-banner.jpg') }}"
                                 alt="" />
                         </div>
-                        <div class="text-overlay">
-                            <!-- <h3>Contact</h3> -->
-                        </div>
+                        
                     </div>
                 </div>
             </div>

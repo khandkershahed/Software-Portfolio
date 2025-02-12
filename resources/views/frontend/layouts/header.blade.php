@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-0" id="navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{ route('home') }}">
                 <img class="img-fluid site-logo" src="{{ asset('frontend/assets/images/logo-white.png') }}"
                     alt="" />
             </a>
