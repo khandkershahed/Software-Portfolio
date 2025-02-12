@@ -88,7 +88,7 @@
                 <div class="col-lg-12">
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="animated-scroll-btn">
-                            <a href="#gallery" class="down-btn">
+                            <a href="#gallerySection" class="down-btn">
                                 <i class="fa-solid fa-arrow-down-long"></i>
                                 <div class="sonar-wave"></div>
                                 <!-- Sonar wave element -->
@@ -251,7 +251,7 @@
         <div class="container pt-5">
             <div class="row">
                 <div class="col-xs-12 text-start ps-lg-0 ps-2">
-                    <div class="section__title" id="gallery">
+                    <div class="section__title" id="gallerySection">
                         <div class="d-flex align-items-center pt-4">
                             <h1 class="design-title text-black">{{ $project->gallery_title }}</h1>
                             <span class="line ms-2"></span>
