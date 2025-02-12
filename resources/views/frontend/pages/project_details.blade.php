@@ -138,16 +138,15 @@
                                 $plugins = json_decode($project->plugin, true); // Decode to array
                             @endphp
 
-                            @if ($platforms)
+                            @if (!empty($platforms) && is_array($platforms))
                                 @foreach ($platforms as $id => $platform)
-                                    <span class="badge p-badge rounded-pill text-black">{{ $platform }}
+                                    <span class="badge p-badge rounded-pill text-black">
+                                        {{ $platform }}
                                         @if (!$loop->last)
                                             ,
                                         @endif
                                     </span>
                                 @endforeach
-                            @else
-                                <span>No platforms available</span>
                             @endif
                         </div>
 
@@ -165,28 +164,31 @@
 
                     <div class="text-start pt-3">
 
-                        <h6 class="mb-2">
-                            Technology:
-                            @foreach ($technologys as $id => $technology)
-                                <strong class="pe-2">{{ $technology }}
-                                    @if (!$loop->last)
-                                        ,
-                                    @endif
-                                </strong>
-                            @endforeach
-                        </h6>
+                        @if (!empty($technologys) && is_array($technologys))
+                            <h6 class="mb-2">
+                                Technology:
+                                @foreach ($technologys as $id => $technology)
+                                    <strong class="pe-2">{{ $technology }}
+                                        @if (!$loop->last)
+                                            ,
+                                        @endif
+                                    </strong>
+                                @endforeach
+                            </h6>
+                        @endif
 
-                        <h6 class="mb-0">
-                            Plugins Used:
-                            @foreach ($plugins as $id => $plugin)
-                                <strong class="pe-2">{{ $plugin }}
-                                    @if (!$loop->last)
-                                        ,
-                                    @endif
-                                </strong>
-                            @endforeach
-                        </h6>
-
+                        @if (!empty($plugins) && is_array($plugins))
+                            <h6 class="mb-0">
+                                Plugins Used:
+                                @foreach ($plugins as $id => $plugin)
+                                    <strong class="pe-2">{{ $plugin }}
+                                        @if (!$loop->last)
+                                            ,
+                                        @endif
+                                    </strong>
+                                @endforeach
+                            </h6>
+                        @endif
                     </div>
                     <hr />
                     <div class="pb-3">
