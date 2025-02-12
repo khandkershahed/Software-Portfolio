@@ -81,9 +81,9 @@ class ProjectController extends Controller
             'facebook_link'             => $request->facebook_link,
             'linkedin_link'             => $request->linkedin_link,
 
-            'platform'                  => json_encode($request->platform),
-            'technology'                => json_encode($request->technology),
-            'plugin'                    => json_encode($request->plugin),
+            'platform'                  => $request->platform,
+            'technology'                => $request->technology,
+            'plugin'                    => $request->plugin,
 
             'duration'                  => $request->duration,
             'team'                      => $request->team,
@@ -173,11 +173,11 @@ class ProjectController extends Controller
         // Array of files to upload
         $files = [
 
-            'logo' => $request->file('logo'),
-            'image_one' => $request->file('image_one'),
-            'image_two' => $request->file('image_two'),
-            'image_three' => $request->file('image_three'),
-            'banner_image' => $request->file('banner_image'),
+            'logo'          => $request->file('logo'),
+            'image_one'     => $request->file('image_one'),
+            'image_two'     => $request->file('image_two'),
+            'image_three'   => $request->file('image_three'),
+            'banner_image'  => $request->file('banner_image'),
             'row_one_image' => $request->file('row_one_image'),
             'row_two_image' => $request->file('row_two_image'),
         ];
@@ -256,7 +256,7 @@ class ProjectController extends Controller
             'row_one_image'             => $uploadedFiles['row_one_image']['status'] == 1 ? $uploadedFiles['row_one_image']['file_path']: $item->row_one_image,
 
             'row_two_image'             => $uploadedFiles['row_two_image']['status'] == 1 ? $uploadedFiles['row_two_image']['file_path']: $item->row_two_image,
-            
+
 
         ]);
 
