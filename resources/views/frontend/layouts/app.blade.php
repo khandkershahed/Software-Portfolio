@@ -21,7 +21,7 @@
     <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-                {{-- {{ $slot }} --}}
+                {{ $slot }}
             </main>
             @include('frontend.layouts.footer')
         </div>
