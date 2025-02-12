@@ -1,5 +1,3 @@
-
-
 <section>
     <div class="container agency_container">
         <div class="row">
@@ -9,17 +7,27 @@
                         <div class="col-lg-6">
                             <p class="mb-0 agency_badge">{{ optional($item)->row_one_badge }}</p>
                             <div class="agency_title">
+                                @php
+                                    $title = optional($item)->row_one_title;
+                                    $lastThreeWords = ''; // To store the last three words
+                                    if ($title) {
+                                        $words = explode(' ', $title); // Split the string into words
+                                        $lastThreeWords = array_slice($words, -1); // Get the last 3 words
+                                        $title = implode(' ', array_slice($words, 0, -1)); // Remove the last 3 words from the original title
+                                    }
+                                @endphp
+
                                 <h1 class="pt-3">
-
-                                    {{ optional($item)->row_one_title }}
-
-                                    <span class="word wisteria ps-2">{{ optional($item)->row_one_title }}</span>
-
-                                    {{-- <span class="word belize ps-2">Branding</span>
-                                    <span class="word pomegranate ps-2">Strategies</span> --}}
-
+                                    {{ $title }}
+                                    <span class="word wisteria ps-2">{{ $lastThreeWords[0] ?? '' }}</span>
+                                    <!-- First word from the last three -->
+                                    {{-- <span class="word belize ps-2">{{ $lastThreeWords[1] ?? '' }}</span>
+                                    <!-- Second word from the last three -->
+                                    <span class="word pomegranate ps-2">{{ $lastThreeWords[2] ?? '' }}</span> --}}
+                                    <!-- Third word from the last three -->
                                 </h1>
-                                
+
+
                             </div>
                         </div>
                         <div class="col-lg-6">

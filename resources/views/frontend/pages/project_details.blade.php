@@ -137,11 +137,11 @@
                                 $technologys = json_decode($project->technology, true); // Decode to array
                                 $plugins = json_decode($project->plugin, true); // Decode to array
                             @endphp
-
+                            {{-- @dd($platforms) --}}
                             @if (!empty($platforms) && is_array($platforms))
                                 @foreach ($platforms as $id => $platform)
                                     <span class="badge p-badge rounded-pill text-black">
-                                        {{ $platform }}
+                                        {{ $platform['value'] }}
                                         @if (!$loop->last)
                                             ,
                                         @endif
@@ -168,7 +168,7 @@
                             <h6 class="mb-2">
                                 Technology:
                                 @foreach ($technologys as $id => $technology)
-                                    <strong class="pe-2">{{ $technology }}
+                                    <strong class="pe-2">{{ $technology['value'] }}
                                         @if (!$loop->last)
                                             ,
                                         @endif
@@ -178,10 +178,11 @@
                         @endif
 
                         @if (!empty($plugins) && is_array($plugins))
+
                             <h6 class="mb-0">
                                 Plugins Used:
                                 @foreach ($plugins as $id => $plugin)
-                                    <strong class="pe-2">{{ $plugin }}
+                                    <strong class="pe-2">{{ $plugin['value'] }}
                                         @if (!$loop->last)
                                             ,
                                         @endif
@@ -374,7 +375,7 @@
                     <div class="text-end">
                         <a href="javascript:void(0)" class="explore-now-btn mt-5"
                             style="border-bottom: 1px solid #fff" id="toggleFormBtn" data-animation-in="fadeInUp">
-                            I Want This DiscountZshop
+                            I Want This {{ $project->name }}
                         </a>
                     </div>
 

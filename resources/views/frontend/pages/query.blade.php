@@ -129,32 +129,32 @@
 
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label class="mb-2" for="client_name">Name</label>
-                                            <input type="text" class="form-control" name="name"
+                                            <label class="mb-2" for="client_name">Name <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="name" required
                                                 id="client_name" placeholder="Jonson Heilson" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label class="mb-2" for="phone">Phone</label>
-                                            <input type="text" name="phone" class="form-control" id="phone"
+                                            <label class="mb-2" for="phone">Phone <span class="text-danger">*</span></label>
+                                            <input type="text" name="phone" required class="form-control" id="phone"
                                                 placeholder="015******" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label class="mb-2" for="email">Email</label>
-                                            <input type="text" name="email" class="form-control" id="email"
+                                            <label class="mb-2" for="email">Email <span class="text-danger">*</span></label>
+                                            <input type="text" name="email" required class="form-control" id="email"
                                                 placeholder="client@mail.com" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="mb-3">
-                                            <label class="mb-2" for="email">Message</label>
-                                            <textarea name="message" class="form-control" id="" cols="10" rows="10"></textarea>
+                                            <label class="mb-2" for="email">Message <span class="text-danger">*</span></label>
+                                            <textarea name="message" required class="form-control" id="" cols="10" rows="10"></textarea>
                                         </div>
                                     </div>
 

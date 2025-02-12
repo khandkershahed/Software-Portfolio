@@ -8,7 +8,7 @@
                     <div class="contact-section">
                         <img src="{{ !empty($banner->image) && file_exists('storage/' . $banner->image) ? url('storage/' . $banner->image) : asset('images/no-banner.jpg') }}"
                                 alt="" />
-                        
+
                     </div>
                 </div>
             </div>
@@ -54,8 +54,8 @@
                                 eleifend lectus.
                             </div>
                             <div class="local-scroll">
-                                <a href="pages-services-1.html" class="btn btn-mod btn-w btn-large btn-round">View
-                                    Services</a>
+                                <a href="{{ route('project') }}" class="btn btn-mod btn-w btn-large btn-round">View
+                                    Projects</a>
                             </div>
                         </div>
                     </div>
