@@ -20,8 +20,8 @@
 
     <div id="smooth-wrapper">
         <div id="smooth-content">
-            <main>
-                {{ $slot }}
+          <main>
+                {{-- {{ $slot }} --}}
             </main>
             @include('frontend.layouts.footer')
         </div>
@@ -36,7 +36,7 @@
     <script src="{{ asset('frontend/assets/vendors/slick-animation.js') }}"></script>
     <script src="{{ asset('frontend/assets/vendors/fontawesome.js') }}"></script>
     <!-- Gsap With Animation -->
-    <script src="http://clou.agency/wp-content/themes/clou-digital-agency/js/frontpage/Scrollsmoother.js"></script>
+    <script src="{{ asset('frontend/assets/script/scroll-smoother.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <!-- End -->
