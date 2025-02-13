@@ -1,4 +1,16 @@
 <x-frontend-app-layout :title="'Project Details'">
+    <style>
+        .nav-link {
+            color: rgb(0 0 0);
+        }
+
+        .fancybox-button--close {
+            font-size: 30px;
+            background-color: #fff;
+            color: #ff0000;
+            right: 20px;
+        }
+    </style>
     <!-- Banner Section Start -->
     {{-- @dd($project) --}}
     <section>
@@ -7,7 +19,7 @@
             <div class="container project-banner-container">
                 <div class="row gx-5 align-items-center mt-lg-1 mt-5 pt-lg-1 pt-5">
                     <div class="col-lg-8 col-12">
-                        <div class="slide__content--headings text-left">
+                        <div class="slide__content--headings text-left mb-5 mb-lg-1">
                             <div class="">
                                 <h2 class="animated top-title" data-animation-in="fadeInLeft" data-delay-in="0.2"
                                     style="font-size:26px; color:#03263e;">
@@ -305,7 +317,7 @@
                             <div class="col-lg-3 col-md-3 px-1">
                                 <div class="filter p0 mb-2 home-page">
                                     <a href="{{ !empty($galleryHomePage->image) ? url('storage/' . $galleryHomePage->image) : '' }}"
-                                        data-fancybox="gallery">
+                                        data-fancybox="home-gallery">
                                         <img src="{{ !empty($galleryHomePage->image) ? url('storage/' . $galleryHomePage->image) : '' }}"
                                             alt="Home Page Image" />
                                     </a>
@@ -315,15 +327,15 @@
                         <!-- Home Page End -->
 
                         <!-- Astel Pages Start -->
-                        {{-- <div class="col-lg-3 col-md-3 px-1">
+                        {{--
+                        <div class="col-lg-3 col-md-3 px-1">
                             <div class="filter p0 mb-2 astel-page">
-                                <a href="./assets/images/New folder/Pages/astel-Home-hero.png"
-                                    data-fancybox="gallery">
-                                    <img src="./assets/images/New folder/Pages/astel-Home-hero.png"
-                                        alt="Astel Page Image" />
+                                <a href="./assets/images/New folder/Pages/astel-Home-hero.png" data-fancybox="astel-gallery">
+                                    <img src="./assets/images/New folder/Pages/astel-Home-hero.png" alt="Astel Page Image" />
                                 </a>
                             </div>
-                        </div> --}}
+                        </div>
+                        --}}
                         <!-- Astel Pages End -->
 
                         <!-- Authentication Start -->
@@ -331,7 +343,7 @@
                             <div class="col-lg-3 col-md-3 px-1">
                                 <div class="filter p0 mb-2 authentication">
                                     <a href="{{ !empty($galleryAuthentication->image) ? url('storage/' . $galleryAuthentication->image) : '' }}"
-                                        data-fancybox="galleryAuthentication">
+                                        data-fancybox="authentication-gallery">
                                         <img src="{{ !empty($galleryAuthentication->image) ? url('storage/' . $galleryAuthentication->image) : '' }}"
                                             alt="Authentication Image" />
                                     </a>
@@ -345,7 +357,7 @@
                             <div class="col-lg-3 col-md-3 px-1">
                                 <div class="filter p0 mb-2 back-office">
                                     <a href="{{ !empty($galleryAdmin->image) ? url('storage/' . $galleryAdmin->image) : '' }}"
-                                        data-fancybox="gallery">
+                                        data-fancybox="admin-gallery">
                                         <img src="{{ !empty($galleryAdmin->image) ? url('storage/' . $galleryAdmin->image) : '' }}"
                                             alt="Back Office Image" />
                                     </a>
@@ -353,8 +365,8 @@
                             </div>
                         @endforeach
                         <!-- Admin Gallery End -->
-
                     </div>
+
                 </div>
 
             </div>
@@ -396,16 +408,17 @@
                                 <div class="col-lg-8">
                                     <div class="row">
                                         <div class="mb-3 col-lg-6">
-                                            <label for="exampleFormControlInput1"
-                                                class="form-label text-white">Name <span class="text-danger">*</span></label>
+                                            <label for="exampleFormControlInput1" class="form-label text-white">Name
+                                                <span class="text-danger">*</span></label>
                                             <input type="text" name="name" class="form-control"
-                                                id="exampleFormControlInput1" placeholder="Jonson Hebit" required/>
+                                                id="exampleFormControlInput1" placeholder="Jonson Hebit" required />
                                         </div>
                                         <div class="mb-3 col-lg-6">
-                                            <label for="exampleFormControlInput1"
-                                                class="form-label text-white">Email <span class="text-danger">*</span></label>
+                                            <label for="exampleFormControlInput1" class="form-label text-white">Email
+                                                <span class="text-danger">*</span></label>
                                             <input type="email" name="email" class="form-control"
-                                                id="exampleFormControlInput1" placeholder="Jonson@example.com" required/>
+                                                id="exampleFormControlInput1" placeholder="Jonson@example.com"
+                                                required />
                                         </div>
                                         <div class="mb-3 col-lg-6">
                                             <label for="exampleFormControlInput1"
@@ -491,7 +504,17 @@
                 });
             });
         </script>
-
+        <script>
+            $("[data-fancybox='home-gallery'], [data-fancybox='authentication-gallery'], [data-fancybox='admin-gallery']")
+                .fancybox({
+                    loop: true, // Enable looping through images
+                    buttons: ["zoom", "slideShow", "thumbs", "close"], // Add zoom, slideshow, thumbnails, and close button
+                    transitionEffect: "fade", // Fade transition effect
+                    caption: function(instance, item) {
+                        return $(this).find('img').attr('alt'); // Display the alt text as the caption
+                    }
+                });
+        </script>
         <script>
             // 1. querySelector
             var containerEl = document.querySelector("ul.container");
@@ -510,11 +533,22 @@
                 loop: true,
                 hash: true,
                 transitionEffect: "slide",
-                /* zoom VS next////////////////////
-                clickContent - i modify the deafult - now when you click on the image you go to the next image - i more like this approach than zoom on desktop (This idea was in the classic/first lightbox) */
+                /* zoom VS next */
                 clickContent: function(current, event) {
                     return current.type === "image" ? "next" : false;
                 },
+                // Customize buttons
+                buttons: [
+                    "zoom", // Enables the zoom button (if you want it)
+                    "slideShow", // Optional: Adds a slideshow button
+                    "thumbs", // Optional: Adds thumbnail navigation
+                    "close", // Adds the close (cross) button
+                    "share", // Optional: Adds share button
+                    "fullScreen", // Optional: Adds fullscreen button
+                    "download" // Optional: Adds a download button
+                ],
+                // Optional: Customize the close button style (e.g., positioning)
+                closeClickOutside: true // Close when clicking outside the modal
             });
         </script>
 

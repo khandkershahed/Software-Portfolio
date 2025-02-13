@@ -7,7 +7,7 @@
                 <div class="col-lg-12">
                     <div class="contact-section">
                         <img src="{{ !empty($banner->image) && file_exists('storage/' . $banner->image) ? url('storage/' . $banner->image) : asset('images/no-banner.jpg') }}"
-                                alt="" />
+                            alt="" />
 
                     </div>
                 </div>
@@ -27,8 +27,7 @@
                     </div>
                     <div class="banner-image-2">
                         <img src="https://images.unsplash.com/photo-1609859419262-26d320fe40c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                            alt="" class="wow scaleOutIn animated" data-wow-duration="1.2s"
-                            data-wow-offset="70"
+                            alt="" class="wow scaleOutIn animated" data-wow-duration="1.2s" data-wow-offset="70"
                             style="
                       visibility: visible;
                       animation-duration: 1.2s;
@@ -75,24 +74,53 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="snip1240">
-                        <div class="plan">
-                            <header>
-                                <h3 class="plan-title">Basic</h3>
-                                <div class="plan-cost">
-                                    <span class="plan-price">$119</span><span class="plan-type">/mo</span>
-                                </div>
-                            </header>
-                            <ul class="plan-features">
-                                <li>5 Page Include</li>
-                                <li>1 MySQL Databases (Backups)</li>
-                                <li>2 Month Maintanance</li>
-                                <li>Content Upload not include</li>
-                                <li>Graphics design include</li>
-                                <li>1/30 (monthly) Support</li>
-                            </ul>
-                            <div class="plan-select"><a href="">Select Plan</a></div>
-                        </div>
-                        <div class="plan">
+                        @foreach ($price_plans as $price_plan)
+                            @php
+                                $currency = $price_plan->currency;
+                            @endphp
+                            <div class="plan">
+
+                                <header>
+
+                                    <h3 class="plan-title">{{ $price_plan->name }}</h3>
+
+                                    <div class="plan-cost">
+
+                                        <span class="plan-price">
+                                            @if ($currency == 'taka')
+                                                {{ 'tk' }}
+                                            @elseif ($currency == 'dollar')
+                                                {{ '$' }}
+                                            @elseif ($currency == 'euro')
+                                                {{ '€' }}
+                                            @elseif ($currency == 'pound')
+                                                {{ '£' }}
+                                            @else
+                                            @endif
+                                        </span>
+                                        <span>{{ $price_plan->price }}</span>
+
+                                        <span class="plan-type">/ {{ $price_plan->duration }}</span>
+
+                                    </div>
+
+                                </header>
+
+                                <ul class="plan-features">
+                                    <li>5 Page Include</li>
+                                    <li>1 MySQL Databases (Backups)</li>
+                                    <li>2 Month Maintanance</li>
+                                    <li>Content Upload not include</li>
+                                    <li>Graphics design include</li>
+                                    <li>1/30 (monthly) Support</li>
+                                </ul>
+
+                                <div class="plan-select"><a href="">Select Plan</a></div>
+
+                            </div>
+                        @endforeach
+
+                        {{-- <div class="plan">
                             <header>
                                 <h3 class="plan-title">Standard</h3>
                                 <div class="plan-cost">
@@ -108,41 +136,160 @@
                                 <li>5/30 (monthly) Support</li>
                             </ul>
                             <div class="plan-select"><a href="">Select Plan</a></div>
-                        </div>
+                        </div> --}}
+
+                        {{-- Custom Page  --}}
                         <div class="plan featured">
-                            <header>
-                                <h3 class="plan-title">Custom Build</h3>
-                                <div class="plan-cost">
-                                    <span class="plan-price"><i class="fa-solid fa-scale-balanced"></i></span>
+
+                            <form action="{{ route('pricing.store') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <header>
+                                    <h3 class="plan-title">Custom Build</h3>
+                                    <div class="plan-cost">
+                                        <span class="plan-price"><i class="fa-solid fa-scale-balanced"></i></span>
+                                    </div>
+                                </header>
+
+                                <ul class="plan-features">
+                                    <li class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="mb-0">How much is the page cost?</p>
+                                        </div>
+                                        <div>
+                                            <select class="rounded-1 form-control-sm select" id="pageCount"
+                                                name="page_number" required>
+                                                <option value="" disabled selected>Select any</option>
+                                                <option value="1">1 Page</option>
+                                                <option value="2">2 Pages</option>
+                                                <option value="3">3 Pages</option>
+                                                <option value="4">4 Pages</option>
+                                                <option value="5">5 Pages</option>
+                                                <!-- Add more options as needed -->
+                                            </select>
+                                        </div>
+                                    </li>
+
+                                    <li class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="mb-0">Frontend used?</p>
+                                        </div>
+                                        <div>
+                                            <select class="rounded-1 form-control-sm select" id="technologySelect"
+                                                name="frontend_technology" data-placeholder="Choose" required>
+                                                <option value="" disabled selected>Select any</option>
+                                                <option value="html">HTML</option>
+                                                <option value="css">CSS</option>
+                                                <option value="javascript">JavaScript</option>
+                                                <option value="react">React</option>
+                                                <option value="laravel">Laravel</option>
+                                                <option value="nodejs">Node.js</option>
+                                            </select>
+                                        </div>
+                                    </li>
+
+                                    <li class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="mb-0">Database included?</p>
+                                        </div>
+                                        <div>
+                                            <select class="rounded-1 form-control-sm select" id="databaseSelect"
+                                                name="database" required>
+                                                <option value="" disabled selected>Select any</option>
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="mb-0">Content upload included?</p>
+                                        </div>
+                                        <div>
+                                            <select class="rounded-1 form-control-sm select" id="databaseSelect"
+                                                name="content" required>
+                                                <option value="" disabled selected>Select any</option>
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="mb-0">Months of maintenance?</p>
+                                        </div>
+                                        <div>
+                                            <select class="rounded-1 form-control-sm select" id="databaseSelect"
+                                                name="maintenance_duration" required>
+                                                <option value="" disabled selected>Select any</option>
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="mb-0">Is graphic design included?</p>
+                                        </div>
+                                        <div>
+                                            <select class="rounded-1 form-control-sm select" id="databaseSelect"
+                                                name="graphic_design" required>
+                                                <option value="" disabled selected>Select any</option>
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="plan-select">
+                                    <button type="submit" class="my-4 px-4 py-2">Select Plan</button>
                                 </div>
-                            </header>
-                            <ul class="plan-features">
-                                <li>How much is the page cost?</li>
-                                <li>Technology used?</li>
-                                <li>Database included?</li>
-                                <li>Content upload included?</li>
-                                <li>Months of maintenance are included?</li>
-                                <li>Is graphic design included?</li>
-                            </ul>
-                            <div class="plan-select"><a href="query.html">Select Plan</a></div>
+                            </form>
+
                         </div>
-                        <div class="plan">
-                            <header>
-                                <h3 class="plan-title">Premium</h3>
-                                <div class="plan-cost">
-                                    <span class="plan-price">$599</span><span class="plan-type">/mo</span>
-                                </div>
-                            </header>
-                            <ul class="plan-features">
-                                <li>20 Pages Included</li>
-                                <li>10 MySQL Databases (Backups)</li>
-                                <li>12 Months Maintenance</li>
-                                <li>Content Upload Included</li>
-                                <li>Advanced Graphics Design Included</li>
-                                <li>10/30 (monthly) Support</li>
-                            </ul>
-                            <div class="plan-select"><a href="">Select Plan</a></div>
-                        </div>
+                        {{-- Custom Page  --}}
+
+
+                        @foreach ($lastprice_plans as $lastprice_plan)
+                            @php
+                                $currency = $lastprice_plan->currency;
+                            @endphp
+
+                            <div class="plan">
+
+                                <header>
+                                    <h3 class="plan-title">{{ $lastprice_plan->name }}</h3>
+                                    <div class="plan-cost">
+
+                                        <span class="plan-price">
+                                            @if ($currency == 'taka')
+                                                {{ 'tk' }}
+                                            @elseif ($currency == 'dollar')
+                                                {{ '$' }}
+                                            @elseif ($currency == 'euro')
+                                                {{ '€' }}
+                                            @elseif ($currency == 'pound')
+                                                {{ '£' }}
+                                            @else
+                                            @endif
+                                        </span>
+
+                                        <span>{{ $lastprice_plan->price }}</span>
+                                        <span class="plan-type">/ {{ $lastprice_plan->duration }}</span>
+                                    </div>
+                                </header>
+
+                                <ul class="plan-features">
+                                    <li>20 Pages Included</li>
+                                    <li>10 MySQL Databases (Backups)</li>
+                                    <li>12 Months Maintenance</li>
+                                    <li>Content Upload Included</li>
+                                    <li>Advanced Graphics Design Included</li>
+                                    <li>10/30 (monthly) Support</li>
+                                </ul>
+
+                                <div class="plan-select"><a href="">Select Plan</a></div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

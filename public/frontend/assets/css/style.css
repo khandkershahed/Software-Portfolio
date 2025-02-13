@@ -120,7 +120,9 @@ ul {
   width: 20px;
   height: 20px;
 }
-
+.slick-track{
+    transform: translate3d(0px, 0px, 0px) !important;
+}
 .simple-dots .slick-dots li button {
   border-radius: 50%;
   background-color: white;
@@ -2249,6 +2251,12 @@ a.btn-mod {
   ); /* Add a semi-transparent black overlay */
 }
 @media only screen and (max-width: 600px) {
+    main{
+        padding-top: 3.9rem;
+    }
+    .navbar{
+        background: rgb(106 104 104 / 80%);
+    }
   .banner__slider {
     background-color: #091b27;
     height: 61vh;
@@ -2374,7 +2382,8 @@ a.btn-mod {
     --bs-btn-close-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
   }
   .about-section {
-    padding: 320px 0 70px;
+    padding: 10px;
+    /* padding: 320px 0 70px; */
   }
   .about-section .image-column .inner-column {
     position: relative;

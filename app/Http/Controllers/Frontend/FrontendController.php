@@ -237,8 +237,10 @@ class FrontendController extends Controller
     public function query()
     {
         $data = [
-            'banner'   => PageBanner::where('page_name', 'contact')->first(),
-            'catgorys' => Category::where('status', 'active')->where('parent_id', null)->latest()->get(),
+            'banner'          => PageBanner::where('page_name', 'contact')->first(),
+            'catgorys'        => Category::where('status', 'active')->where('parent_id', null)->latest()->get(),
+            'price_plans'     => PricingPlan::where('status', 'active')->take(2)->latest()->get(),
+            'lastprice_plans' => PricingPlan::where('status', 'active')->take(1)->get(),
         ];
         return view('frontend.pages.query_page', $data);
     }
