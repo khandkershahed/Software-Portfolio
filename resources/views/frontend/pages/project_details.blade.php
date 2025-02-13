@@ -1,21 +1,27 @@
 <x-frontend-app-layout :title="'Project Details'">
     <!-- Banner Section Start -->
+    {{-- @dd($project) --}}
     <section>
         <div class="banner banner3"
             style="background-image: url('{{ !empty($project->row_one_image) ? url('storage/' . $project->row_one_image) : '' }}');">
             <div class="container project-banner-container">
-                <div class="row gx-5 align-items-center">
-                    <div class="col-sm-8">
+                <div class="row gx-5 align-items-center mt-lg-1 mt-5 pt-lg-1 pt-5">
+                    <div class="col-lg-8 col-12">
                         <div class="slide__content--headings text-left">
-                            <h5 class="animated top-title" data-animation-in="fadeInLeft" data-delay-in="0.2">
-                                {{ $project->row_one_badge }}
-                            </h5>
-                            <h2 class="animated title" data-animation-in="fadeInLeft">
-                                {{ $project->row_one_title }}
-                            </h2>
-                            <h6 class="animated top-title pt-4 pe-5 w-75" style="text-align: justify">
-                                {!! $project->row_one_description !!}
-                            </h6>
+                            <div class="">
+                                <h2 class="animated top-title" data-animation-in="fadeInLeft" data-delay-in="0.2"
+                                    style="font-size:26px; color:#03263e;">
+                                    {{ $project->row_one_badge }}
+                                </h2>
+                                <h4 class="animated title" data-animation-in="fadeInLeft"
+                                    style="font-size:2.2rem;line-height:1.1; color:#03263e;">
+                                    {{ $project->row_one_title }}
+                                </h4>
+                                <h6 class="animated top-title pt-4 pe-lg-5"
+                                    style="text-align: justify;font-size:18px; color:#03263e;">
+                                    {!! $project->row_one_description !!}
+                                </h6>
+                            </div>
                             <div class="d-flex align-items-center pt-5">
                                 <div class="pe-5">
                                     <a href="{{ $project->row_one_button_link }}" class="btn-common-two animated"
@@ -51,7 +57,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-lg-4 col-12">
                         <div class="slide__content--headings text-left projects-menus">
 
                             <h3 class="animated text-center site-text fw-bold" data-animation-in="fadeInLeft"
@@ -373,7 +379,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="text-end">
-                        <a href="javascript:void(0)" class="explore-now-btn mt-5"
+                        <a href="javascript:void(0)" class="explore-now-btn mt-5" onclick="toggleForm()"
                             style="border-bottom: 1px solid #fff" id="toggleFormBtn" data-animation-in="fadeInUp">
                             I Want This {{ $project->name }}
                         </a>
@@ -384,25 +390,22 @@
 
                         <form action="{{ route('user.project-query.store') }}" method="POST">
                             @csrf
-
                             <div class="row">
-
                                 <input type="hidden" name="project_id" value="{{ $project->id }}">
-
                                 <div class="col-lg-4"></div>
                                 <div class="col-lg-8">
                                     <div class="row">
                                         <div class="mb-3 col-lg-6">
                                             <label for="exampleFormControlInput1"
-                                                class="form-label text-white">Name</label>
+                                                class="form-label text-white">Name <span class="text-danger">*</span></label>
                                             <input type="text" name="name" class="form-control"
-                                                id="exampleFormControlInput1" placeholder="Jonson Hebit" />
+                                                id="exampleFormControlInput1" placeholder="Jonson Hebit" required/>
                                         </div>
                                         <div class="mb-3 col-lg-6">
                                             <label for="exampleFormControlInput1"
-                                                class="form-label text-white">Email</label>
+                                                class="form-label text-white">Email <span class="text-danger">*</span></label>
                                             <input type="email" name="email" class="form-control"
-                                                id="exampleFormControlInput1" placeholder="Jonson@example.com" />
+                                                id="exampleFormControlInput1" placeholder="Jonson@example.com" required/>
                                         </div>
                                         <div class="mb-3 col-lg-6">
                                             <label for="exampleFormControlInput1"
@@ -412,8 +415,8 @@
                                         </div>
                                         <div class="mb-3 col-lg-6">
                                             <label for="exampleFormControlInput1" class="form-label text-white">Your
-                                                Message</label>
-                                            <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                Message <span class="text-danger">*</span></label>
+                                            <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3" required></textarea>
                                         </div>
                                         <div class="mb-3 pt-3 col-lg-12">
                                             <div class="checkbox-wrapper-want-this">
@@ -478,17 +481,15 @@
 
     @push('scripts')
         <script>
-            // JavaScript to toggle the form and button visibility
-            document
-                .getElementById("toggleFormBtn")
-                .addEventListener("click", function() {
-                    const formContainer = document.getElementById("formContainer");
-                    const toggleFormBtn = document.getElementById("toggleFormBtn");
+            document.addEventListener("DOMContentLoaded", function() {
+                const toggleFormBtn = document.getElementById("toggleFormBtn");
 
-                    // Show the form and hide the button
+                toggleFormBtn.addEventListener("click", function() {
+                    const formContainer = document.getElementById("formContainer");
                     formContainer.style.display = "block";
                     toggleFormBtn.style.display = "none";
                 });
+            });
         </script>
 
         <script>

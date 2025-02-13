@@ -14,6 +14,7 @@ use App\Models\HomePage;
 use App\Models\PageBanner;
 use App\Models\CompanyData;
 use App\Models\CustomBuild;
+use App\Models\PricingPlan;
 use App\Models\ProjectQuery;
 use Illuminate\Http\Request;
 use App\Models\CompanyClient;
@@ -21,7 +22,7 @@ use App\Models\ProjectGallery;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Models\PricingPlan;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class FrontendController extends Controller
@@ -323,13 +324,38 @@ class FrontendController extends Controller
     //pricingStore
     public function pricingStore(Request $request)
     {
+        dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'page_number'          => 'required',
+            'frontend_technology'  => 'required',
+            'database'             => 'required',
+            'content'              => 'required',
+            'maintenance_duration' => 'required',
+            'graphic_design'       => 'required',
+        ], [
+            'page_number.required'          => 'The page number field is required.',
+            'frontend_technology.required'  => 'The frontend technology field is required.',
+            'database.required'             => 'The database field is required.',
+            'content.required'              => 'The content field is required.',
+            'maintenance_duration.required' => 'The maintenance duration field is required.',
+            'graphic_design.required'       => 'The graphic design field is required.',
+
+            // 'g-recaptcha-response.required' => 'The reCAPTCHA field is required.',
+        ]);
+
+        if ($validator->fails()) {
+            foreach ($validator->messages()->all() as $message) {
+                Session::flash('error', $message);
+            }
+            return redirect()->back()->withInput();
+        }
         // Manually gather the request data
-        $pageNumber = $request->input('page_number');
-        $frontendTechnology = $request->input('frontend_technology');
-        $database = $request->input('database');
-        $content = $request->input('content');
+        $pageNumber          = $request->input('page_number');
+        $frontendTechnology  = $request->input('frontend_technology');
+        $database            = $request->input('database');
+        $content             = $request->input('content');
         $maintenanceDuration = $request->input('maintenance_duration');
-        $graphicDesign = $request->input('graphic_design');
+        $graphicDesign       = $request->input('graphic_design');
 
         $pricingPlan = new CustomBuild();
         $pricingPlan->page_number = $pageNumber;

@@ -8,7 +8,7 @@
                     <div class="contact-section">
                         <img src="{{ !empty($banner->image) && file_exists('storage/' . $banner->image) ? url('storage/' . $banner->image) : asset('images/no-banner.jpg') }}"
                                 alt="" />
-                        
+
                     </div>
                 </div>
             </div>
@@ -99,7 +99,6 @@
 
                             <form action="{{ route('pricing.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-
                                 <header>
                                     <h3 class="plan-title">Custom Build</h3>
                                     <div class="plan-cost">
@@ -113,8 +112,8 @@
                                             <p class="mb-0">How much is the page cost?</p>
                                         </div>
                                         <div>
-                                            <select class="rounded-1" id="pageCount" name="page_number">
-                                                <option>Choose..</option>
+                                            <select class="rounded-1 form-control-sm select" id="pageCount" name="page_number" required>
+                                                <option value="" disabled selected>Select any</option>
                                                 <option value="1">1 Page</option>
                                                 <option value="2">2 Pages</option>
                                                 <option value="3">3 Pages</option>
@@ -130,8 +129,8 @@
                                             <p class="mb-0">Frontend used?</p>
                                         </div>
                                         <div>
-                                            <select class="rounded-1" id="technologySelect" name="frontend_technology">
-                                                <option>Choose..</option>
+                                            <select class="rounded-1 form-control-sm select" id="technologySelect" name="frontend_technology" data-placeholder="Choose" required>
+                                                <option value="" disabled selected>Select any</option>
                                                 <option value="html">HTML</option>
                                                 <option value="css">CSS</option>
                                                 <option value="javascript">JavaScript</option>
@@ -147,8 +146,8 @@
                                             <p class="mb-0">Database included?</p>
                                         </div>
                                         <div>
-                                            <select class="rounded-1" id="databaseSelect" name="database">
-                                                <option>Choose..</option>
+                                            <select class="rounded-1 form-control-sm select" id="databaseSelect" name="database" required>
+                                                <option value="" disabled selected>Select any</option>
                                                 <option value="yes">Yes</option>
                                                 <option value="no">No</option>
                                             </select>
@@ -159,8 +158,8 @@
                                             <p class="mb-0">Content upload included?</p>
                                         </div>
                                         <div>
-                                            <select class="rounded-1" id="databaseSelect" name="content">
-                                                <option>Choose..</option>
+                                            <select class="rounded-1 form-control-sm select" id="databaseSelect" name="content" required>
+                                                <option value="" disabled selected>Select any</option>
                                                 <option value="yes">Yes</option>
                                                 <option value="no">No</option>
                                             </select>
@@ -171,8 +170,8 @@
                                             <p class="mb-0">Months of maintenance?</p>
                                         </div>
                                         <div>
-                                            <select class="rounded-1" id="databaseSelect" name="maintenance_duration">
-                                                <option>Choose..</option>
+                                            <select class="rounded-1 form-control-sm select" id="databaseSelect" name="maintenance_duration" required>
+                                                <option value="" disabled selected>Select any</option>
                                                 <option value="yes">Yes</option>
                                                 <option value="no">No</option>
                                             </select>
@@ -183,8 +182,8 @@
                                             <p class="mb-0">Is graphic design included?</p>
                                         </div>
                                         <div>
-                                            <select class="rounded-1" id="databaseSelect" name="graphic_design">
-                                                <option>Choose..</option>
+                                            <select class="rounded-1 form-control-sm select" id="databaseSelect" name="graphic_design" required>
+                                                <option value="" disabled selected>Select any</option>
                                                 <option value="yes">Yes</option>
                                                 <option value="no">No</option>
                                             </select>

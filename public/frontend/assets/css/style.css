@@ -887,7 +887,7 @@ ul {
   overflow: hidden;
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 335px;
 }
 .marquee {
   position: absolute;
@@ -911,20 +911,22 @@ ul {
   background-clip: text;
   color: transparent;
   font-weight: 400;
-  font-size: 20ch; /* Adjust font size if 25ch is too large */
+  font-size: 14ch; /* Adjust font size if 25ch is too large */
   font-family: "Space Grotesk", sans-serif;
 }
 /* First marquee moves left-to-right */
 .marquee.left-to-right {
-  top: -10%;
+  top: 0%;
   transform: rotate(-30deg);
   animation: scroll-left 15s linear infinite;
+  height: 150px;
 }
 /* Second marquee moves right-to-left */
 .marquee.right-to-left {
-  top: 40%;
+  top: 45%;
   transform: rotate(30deg);
   animation: scroll-right 15s linear infinite;
+  height: 165px;
 }
 /* Keyframes for infinite scrolling */
 @keyframes scroll-left {
@@ -1686,11 +1688,12 @@ a.btn-mod {
 .sec-title .title {
   position: relative;
   display: block;
-  font-size: 18px;
-  line-height: 24px;
-  color: #13151a;
+  font-size: 23px;
+  line-height: 1.3;
+  color: #b90a0a;
+  /* color: #13151a; */
   font-weight: 500;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .sec-title h2 {

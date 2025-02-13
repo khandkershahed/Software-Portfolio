@@ -247,7 +247,7 @@
             ],
         });
     </script>
-
+@stack('scripts')
 
 </body>
 

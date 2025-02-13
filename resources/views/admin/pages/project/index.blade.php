@@ -117,10 +117,10 @@
                 <thead class="bg-dark text-light">
                     <tr>
                         <th width="5%">No</th>
-                        <th width="7%">Logo</th>
-                        <th width="10%">Category</th>
-                        <th width="15%">Name</th>
-                        <th width="8%">Status</th>
+                        <th width="20%">Logo</th>
+                        <th width="25%">Category</th>
+                        <th width="25%">Name</th>
+                        <th width="10%">Status</th>
                         <th width="10%">Actions</th>
                     </tr>
                 </thead>
@@ -130,9 +130,9 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
 
-                            <td>
+                            <td class="text-left">
                                 <img src="{{ !empty($item->logo) ? url('storage/' . $item->logo) : 'https://ui-avatars.com/api/?name=' . urlencode($item->name) }}"
-                                    style="width: 60px;height: 40px;" alt="">
+                                    style="width: 70%;height: 45px;" alt="">
                             </td>
 
                             <td class="text-start">{{ $item->category->name }}</td>

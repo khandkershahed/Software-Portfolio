@@ -7,7 +7,7 @@
                         <figure class="logo-box">
                             <a class="navbar-brand" href="{{ route('home') }}">
                                 <img class="img-fluid site-logo"
-                                    src="{{ !empty(optional($setting)->site_white_logo) && file_exists(public_path('storage/' . optional($setting)->site_white_logo)) ? asset('storage/' . optional($setting)->site_white_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
+                                    src="{{ !empty(optional($setting)->site_white_logo) && file_exists(public_path('storage/' . optional($setting)->site_white_logo)) ? asset('storage/' . optional($setting)->site_white_logo) : asset('frontend/assets/images/logo-white.png') }}"
                                     alt="" />
                             </a>
                         </figure>
@@ -19,18 +19,26 @@
                             </p>
                         </div>
                         <ul class="footer-social">
-                            <li>
-                                <a href="{{ optional($setting)->facebook_url }}"><i class="fab fa-facebook-f"></i></a>
-                            </li>
-                            <li>
-                                <a href="{{ optional($setting)->linkedin_url }}"><i class="fab fa-linkedin-in"></i></a>
-                            </li>
-                            <li>
-                                <a href="{{ optional($setting)->github_url }}"><i class="fab fa-github"></i></a>
-                            </li>
-                            <li>
-                                <a href="{{ optional($setting)->youtube_url }}"><i class="fab fa-youtube"></i></a>
-                            </li>
+                            @if (!empty(optional($setting)->facebook_url))
+                                <li>
+                                    <a href="{{ optional($setting)->facebook_url }}"><i class="fab fa-facebook-f"></i></a>
+                                </li>
+                            @endif
+                            @if (!empty(optional($setting)->linkedin_url))
+                                <li>
+                                    <a href="{{ optional($setting)->linkedin_url }}"><i class="fab fa-linkedin-in"></i></a>
+                                </li>
+                            @endif
+                            @if (!empty(optional($setting)->github_url))
+                                <li>
+                                    <a href="{{ optional($setting)->github_url }}"><i class="fab fa-github"></i></a>
+                                </li>
+                            @endif
+                            @if (!empty(optional($setting)->youtube_url))
+                                <li>
+                                    <a href="{{ optional($setting)->youtube_url }}"><i class="fab fa-youtube"></i></a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -38,10 +46,12 @@
 
                 <div class="col-lg-3 col-md-6 col-sm-12 offset-lg-2 footer-column">
                     <div class="service-widget footer-widget">
-                        <div class="footer-title">Services</div>
+                        <div class="footer-title">Projects</div>
                         <ul class="list">
                             @foreach ($project as $allproject)
-                                <li><a href="{{ route('projects.details', $allproject->slug) }}">{{ $allproject->name }}</a></li>
+                                <li><a
+                                        href="{{ route('projects.details', $allproject->slug) }}">{{ $allproject->name }}</a>
+                                </li>
                             @endforeach
                         </ul>
                     </div>

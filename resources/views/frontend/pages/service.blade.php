@@ -1,5 +1,5 @@
 <section style="background-color: #2c3e50">
-    <div class="container-fluid pb-0 pb-lg-5">
+    <div class="container-fluid pb-0">
         <div class="marquee_container">
 
             <div class="marquee left-to-right">
