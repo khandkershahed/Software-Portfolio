@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="slide__content slide__content__left">
-                    <div class="slide__content--headings text-center text-lg-start">
+                    <div class="text-center slide__content--headings text-lg-start">
                         <p class="animated top-title" data-animation-in="fadeInLeft" data-delay-in="0.2">
                             {{ optional($item)->badge }}
                         </p>
@@ -19,7 +19,7 @@
                             {{ optional($item)->title }}
                         </h2>
                         @if (optional($item)->button_link && optional($item)->button_name)
-                            <a href="{{ optional($item)->button_link }}" class="btn-common-two animated mt-5"
+                            <a href="{{ optional($item)->button_link }}" class="mt-5 btn-common-two animated"
                                 data-animation-in="fadeInUp">
                                 {{ optional($item)->button_name }}
                             </a>
