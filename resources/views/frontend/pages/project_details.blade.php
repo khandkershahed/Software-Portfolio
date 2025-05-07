@@ -93,48 +93,7 @@
             right: 122px;
         }
 
-        .img-one {
-            margin-bottom: 5px;
-        }
-
-        .img-two {
-            margin-bottom: 5px;
-            position: relative;
-            top: -90px;
-            left: 75px;
-        }
-
-        .img-three {
-            margin-bottom: 5px;
-            position: relative;
-            top: -180px;
-            left: 140px;
-        }
-
-        .img-one,
-        .img-two,
-        .img-three,
-        .img-four {
-            margin-bottom: 5px;
-            position: relative;
-            z-index: 1;
-            display: inline-block;
-            transition: transform 0.3s ease, z-index 0.3s ease;
-        }
-
-        /* On hover: bring to front and zoom */
-        .img-one:hover,
-        .img-two:hover,
-        .img-three:hover,
-        .img-four:hover {
-            z-index: 10;
-            transform: scale(1.05);
-        }
-
-
-
         .releted-img-box {
-            height: 400px;
             padding: 10px
         }
 
@@ -224,17 +183,13 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-lg-4 col-12">
                         <div class="text-left slide__content--headings projects-menus">
-
                             <h3 class="text-center animated site-text fw-bold" data-animation-in="fadeInLeft"
                                 data-delay-in="0.2">
                                 Project Features
                             </h3>
-
                             <div class="pt-3 row justify-content-between align-items-center">
-
                                 {{-- @foreach ($allprojects as $allproject)
                                     <div class="col-lg-12">
                                         <a href="{{ route('projects.details', $allproject->slug) }}" class="">
@@ -248,27 +203,27 @@
                                 <div class="col-lg-12">
                                     <h5 class="p-3 mb-3 text-start animated sub-title site-text"
                                         data-animation-in="fadeInLeft">
-                                        📱Mobile Ready
+                                        Mobile Ready
                                     </h5>
                                     <h5 class="p-3 mb-3 text-start animated sub-title site-text"
                                         data-animation-in="fadeInLeft">
-                                        ⚡Blazing Fast Site
+                                        Blazing Fast Site
                                     </h5>
                                     <h5 class="p-3 mb-3 text-start animated sub-title site-text"
                                         data-animation-in="fadeInLeft">
-                                        🔍SEO Optimized
+                                        SEO Optimized
                                     </h5>
                                     <h5 class="p-3 mb-3 text-start animated sub-title site-text"
                                         data-animation-in="fadeInLeft">
-                                        🖥️Secure & Ready To Use
+                                        Secure & Ready To Use
                                     </h5>
                                     <h5 class="p-3 mb-3 text-start animated sub-title site-text"
                                         data-animation-in="fadeInLeft">
-                                        🌐Clean Code & Structured
+                                        Clean Code & Structured
                                     </h5>
                                     <h5 class="p-3 mb-3 text-start animated sub-title site-text"
                                         data-animation-in="fadeInLeft">
-                                        ♿Accessibility Ready
+                                        Accessibility Ready
                                     </h5>
                                 </div>
                             </div>
@@ -522,7 +477,7 @@
                         </p>
                         <div class="mb-3">
                             <a href="{{ $project->row_two_button_link }}" class=""
-                                style="border-bottom: 1px solid white; position: absolute;right: 66%;margin-top: -40px;"
+                                style="border-bottom: 1px solid white; position: absolute; right: 53.4%;margin-top: -40px;"
                                 data-animation-in="fadeInUp">
                                 {{ $project->row_two_button_name }}
                             </a>
@@ -531,15 +486,14 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="text-end">
-                        <a href="javascript:void(0)" class="mt-5 explore-now-btn" onclick="toggleForm()"
+                        <a href="javascript:void(0)" class=" btn-common-three animated" onclick="toggleForm()"
                             style="border-bottom: 1px solid #fff" id="toggleFormBtn" data-animation-in="fadeInUp">
-                            I Want This {{ $project->name }}
+                            I want this {{ $project->name }}
                         </a>
                     </div>
 
                     <!-- The Form -->
                     <div id="formContainer" style="display: none">
-
                         <form action="{{ route('user.project-query.store') }}" method="POST">
                             @csrf
                             <div class="row">
@@ -636,52 +590,185 @@
             </div>
             <div class="text-center slick-slider-related">
                 <div class="slick-slide">
-                    <div class="row justify-content-center align-items-center g-2">
-                        <div class="col-12">
-                            <div class="border row align-items-center releted-items">
-                                <div class="px-0 col-lg-3 releted-img-box ps-3">
-                                    <div class="img-one">
-                                        <img src="http://127.0.0.1:8000/storage/project/row_two_image/r3wk3q3dFk1739680053.jpg"
-                                            class="img-fluid rounded-3" alt="">
-                                    </div>
-                                    <div class="img-two">
-                                        <img src="https://elements-resized.envatousercontent.com/elements-cover-images/6a24307b-4afd-47f9-8a2c-9f77f5ac0072?w=433&cf_fit=scale-down&q=85&format=auto&s=e3ae27548eac2c15bc250dbeecd63d3e8b34acd26642b9fd97c04d8a868817aa"
-                                            class="img-fluid rounded-3" alt="">
-                                    </div>
-                                    <div class="img-three">
-                                        <img src="https://img.freepik.com/free-vector/realistic-glassmorphism-mobile-app-template_23-2149441713.jpg"
-                                            class="img-fluid rounded-3" alt="">
-                                    </div>
+                    <div class="px-0 col-12">
+                        <div class="p-3 border rounded-3 row align-items-center releted-items">
+                            <div class="px-0 col-lg-4 releted-img-box ps-3">
+                                <div class="">
+                                    <img src="http://127.0.0.1:8000/storage/project/row_two_image/r3wk3q3dFk1739680053.jpg"
+                                        class="img-fluid rounded-3" alt="">
                                 </div>
-                                <div class="col-lg-9">
-                                    <div class="row">
-                                        <div class="col-lg-3"></div>
-                                        <div class="col-lg-8">
-                                            <div class="">
-                                                <img class="img-fluid" width="200"
-                                                    src="http://127.0.0.1:8000/storage/project/logo/75deAxaUdu1739303934.png"
-                                                    alt="">
-                                            </div>
-                                            <div class="pt-3">
-                                                <h3 class="text-start animated site-text fw-bold"
-                                                    data-animation-in="fadeInLeft" data-delay-in="0.2">
-                                                    Tech Focus
-                                                </h3>
-                                                <p class="text-start">Tech Focus, developed by NGen IT that offers
-                                                    a
-                                                    comprehensive product search experience, enabling buyers to
-                                                    connect
-                                                    with top manufacturers across
-                                                    six key industrial sectors.</p>
-                                            </div>
-                                            <div class="pt-3 text-start">
-                                                <a href="#" class=" btn-common-three animated"
-                                                    data-animation-in="fadeInUp">
-                                                    View <i class="fas fa-arrow-right-long ps-2"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="">
+                                    <img class="img-fluid" width="200"
+                                        src="http://127.0.0.1:8000/storage/project/logo/75deAxaUdu1739303934.png"
+                                        alt="">
+                                </div>
+                                <div class="pt-3">
+                                    <h3 class="text-start animated site-text fw-bold" data-animation-in="fadeInLeft"
+                                        data-delay-in="0.2">
+                                        Tech Focus
+                                    </h3>
+                                    <p class="text-start">Tech Focus, developed by NGen IT that offers
+                                        a
+                                        comprehensive product search experience, enabling buyers to
+                                        connect
+                                        with top manufacturers across
+                                        six key industrial sectors.</p>
+                                </div>
+                                <div class="pt-3 text-start">
+                                    <a href="#" class=" btn-common-three animated"
+                                        data-animation-in="fadeInUp">
+                                        View <i class="fas fa-arrow-right-long ps-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slick-slide">
+                    <div class="px-0 col-12">
+                        <div class="p-3 border rounded-3 row align-items-center releted-items">
+                            <div class="px-0 col-lg-4 releted-img-box ps-3">
+                                <div class="">
+                                    <img src="http://127.0.0.1:8000/storage/project/row_two_image/cVeTWxiO061734583746.png"
+                                        class="img-fluid rounded-3" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="">
+                                    <img class="img-fluid" width="200"
+                                        src="http://127.0.0.1:8000/storage/project/logo/75deAxaUdu1739303934.png"
+                                        alt="">
+                                </div>
+                                <div class="pt-3">
+                                    <h3 class="text-start animated site-text fw-bold" data-animation-in="fadeInLeft"
+                                        data-delay-in="0.2">
+                                        Tech Focus
+                                    </h3>
+                                    <p class="text-start">Tech Focus, developed by NGen IT that offers
+                                        a
+                                        comprehensive product search experience, enabling buyers to
+                                        connect
+                                        with top manufacturers across
+                                        six key industrial sectors.</p>
+                                </div>
+                                <div class="pt-3 text-start">
+                                    <a href="#" class=" btn-common-three animated"
+                                        data-animation-in="fadeInUp">
+                                        View <i class="fas fa-arrow-right-long ps-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slick-slide">
+                    <div class="px-0 col-12">
+                        <div class="p-3 border rounded-3 row align-items-center releted-items">
+                            <div class="px-0 col-lg-4 releted-img-box ps-3">
+                                <div class="">
+                                    <img src="http://127.0.0.1:8000/storage/project/row_two_image/r3wk3q3dFk1739680053.jpg"
+                                        class="img-fluid rounded-3" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="">
+                                    <img class="img-fluid" width="200"
+                                        src="http://127.0.0.1:8000/storage/project/logo/75deAxaUdu1739303934.png"
+                                        alt="">
+                                </div>
+                                <div class="pt-3">
+                                    <h3 class="text-start animated site-text fw-bold" data-animation-in="fadeInLeft"
+                                        data-delay-in="0.2">
+                                        Tech Focus
+                                    </h3>
+                                    <p class="text-start">Tech Focus, developed by NGen IT that offers
+                                        a
+                                        comprehensive product search experience, enabling buyers to
+                                        connect
+                                        with top manufacturers across
+                                        six key industrial sectors.</p>
+                                </div>
+                                <div class="pt-3 text-start">
+                                    <a href="#" class=" btn-common-three animated"
+                                        data-animation-in="fadeInUp">
+                                        View <i class="fas fa-arrow-right-long ps-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slick-slide">
+                    <div class="px-0 col-12">
+                        <div class="p-3 border rounded-3 row align-items-center releted-items">
+                            <div class="px-0 col-lg-4 releted-img-box ps-3">
+                                <div class="">
+                                    <img src="http://127.0.0.1:8000/storage/project/row_two_image/cVeTWxiO061734583746.png"
+                                        class="img-fluid rounded-3" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="">
+                                    <img class="img-fluid" width="200"
+                                        src="http://127.0.0.1:8000/storage/project/logo/75deAxaUdu1739303934.png"
+                                        alt="">
+                                </div>
+                                <div class="pt-3">
+                                    <h3 class="text-start animated site-text fw-bold" data-animation-in="fadeInLeft"
+                                        data-delay-in="0.2">
+                                        Tech Focus
+                                    </h3>
+                                    <p class="text-start">Tech Focus, developed by NGen IT that offers
+                                        a
+                                        comprehensive product search experience, enabling buyers to
+                                        connect
+                                        with top manufacturers across
+                                        six key industrial sectors.</p>
+                                </div>
+                                <div class="pt-3 text-start">
+                                    <a href="#" class=" btn-common-three animated"
+                                        data-animation-in="fadeInUp">
+                                        View <i class="fas fa-arrow-right-long ps-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slick-slide">
+                    <div class="px-0 col-12">
+                        <div class="p-3 border rounded-3 row align-items-center releted-items">
+                            <div class="px-0 col-lg-4 releted-img-box ps-3">
+                                <div class="">
+                                    <img src="http://127.0.0.1:8000/storage/project/row_two_image/r3wk3q3dFk1739680053.jpg"
+                                        class="img-fluid rounded-3" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="">
+                                    <img class="img-fluid" width="200"
+                                        src="http://127.0.0.1:8000/storage/project/logo/75deAxaUdu1739303934.png"
+                                        alt="">
+                                </div>
+                                <div class="pt-3">
+                                    <h3 class="text-start animated site-text fw-bold" data-animation-in="fadeInLeft"
+                                        data-delay-in="0.2">
+                                        Tech Focus
+                                    </h3>
+                                    <p class="text-start">Tech Focus, developed by NGen IT that offers
+                                        a
+                                        comprehensive product search experience, enabling buyers to
+                                        connect
+                                        with top manufacturers across
+                                        six key industrial sectors.</p>
+                                </div>
+                                <div class="pt-3 text-start">
+                                    <a href="#" class=" btn-common-three animated"
+                                        data-animation-in="fadeInUp">
+                                        View <i class="fas fa-arrow-right-long ps-2"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>

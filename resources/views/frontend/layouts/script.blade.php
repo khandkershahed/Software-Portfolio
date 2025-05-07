@@ -42,7 +42,7 @@
             // Display selected platforms (checkboxes)
             if (platforms.length > 0) {
                 selectedOptions +=
-                    "<p><strong>Selected Platform:</strong> " +
+                    "<p class='mb-0'><strong>Selected Platform:</strong> " +
                     platforms.join(", ") +
                     "</p>";
             }
@@ -50,43 +50,43 @@
             // Display selected frontend dropdown
             if (frontend !== "Select Frontend Technology") {
                 selectedOptions +=
-                    "<p><strong>Frontend Technology:</strong> " + frontend + "</p>";
+                    "<p class='mb-0'><strong>Frontend Technology:</strong> " + frontend + "</p>";
             }
 
             // Display selected backend dropdown
             if (backend !== "Select Backend Technology") {
                 selectedOptions +=
-                    "<p><strong>Backend Technology:</strong> " + backend + "</p>";
+                    "<p class='mb-0'><strong>Backend Technology:</strong> " + backend + "</p>";
             }
 
             // Display selected database dropdown
             if (database !== "Select Database") {
                 selectedOptions +=
-                    "<p><strong>Database:</strong> " + database + "</p>";
+                    "<p class='mb-0'><strong>Database:</strong> " + database + "</p>";
             }
 
             // Display values from input fields (not selected options)
             if (clientName) {
                 selectedOptions +=
-                    "<p><strong>Name:</strong> " + clientName + "</p>";
+                    "<p class='mb-0'><strong>Name:</strong> " + clientName + "</p>";
             }
             if (phone) {
-                selectedOptions += "<p><strong>Phone:</strong> " + phone + "</p>";
+                selectedOptions += "<p class='mb-0'><strong>Phone:</strong> " + phone + "</p>";
             }
             if (email) {
-                selectedOptions += "<p><strong>Email:</strong> " + email + "</p>";
+                selectedOptions += "<p class='mb-0'><strong>Email:</strong> " + email + "</p>";
             }
             if (demoSite) {
                 selectedOptions +=
-                    "<p><strong>Demo Site Link:</strong> " + demoSite + "</p>";
+                    "<p class='mb-0'><strong>Demo Site Link:</strong> " + demoSite + "</p>";
             }
             if (demoFile) {
                 selectedOptions +=
-                    "<p><strong>Demo File/Image:</strong> " + demoFile + "</p>";
+                    "<p class='mb-0'><strong>Demo File/Image:</strong> " + demoFile + "</p>";
             }
             if (duration) {
                 selectedOptions +=
-                    "<p><strong>Duration:</strong> " + duration + "</p>";
+                    "<p class='mb-0'><strong>Duration:</strong> " + duration + "</p>";
             }
 
             // Show the selected options in the #selected-options div
@@ -95,7 +95,7 @@
                     selectedOptions;
             } else {
                 document.getElementById("selected-options").innerHTML =
-                    "<p><strong>No selections made yet.</strong></p>";
+                    "<p class='mb-0'><strong>No selections made yet.</strong></p>";
             }
 
             // Show the #show-selection div only when a selection is made

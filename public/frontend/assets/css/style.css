@@ -1392,7 +1392,7 @@ ul {
     margin-bottom: 0px;
 }
 .query-inputs-box {
-    background: #6c757d2e;
+    background: white ;
     padding: 15px;
 }
 
@@ -3185,15 +3185,6 @@ a.btn-mod {
     --stack-cards-gap: 40px;
     --space-sm: 40px;
 }
-/* .intro {
-    height: 100vh;
-    background-color: #1a1a1a;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-} */
 
 .section-stack {
     display: flex;
@@ -3201,6 +3192,7 @@ a.btn-mod {
     justify-content: center;
     align-items: center;
     padding: 2em;
+    padding-top: 0;
 }
 
 .stack-cards {
@@ -3222,6 +3214,9 @@ a.btn-mod {
     border: 1px solid lightgrey;
     border-radius: 1.5rem;
     padding: 1.5rem 2rem;
-    margin: 0 0 2em 0;
     transition: transform 0.3s ease;
+}
+
+#selected-options p{
+    margin-bottom: 0;
 }

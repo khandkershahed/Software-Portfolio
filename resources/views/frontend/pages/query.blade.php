@@ -50,17 +50,16 @@
     <div class="container">
         <form action="{{ route('query.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="row">
+            <div class="row gx-4">
                 <div class="col-lg-12">
-                    <div class="d-flex align-items-center">
+                    <div class="mb-4 d-flex align-items-center">
                         <h1>Let's Query/Brief Project</h1>
-                        <span class="line ms-2"></span>
                     </div>
                 </div>
 
-                <div class="col-lg-3">
+                <div class=" col-lg-3">
                     <div class="row">
-                        <p>Platforms <span class="line-2 ms-2"></span></p>
+                        <p class="pt-3">Platforms <span class="line-2 ms-2"></span></p>
                         @foreach ($catgorys as $index => $category)
                             <div class="col-lg-12">
                                 <div class="mb-2 palatform_checkbox">
@@ -80,20 +79,17 @@
                         @endforeach
                     </div>
 
-                    <div>
+                    {{-- <div style="position: relative; top: 340px;">
                         <a href="{{ route('contact') }}" class="mt-3 w-100 btn-common-one animated"
                             data-animation-in="fadeInUp">
                             Contact us for more information
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
 
-                <div class="col-lg-6">
-                    <div class="mt-5 query-inputs-box rounded-2">
-                        <p>
-                            Add Technology & Others Information
-                            <span class="line-2 ms-2"></span>
-                        </p>
+                <div class="col-lg-6 ">
+                    <p class="pt-3 mb-0 bg-white ps-3">Choose Project Technology <span class="line-2 ms-2"></span></p>
+                    <div class="query-inputs-box rounded-2">
                         <div id="selected-platforms">
                             <div>
                                 <img class="img-fluid w-100 rounded-2" style="height: 440px"
@@ -167,8 +163,8 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label class="mb-2" for="demo_file">Demo File</label>
-                                            <input type="file" class="form-control" name="demo_file"
-                                                id="demo_file" placeholder="your file" />
+                                            <input type="file" class="form-control" name="demo_file" id="demo_file"
+                                                placeholder="your file" />
                                         </div>
                                     </div>
 
@@ -227,8 +223,9 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3">
-                    <div class="mt-5 row">
+                <div class="bg-white col-lg-3 ">
+                    <p class="pt-3">Your Choosen Result <span class="line-2 ms-2"></span></p>
+                    <div class="row">
                         <div id="query-platforms">
                             <div>
                                 <img class="img-fluid w-100 rounded-2"
@@ -242,10 +239,10 @@
                         </div>
                     </div>
 
-                    <div>
-                        <button type="submit" class="mt-3 btn-common-one animated w-100"
+                    <div class="pt-5 mb-3" style="position: relative; top: 120px;">
+                        <button type="submit" class="mt-5 btn-common-three animated w-100 rounded-3"
                             data-animation-in="fadeInUp">
-                            Submit Project Query
+                            Submit Query <i class="fas fa-arrow-right-long ps-3"></i>
                         </button>
                     </div>
                 </div>
@@ -311,7 +308,7 @@
                     const newSelection = document.createElement('div');
                     newSelection.classList.add('selected-platform');
                     newSelection.innerHTML = `
-                    <span>${selectedPlatformLabel}</span>
+                    <span class="mb-0">${selectedPlatformLabel}</span>
                     <button type="button" class="remove-btn" onclick="removeSelectedOption(this, '${selectedPlatformValue}')">Remove</button>
                 `;
                     selectedOptionsDiv.appendChild(newSelection);
