@@ -59,7 +59,6 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 
-    Route::get('plan/{slug}/subscribe', [FrontendController::class, 'planSubscribe'])
-        ->name('plan.subscribe');
+    
 
 });
