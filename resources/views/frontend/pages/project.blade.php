@@ -2,7 +2,7 @@
     <!-- Contact Section Start -->
     <style>
         .site-text p {
-            color:#001624 !important;
+            color: #001624 !important;
         }
     </style>
     <section>
@@ -26,19 +26,22 @@
         <div class="container my-5 mb-0">
             <!-- Tab navigation for categorys -->
             <ul class="nav nav-tabs projects-tabs" id="myTab" role="tablist">
-                @foreach ($categorys as $index => $category)
+                @php $activeSet = false; @endphp
+                @foreach ($categorys as $category)
                     @php $hasProjects = $category->projects->isNotEmpty(); @endphp
                     @if ($hasProjects)
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link {{ $index === 0 && $hasProjects  ? 'active' : '' }}" id="category-{{ $category->id }}-tab"
+                            <a class="nav-link {{ !$activeSet ? 'active' : '' }}" id="category-{{ $category->id }}-tab"
                                 data-bs-toggle="tab" href="#category-{{ $category->id }}" role="tab"
                                 aria-controls="category-{{ $category->id }}"
-                                aria-selected="{{ $index === 0 && $hasProjects  ? 'true' : 'false' }}">
+                                aria-selected="{{ !$activeSet ? 'true' : 'false' }}">
                                 {{ $category->name }}
                             </a>
                         </li>
+                        @php $activeSet = true; @endphp
                     @endif
                 @endforeach
+
             </ul>
 
             <!-- Tab content for each category -->
@@ -46,7 +49,7 @@
                 @foreach ($categorys as $index => $category)
                     @php $hasProjects = $category->projects->isNotEmpty(); @endphp
                     @if ($hasProjects)
-                        <div class="tab-pane fade {{ $index === 0 && $hasProjects  ? 'show active' : '' }}"
+                        <div class="tab-pane fade {{ $index === 0 && $hasProjects ? 'show active' : '' }}"
                             id="category-{{ $category->id }}" role="tabpanel"
                             aria-labelledby="category-{{ $category->id }}-tab">
                             <div class="mt-5 row">
@@ -55,7 +58,8 @@
                                         <div class="section-stack">
                                             <ul class="stack-cards js-stack-cards">
                                                 <li class="stack-cards__item js-stack-cards__item">
-                                                    <a class="site-text" href="{{ route('projects.details', $project->slug) }}">
+                                                    <a class="site-text"
+                                                        href="{{ route('projects.details', $project->slug) }}">
                                                         <div class="row align-items-center">
                                                             <div class="col-lg-6">
                                                                 <div>
@@ -66,7 +70,8 @@
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <h1 class="site-text">{{ $project->name }}</h1>
-                                                                <p class="site-text" style="text-align: justify;font-size:18px; color:#001624 !important;">
+                                                                <p class="site-text"
+                                                                    style="text-align: justify;font-size:18px; color:#001624 !important;">
                                                                     {!! $project->row_one_description !!}
                                                                 </p>
                                                             </div>
