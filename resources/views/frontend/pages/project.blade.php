@@ -4,11 +4,17 @@
         .site-text p {
             color: #001624 !important;
         }
+
+        .stack-cards__item {
+            position: relative;
+            height: 300px;
+            /* Ensure height exists */
+        }
     </style>
     <section>
         <div class="px-0 container-fluid">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12">fr
                     <div class="contact-section">
                         <div class="d-flex">
                             <img class="w-100 img-fluid"
@@ -254,25 +260,24 @@
             })();
         </script>
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 const tabLinks = document.querySelectorAll('[data-bs-toggle="tab"]');
 
                 tabLinks.forEach(tab => {
-                    tab.addEventListener('shown.bs.tab', function(event) {
-                        // Find all stack-cards in the active tab and trigger resize
+                    tab.addEventListener('shown.bs.tab', function (event) {
                         const activePane = document.querySelector(event.target.getAttribute('href'));
                         if (!activePane) return;
 
                         const stackCards = activePane.querySelectorAll('.js-stack-cards');
-                        const customEvent = new CustomEvent('resize-stack-cards');
 
                         stackCards.forEach(stack => {
-                            stack.dispatchEvent(customEvent);
+                            new StackCards(stack); // re-init instead of resize
                         });
                     });
                 });
             });
         </script>
+
 
         <script>
             $(document).ready(function() {
