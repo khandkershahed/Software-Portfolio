@@ -46,10 +46,11 @@
 
             <!-- Tab content for each category -->
             <div class="tab-content" id="myTabContent">
+                @php $tabactiveSet = false; @endphp
                 @foreach ($categorys as $index => $category)
                     @php $hasProjects = $category->projects->isNotEmpty(); @endphp
                     @if ($hasProjects)
-                        <div class="tab-pane fade {{ !$activeSet ? 'show active' : '' }}"
+                        <div class="tab-pane fade {{ !$tabactiveSet ? 'show active' : '' }}"
                             id="category-{{ $category->id }}" role="tabpanel"
                             aria-labelledby="category-{{ $category->id }}-tab">
                             <div class="mt-5 row">
@@ -84,6 +85,7 @@
                                 @endforeach
                             </div>
                         </div>
+                        @php $tabactiveSet = true; @endphp
                     @endif
                 @endforeach
             </div>
