@@ -79,13 +79,9 @@
                                 $currency = $price_plan->currency;
                             @endphp
                             <div class="plan">
-
                                 <header>
-
                                     <h3 class="plan-title">{{ $price_plan->name }}</h3>
-
                                     <div class="plan-cost">
-
                                         <span class="plan-price">
                                             @if ($currency == 'taka')
                                                 {{ 'tk' }}
@@ -99,44 +95,22 @@
                                             @endif
                                         </span>
                                         <span>{{ $price_plan->price }}</span>
-
                                         <span class="plan-type">/ {{ $price_plan->duration }}</span>
-
                                     </div>
 
                                 </header>
 
                                 <ul class="plan-features">
-                                    <li>5 Page Include</li>
-                                    <li>1 MySQL Databases (Backups)</li>
-                                    <li>2 Month Maintanance</li>
-                                    <li>Content Upload not include</li>
-                                    <li>Graphics design include</li>
-                                    <li>1/30 (monthly) Support</li>
+                                    @foreach ($price_plan->pricing as $price_plan_pricing)
+                                        <li>{{ optional($price_plan_pricing->planModule)->title }}</li>
+                                    @endforeach
                                 </ul>
 
-                                <div class="plan-select"><a href="">Select Plan</a></div>
+                                <div class="plan-select"><a href="{{ route('plan.subscribe',$price_plan->slug) }}">Select Plan</a></div>
 
                             </div>
                         @endforeach
 
-                        {{-- <div class="plan">
-                            <header>
-                                <h3 class="plan-title">Standard</h3>
-                                <div class="plan-cost">
-                                    <span class="plan-price">$329</span><span class="plan-type">/mo</span>
-                                </div>
-                            </header>
-                            <ul class="plan-features">
-                                <li>10 Pages Included</li>
-                                <li>3 MySQL Databases (Backups)</li>
-                                <li>6 Months Maintenance</li>
-                                <li>Content Upload Included</li>
-                                <li>Basic Graphics Design Included</li>
-                                <li>5/30 (monthly) Support</li>
-                            </ul>
-                            <div class="plan-select"><a href="">Select Plan</a></div>
-                        </div> --}}
 
                         {{-- Custom Page  --}}
                         <div class="plan featured">
@@ -253,9 +227,7 @@
                             @php
                                 $currency = $lastprice_plan->currency;
                             @endphp
-
                             <div class="plan">
-
                                 <header>
                                     <h3 class="plan-title">{{ $lastprice_plan->name }}</h3>
                                     <div class="plan-cost">
@@ -279,15 +251,12 @@
                                 </header>
 
                                 <ul class="plan-features">
-                                    <li>20 Pages Included</li>
-                                    <li>10 MySQL Databases (Backups)</li>
-                                    <li>12 Months Maintenance</li>
-                                    <li>Content Upload Included</li>
-                                    <li>Advanced Graphics Design Included</li>
-                                    <li>10/30 (monthly) Support</li>
+                                    @foreach ($lastprice_plan->pricing as $lastprice_plan_pricing)
+                                        <li>{{ optional($lastprice_plan_pricing->planModule)->title }}</li>
+                                    @endforeach
                                 </ul>
 
-                                <div class="plan-select"><a href="">Select Plan</a></div>
+                                <div class="plan-select"><a href="{{ route('plan.subscribe',$lastprice_plan->slug) }}">Select Plan</a></div>
                             </div>
                         @endforeach
                     </div>

@@ -15,6 +15,14 @@ class Pricing extends Model
      * @var array
      */
     protected $guarded = [];
+    public function planModule()
+    {
+        return $this->belongsTo(PlanModule::class, 'plan_module_id');
+    }
+    public function pricingPlan()
+    {
+        return $this->belongsTo(PricingPlan::class, 'pricing_plan_id');
+    }
 
-    
+
 }

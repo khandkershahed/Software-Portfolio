@@ -26,7 +26,6 @@
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-
                 <div class="card bg-secondary rounded-0 p-5">
                     <div class="row p-4">
 

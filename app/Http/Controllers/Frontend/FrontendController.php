@@ -280,11 +280,17 @@ class FrontendController extends Controller
     //All Query
     public function query()
     {
+        $price_plans = PricingPlan::with('pricing')->where('status', 'active')->latest()->take(2)->get();
+
         $data = [
             'banner'          => PageBanner::where('page_name', 'contact')->first(),
             'catgorys'        => Category::where('status', 'active')->where('parent_id', null)->latest()->get(),
-            'price_plans'     => PricingPlan::where('status', 'active')->take(2)->latest()->get(),
-            'lastprice_plans' => PricingPlan::where('status', 'active')->take(1)->get(),
+            'price_plans'     => $price_plans,
+            'lastprice_plans' => PricingPlan::with('pricing')->where('status', 'active')
+                ->whereNotIn('id', $price_plans->pluck('id'))
+                ->latest()
+                ->take(1)
+                ->get(),
         ];
         return view('frontend.pages.query_page', $data);
     }
@@ -355,22 +361,28 @@ class FrontendController extends Controller
     //pricing
     public function pricing()
     {
+        $price_plans = PricingPlan::with('pricing')->where('status', 'active')->latest()->take(2)->get();
+
         $data = [
             'banner'          => PageBanner::where('page_name', 'pricing')->first(),
-            'price_plans'     => PricingPlan::where('status', 'active')->take(2)->latest()->get(),
-            'lastprice_plans' => PricingPlan::where('status', 'active')->take(1)->get(),
+            'price_plans'     => $price_plans,
+            'lastprice_plans' => PricingPlan::with('pricing')->where('status', 'active')
+                ->whereNotIn('id', $price_plans->pluck('id'))
+                ->latest()
+                ->take(1)
+                ->get(),
             'company_clients' => CompanyClient::where('status', 'active')->latest()->get(),
             'item'            => HomePage::latest('id')->first(),
         ];
 
-
         return view('frontend.pages.pricing', $data);
     }
+
 
     //pricingStore
     public function pricingStore(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'page_number'          => 'required',
             'frontend_technology'  => 'required',
@@ -417,4 +429,12 @@ class FrontendController extends Controller
         // Redirect or return a success response
         return redirect()->back()->with('success', 'Pricing plan has been created successfully!');
     }
+
+    public function planSubscribe($slug)
+    {
+        $plan = PricingPlan::where('slug', $slug)->firstOrFail();
+        // $plan->increment('subscribers_count'); // Increment the subscriber count
+        return redirect()->back()->with('success', 'You have successfully subscribed to the plan: ' . $plan->name);
+    }
+
 }
