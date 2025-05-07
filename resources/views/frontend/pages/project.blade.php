@@ -55,7 +55,7 @@
                                         <div class="section-stack">
                                             <ul class="stack-cards js-stack-cards">
                                                 <li class="stack-cards__item js-stack-cards__item">
-                                                    <a href="{{ route('projects.details', $project->slug) }}">
+                                                    <a class="site-text" href="{{ route('projects.details', $project->slug) }}">
                                                         <div class="row align-items-center">
                                                             <div class="col-lg-6">
                                                                 <div>
