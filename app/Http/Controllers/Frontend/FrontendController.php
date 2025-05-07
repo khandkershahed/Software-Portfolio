@@ -385,4 +385,12 @@ class FrontendController extends Controller
         // Redirect or return a success response
         return redirect()->back()->with('success', 'Pricing plan has been created successfully!');
     }
+
+    public function planSubscribe($slug)
+    {
+        $plan = PricingPlan::where('slug', $slug)->firstOrFail();
+        // $plan->increment('subscribers_count'); // Increment the subscriber count
+        return redirect()->back()->with('success', 'You have successfully subscribed to the plan: ' . $plan->name);
+    }
+
 }

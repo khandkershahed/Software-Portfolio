@@ -7,7 +7,7 @@
                 <div class="col-lg-12">
                     <div class="contact-section">
                         <img src="{{ !empty($banner->image) && file_exists('storage/' . $banner->image) ? url('storage/' . $banner->image) : asset('images/no-banner.jpg') }}"
-                                alt="" />
+                            alt="" />
 
                     </div>
                 </div>
@@ -37,11 +37,8 @@
                             <div class="plan">
 
                                 <header>
-
                                     <h3 class="plan-title">{{ $price_plan->name }}</h3>
-
                                     <div class="plan-cost">
-
                                         <span class="plan-price">
                                             @if ($currency == 'taka')
                                                 {{ 'tk' }}
@@ -55,11 +52,8 @@
                                             @endif
                                         </span>
                                         <span>{{ $price_plan->price }}</span>
-
                                         <span class="plan-type">/ {{ $price_plan->duration }}</span>
-
                                     </div>
-
                                 </header>
 
                                 <ul class="plan-features">
@@ -68,7 +62,7 @@
                                     @endforeach
                                 </ul>
 
-                                <div class="plan-select"><a href="">Select Plan</a></div>
+                                <div class="plan-select"><a href="{{ route('plan.subscribe',$price_plan->slug) }}">Select Plan</a></div>
 
                             </div>
                         @endforeach
@@ -109,7 +103,8 @@
                                             <p class="mb-0">How much is the page cost?</p>
                                         </div>
                                         <div>
-                                            <select class="rounded-1 form-control-sm select" id="pageCount" name="page_number" required>
+                                            <select class="rounded-1 form-control-sm select" id="pageCount"
+                                                name="page_number" required>
                                                 <option value="" disabled selected>Select any</option>
                                                 <option value="1">1 Page</option>
                                                 <option value="2">2 Pages</option>
@@ -126,7 +121,8 @@
                                             <p class="mb-0">Frontend used?</p>
                                         </div>
                                         <div>
-                                            <select class="rounded-1 form-control-sm select" id="technologySelect" name="frontend_technology" data-placeholder="Choose" required>
+                                            <select class="rounded-1 form-control-sm select" id="technologySelect"
+                                                name="frontend_technology" data-placeholder="Choose" required>
                                                 <option value="" disabled selected>Select any</option>
                                                 <option value="html">HTML</option>
                                                 <option value="css">CSS</option>
@@ -143,7 +139,8 @@
                                             <p class="mb-0">Database included?</p>
                                         </div>
                                         <div>
-                                            <select class="rounded-1 form-control-sm select" id="databaseSelect" name="database" required>
+                                            <select class="rounded-1 form-control-sm select" id="databaseSelect"
+                                                name="database" required>
                                                 <option value="" disabled selected>Select any</option>
                                                 <option value="yes">Yes</option>
                                                 <option value="no">No</option>
@@ -155,7 +152,8 @@
                                             <p class="mb-0">Content upload included?</p>
                                         </div>
                                         <div>
-                                            <select class="rounded-1 form-control-sm select" id="databaseSelect" name="content" required>
+                                            <select class="rounded-1 form-control-sm select" id="databaseSelect"
+                                                name="content" required>
                                                 <option value="" disabled selected>Select any</option>
                                                 <option value="yes">Yes</option>
                                                 <option value="no">No</option>
@@ -167,7 +165,8 @@
                                             <p class="mb-0">Months of maintenance?</p>
                                         </div>
                                         <div>
-                                            <select class="rounded-1 form-control-sm select" id="databaseSelect" name="maintenance_duration" required>
+                                            <select class="rounded-1 form-control-sm select" id="databaseSelect"
+                                                name="maintenance_duration" required>
                                                 <option value="" disabled selected>Select any</option>
                                                 <option value="yes">Yes</option>
                                                 <option value="no">No</option>
@@ -179,7 +178,8 @@
                                             <p class="mb-0">Is graphic design included?</p>
                                         </div>
                                         <div>
-                                            <select class="rounded-1 form-control-sm select" id="databaseSelect" name="graphic_design" required>
+                                            <select class="rounded-1 form-control-sm select" id="databaseSelect"
+                                                name="graphic_design" required>
                                                 <option value="" disabled selected>Select any</option>
                                                 <option value="yes">Yes</option>
                                                 <option value="no">No</option>
@@ -231,7 +231,7 @@
                                     @endforeach
                                 </ul>
 
-                                <div class="plan-select"><a href="">Select Plan</a></div>
+                                <div class="plan-select"><a href="{{ route('plan.subscribe',$lastprice_plan->slug) }}">Select Plan</a></div>
                             </div>
                         @endforeach
 

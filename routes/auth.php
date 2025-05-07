@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\Auth\PasswordController;
 use App\Http\Controllers\User\Auth\NewPasswordController;
@@ -57,4 +58,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
+
+    Route::get('plan/{slug}/subscribe', [FrontendController::class, 'planSubscribe'])
+        ->name('plan.subscribe');
+
 });
