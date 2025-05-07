@@ -22,14 +22,16 @@
             <!-- Tab navigation for categories -->
             <ul class="nav nav-tabs projects-tabs" id="myTab" role="tablist">
                 @foreach ($categorys as $index => $category)
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link {{ $index === 0 ? 'active' : '' }}" id="category-{{ $category->id }}-tab"
-                            data-bs-toggle="tab" href="#category-{{ $category->id }}" role="tab"
-                            aria-controls="category-{{ $category->id }}"
-                            aria-selected="{{ $index === 0 ? 'true' : 'false' }}">
-                            {{ $category->name }}
-                        </a>
-                    </li>
+                    @if ($category->projects)
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link {{ $index === 0 ? 'active' : '' }}" id="category-{{ $category->id }}-tab"
+                                data-bs-toggle="tab" href="#category-{{ $category->id }}" role="tab"
+                                aria-controls="category-{{ $category->id }}"
+                                aria-selected="{{ $index === 0 ? 'true' : 'false' }}">
+                                {{ $category->name }}
+                            </a>
+                        </li>
+                    @endif
                 @endforeach
             </ul>
 
@@ -119,7 +121,7 @@
             (function() {
                 var StackCards = function(element) {
                     this.element = element;
-                    this.items = this.element.getElementsByClassName("js-stack-cards__item");
+                    this.items = document.querySelector("js-stack-cards__item");
                     this.scrollingFn = false;
                     this.scrolling = false;
                     initStackCardsEffect(this);
