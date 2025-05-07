@@ -49,7 +49,7 @@
                 @foreach ($categorys as $index => $category)
                     @php $hasProjects = $category->projects->isNotEmpty(); @endphp
                     @if ($hasProjects)
-                        <div class="tab-pane fade {{ $index === 0 && $hasProjects ? 'show active' : '' }}"
+                        <div class="tab-pane fade {{ !$activeSet ? 'show active' : '' }}"
                             id="category-{{ $category->id }}" role="tabpanel"
                             aria-labelledby="category-{{ $category->id }}-tab">
                             <div class="mt-5 row">
