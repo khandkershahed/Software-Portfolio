@@ -30,10 +30,10 @@
                     @php $hasProjects = $category->projects->isNotEmpty(); @endphp
                     @if ($hasProjects)
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link {{ $index === 0 ? 'active' : '' }}" id="category-{{ $category->id }}-tab"
+                            <a class="nav-link {{ $index === 0 && $hasProjects  ? 'active' : '' }}" id="category-{{ $category->id }}-tab"
                                 data-bs-toggle="tab" href="#category-{{ $category->id }}" role="tab"
                                 aria-controls="category-{{ $category->id }}"
-                                aria-selected="{{ $index === 0 ? 'true' : 'false' }}">
+                                aria-selected="{{ $index === 0 && $hasProjects  ? 'true' : 'false' }}">
                                 {{ $category->name }}
                             </a>
                         </li>
@@ -46,7 +46,7 @@
                 @foreach ($categorys as $index => $category)
                     @php $hasProjects = $category->projects->isNotEmpty(); @endphp
                     @if ($hasProjects)
-                        <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}"
+                        <div class="tab-pane fade {{ $index === 0 && $hasProjects  ? 'show active' : '' }}"
                             id="category-{{ $category->id }}" role="tabpanel"
                             aria-labelledby="category-{{ $category->id }}-tab">
                             <div class="mt-5 row">
