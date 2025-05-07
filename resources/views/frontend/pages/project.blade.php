@@ -22,7 +22,7 @@
             <!-- Tab navigation for categories -->
             <ul class="nav nav-tabs projects-tabs" id="myTab" role="tablist">
                 @foreach ($categorys as $index => $category)
-                    @if ($category->projects)
+                    @if ($category->projects->count() > 0)
                         <li class="nav-item" role="presentation">
                             <a class="nav-link {{ $index === 0 ? 'active' : '' }}" id="category-{{ $category->id }}-tab"
                                 data-bs-toggle="tab" href="#category-{{ $category->id }}" role="tab"
