@@ -1,5 +1,10 @@
 <x-frontend-app-layout :title="'Project'">
     <!-- Contact Section Start -->
+    <style>
+        .site-text p {
+            color:#001624 !important;
+        }
+    </style>
     <section>
         <div class="px-0 container-fluid">
             <div class="row">
