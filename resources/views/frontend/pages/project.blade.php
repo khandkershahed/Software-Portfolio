@@ -61,7 +61,7 @@
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <h1 class="site-text">{{ $project->name }}</h1>
-                                                                <p class="site-text">
+                                                                <p class="site-text" style="text-align: justify;font-size:18px; color:#001624 !important;">
                                                                     {!! $project->row_one_description !!}
                                                                 </p>
                                                             </div>
