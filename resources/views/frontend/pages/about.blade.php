@@ -2,13 +2,13 @@
 
     <!-- Contact Section Start -->
     <section>
-        <div class="container-fluid px-0">
+        <div class="px-0 container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="contact-section">
                         <img src="{{ !empty($banner->image) && file_exists('storage/' . $banner->image) ? url('storage/' . $banner->image) : asset('images/about-banner.png') }}"
                                 alt="" />
-                        
+
                     </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
         <section class="about-section">
             <div class="container">
                 <div class="row">
-                    <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2">
+                    <div class="order-2 content-column col-lg-6 col-md-12 col-sm-12">
                         <div class="inner-column">
                             <div class="sec-title">
                                 <span class="title">{{ optional($about)->row_one_badge }}</span>
@@ -66,7 +66,7 @@
 
     <!-- Second Section Start -->
     @if (optional($about)->row_three_title)
-        <section class="my-5 pt-3">
+        <section class="pt-3 my-5">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">

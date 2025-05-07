@@ -223,37 +223,6 @@
             updateSelection();
         });
     </script>
-    <script>
-        $(".partners-carousel").slick({
-            speed: 5000, // Control the speed of continuous scrolling
-            autoplay: true, // Enable autoplay
-            autoplaySpeed: 0, // Make it seamless
-            cssEase: "linear", // Smooth linear animation
-            slidesToShow: 8, // Number of slides visible
-            slidesToScroll: 1, // Number of slides to scroll at once
-            infinite: true, // Enable infinite scrolling
-            swipeToSlide: true, // Allow swiping directly to a slide
-            centerMode: true, // Center the current slide
-            focusOnSelect: true, // Select slide on focus
-            pauseOnHover: false, // Prevent pausing on hover
-            pauseOnFocus: false, // Prevent pausing on focus
-            arrows: false, // Disable navigation arrows
-            draggable: true, // Enable dragging with mouse
-            responsive: [{
-                    breakpoint: 750,
-                    settings: {
-                        slidesToShow: 3, // Adjust slides for small screens
-                    },
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 2, // Adjust slides for very small screens
-                    },
-                },
-            ],
-        });
-    </script>
     @stack('scripts')
 
 </body>

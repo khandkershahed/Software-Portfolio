@@ -118,21 +118,65 @@ class FrontendController extends Controller
     }
 
     //projectDetails
+    // public function projectDetails($slug)
+    // {
+    //     $project = Project::where('slug', $slug)->firstOrFail();
+    //     $allprojects = Project::where('status', 'active')->where('id', '!=', $project->id)->latest()->get();
+
+
+    //     $galleryHomePages = ProjectGallery::where('status', 'active')->where('name', 'home_page')->where('project_id', $project->id)->get();
+    //     $galleryAdmins = ProjectGallery::where('status', 'active')->where('name', 'back_admin')->where('project_id', $project->id)->get();
+    //     $galleryAuthentications = ProjectGallery::where('status', 'active')->where('name', 'authentication')->where('project_id', $project->id)->get();
+
+    //     $company_clients = CompanyClient::where('status', 'active')->latest()->get();
+    //     $item = HomePage::latest('id')->first();
+
+    //     return view('frontend.pages.project_details', compact('project', 'company_clients', 'item', 'allprojects', 'galleryHomePages', 'galleryAuthentications', 'galleryAdmins'));
+    // }
     public function projectDetails($slug)
     {
         $project = Project::where('slug', $slug)->firstOrFail();
         $allprojects = Project::where('status', 'active')->where('id', '!=', $project->id)->latest()->get();
 
+        // Fetch and map all gallery types into one unified collection
+        $galleryItems = collect();
 
-        $galleryHomePages = ProjectGallery::where('status', 'active')->where('name', 'home_page')->where('project_id', $project->id)->get();
-        $galleryAdmins = ProjectGallery::where('status', 'active')->where('name', 'back_admin')->where('project_id', $project->id)->get();
-        $galleryAuthentications = ProjectGallery::where('status', 'active')->where('name', 'authentication')->where('project_id', $project->id)->get();
+        $homePages = ProjectGallery::where('status', 'active')->where('name', 'home_page')->where('project_id', $project->id)->get();
+        foreach ($homePages as $item) {
+            $galleryItems->push([
+                'image' => $item->image,
+                'type' => 'home-page',
+                'fancybox' => 'home-gallery',
+                'alt' => 'Home Page Image',
+            ]);
+        }
+
+        $authentications = ProjectGallery::where('status', 'active')->where('name', 'authentication')->where('project_id', $project->id)->get();
+        foreach ($authentications as $item) {
+            $galleryItems->push([
+                'image' => $item->image,
+                'type' => 'authentication',
+                'fancybox' => 'authentication-gallery',
+                'alt' => 'Authentication Image',
+            ]);
+        }
+
+        $admins = ProjectGallery::where('status', 'active')->where('name', 'back_admin')->where('project_id', $project->id)->get();
+        foreach ($admins as $item) {
+            $galleryItems->push([
+                'image' => $item->image,
+                'type' => 'back-office',
+                'fancybox' => 'admin-gallery',
+                'alt' => 'Back Office Image',
+            ]);
+        }
 
         $company_clients = CompanyClient::where('status', 'active')->latest()->get();
         $item = HomePage::latest('id')->first();
 
-        return view('frontend.pages.project_details', compact('project', 'company_clients', 'item', 'allprojects', 'galleryHomePages', 'galleryAuthentications', 'galleryAdmins'));
+        return view('frontend.pages.project_details', compact('project', 'company_clients', 'item', 'allprojects', 'galleryItems'));
     }
+
     //user Project Query
     public function userProjectQuery(Request $request)
     {

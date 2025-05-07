@@ -1,14 +1,170 @@
 <x-frontend-app-layout :title="'Project Details'">
     <style>
-        .nav-link {
-            color: rgb(0 0 0);
+        /* Apply horizontal spacing between slick slides */
+        .slick-slider .porject-img {
+            margin: 0 10px;
         }
 
-        .fancybox-button--close {
-            font-size: 30px;
-            background-color: #fff;
-            color: #ff0000;
-            right: 20px;
+        /* Adjust the outer container to account for negative margins */
+        .slick-slider .slick-list {
+            margin: 0 -10px;
+        }
+
+        /* Custom Button Styles */
+
+        .slick-prev-custom-related,
+        .slick-next-custom-related {
+            color: #03263e;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border: 2px solid #03263e;
+            transition: background-color 0.3s ease;
+        }
+
+        .slick-prev-custom-related:hover,
+        .slick-next-custom-related:hover {
+            background-color: #03263e;
+            color: white
+        }
+
+        /* Positioning the buttons */
+        .slick-prev-custom-related {
+            position: absolute;
+            border-radius: 100%;
+            height: 50px;
+            width: 50px;
+            left: 10px;
+            top: 60%;
+            transform: translateY(-50%);
+        }
+
+        .slick-next-custom-related {
+            position: absolute;
+            border-radius: 100%;
+            height: 50px;
+            width: 50px;
+            right: 10px;
+            top: 60%;
+            transform: translateY(-50%);
+        }
+
+        .slick-prev-custom,
+        .slick-next-custom {
+            color: #03263e;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border: 2px solid #03263e;
+            transition: background-color 0.3s ease;
+        }
+
+        .slick-prev-custom:hover,
+        .slick-next-custom:hover {
+            background-color: #03263e;
+            color: white
+        }
+
+        /* Positioning the buttons */
+        .slick-prev-custom {
+            position: absolute;
+            border-radius: 100%;
+            height: 50px;
+            width: 50px;
+            left: 10px;
+            top: 60%;
+            transform: translateY(-50%);
+        }
+
+        .slick-next-custom {
+            position: absolute;
+            border-radius: 100%;
+            height: 50px;
+            width: 50px;
+            right: 10px;
+            top: 60%;
+            transform: translateY(-50%);
+        }
+
+        .gallery-img-nav {
+            position: absolute;
+            right: 122px;
+        }
+
+        .img-one {
+            margin-bottom: 5px;
+        }
+
+        .img-two {
+            margin-bottom: 5px;
+            position: relative;
+            top: -90px;
+            left: 75px;
+        }
+
+        .img-three {
+            margin-bottom: 5px;
+            position: relative;
+            top: -180px;
+            left: 140px;
+        }
+
+        .img-one,
+        .img-two,
+        .img-three,
+        .img-four {
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            transition: transform 0.3s ease, z-index 0.3s ease;
+        }
+
+        /* On hover: bring to front and zoom */
+        .img-one:hover,
+        .img-two:hover,
+        .img-three:hover,
+        .img-four:hover {
+            z-index: 10;
+            transform: scale(1.05);
+        }
+
+
+
+        .releted-img-box {
+            height: 400px;
+            padding: 10px
+        }
+
+        .slick-slider-related .slick-list {
+            margin: 0 -20px;
+        }
+
+        .slick-slider-related .releted-items {
+            margin: 0 10px;
+        }
+
+        .porject-img {
+            height: 585px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .porject-img img {
+            border: 4px solid #03263e;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease, z-index 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .porject-img:hover img {
+            transform: scale(1.05);
+            z-index: 10;
         }
     </style>
     <!-- Banner Section Start -->
@@ -17,9 +173,9 @@
         <div class="banner banner3"
             style="background-image: url('{{ !empty($project->row_one_image) ? url('storage/' . $project->row_one_image) : '' }}');">
             <div class="container project-banner-container">
-                <div class="row gx-5 align-items-center mt-lg-1 mt-5 pt-lg-1 pt-5">
+                <div class="pt-5 mt-5 row gx-5 align-items-center mt-lg-1 pt-lg-1">
                     <div class="col-lg-8 col-12">
-                        <div class="slide__content--headings text-left mb-5 mb-lg-1">
+                        <div class="mb-5 text-left slide__content--headings mb-lg-1">
                             <div class="">
                                 <h2 class="animated top-title" data-animation-in="fadeInLeft" data-delay-in="0.2"
                                     style="font-size:26px; color:#03263e;">
@@ -29,12 +185,12 @@
                                     style="font-size:2.2rem;line-height:1.1; color:#03263e;">
                                     {{ $project->row_one_title }}
                                 </h4>
-                                <h6 class="animated top-title pt-4 pe-lg-5"
+                                <h6 class="pt-4 animated top-title pe-lg-5"
                                     style="text-align: justify;font-size:18px; color:#03263e;">
                                     {!! $project->row_one_description !!}
                                 </h6>
                             </div>
-                            <div class="d-flex align-items-center pt-5">
+                            <div class="pt-5 d-flex align-items-center">
                                 <div class="pe-5">
                                     <a href="{{ $project->row_one_button_link }}" class="btn-common-two animated"
                                         data-animation-in="fadeInUp">
@@ -70,27 +226,51 @@
                     </div>
 
                     <div class="col-lg-4 col-12">
-                        <div class="slide__content--headings text-left projects-menus">
+                        <div class="text-left slide__content--headings projects-menus">
 
-                            <h3 class="animated text-center site-text fw-bold" data-animation-in="fadeInLeft"
+                            <h3 class="text-center animated site-text fw-bold" data-animation-in="fadeInLeft"
                                 data-delay-in="0.2">
-                                Others Releted Projects
+                                Project Features
                             </h3>
 
-                            <div class="row justify-content-between align-items-center pt-3">
+                            <div class="pt-3 row justify-content-between align-items-center">
 
-                                @foreach ($allprojects as $allproject)
+                                {{-- @foreach ($allprojects as $allproject)
                                     <div class="col-lg-12">
                                         <a href="{{ route('projects.details', $allproject->slug) }}" class="">
-                                            <h4 class="animated mb-3 p-3 sub-title text-center site-text"
+                                            <h4 class="p-3 mb-3 text-center animated sub-title site-text"
                                                 data-animation-in="fadeInLeft">
                                                 {{ $allproject->name }}
                                             </h4>
                                         </a>
                                     </div>
-                                @endforeach
-
-
+                                @endforeach --}}
+                                <div class="col-lg-12">
+                                    <h5 class="p-3 mb-3 text-start animated sub-title site-text"
+                                        data-animation-in="fadeInLeft">
+                                        📱Mobile Ready
+                                    </h5>
+                                    <h5 class="p-3 mb-3 text-start animated sub-title site-text"
+                                        data-animation-in="fadeInLeft">
+                                        ⚡Blazing Fast Site
+                                    </h5>
+                                    <h5 class="p-3 mb-3 text-start animated sub-title site-text"
+                                        data-animation-in="fadeInLeft">
+                                        🔍SEO Optimized
+                                    </h5>
+                                    <h5 class="p-3 mb-3 text-start animated sub-title site-text"
+                                        data-animation-in="fadeInLeft">
+                                        🖥️Secure & Ready To Use
+                                    </h5>
+                                    <h5 class="p-3 mb-3 text-start animated sub-title site-text"
+                                        data-animation-in="fadeInLeft">
+                                        🌐Clean Code & Structured
+                                    </h5>
+                                    <h5 class="p-3 mb-3 text-start animated sub-title site-text"
+                                        data-animation-in="fadeInLeft">
+                                        ♿Accessibility Ready
+                                    </h5>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -121,11 +301,11 @@
 
     {{-- Row Two Section  --}}
     <section class="py-5 pt-0">
-        <div class="container py-5 pt-0">
-            <div class="row align-items-center">
+        <div class="container py-5 pt-0 pb-0">
+            <div class="mt-5 row align-items-center">
                 <div class="col-lg-6">
                     <div>
-                        <img class="img-fluid"
+                        <img class="rounded-3 img-fluid"
                             src="{{ !empty($project->row_two_image) ? url('storage/' . $project->row_two_image) : '' }}"
                             alt="" />
                     </div>
@@ -133,8 +313,6 @@
                         <strong>{{ $project->row_two_image_title }}</strong>
                         <br />
                         {!! $project->row_two_image_description !!} <br />
-                        {{-- <strong>Explore now:</strong> --}}
-                        {{-- <a href="https://www.discountzshop.com/" class="text-primary"></a> --}}
 
                     </p>
                 </div>
@@ -146,7 +324,7 @@
                             alt="" />
                     </div>
 
-                    <div class="d-flex align-items-center pt-4">
+                    <div class="pt-4 d-flex align-items-center">
                         <h6 class="mb-0">Used Platform:</h6>
 
                         <div class="ps-2">
@@ -158,7 +336,7 @@
                             {{-- @dd($platforms) --}}
                             @if (!empty($platforms) && is_array($platforms))
                                 @foreach ($platforms as $id => $platform)
-                                    <span class="badge p-badge rounded-pill text-black">
+                                    <span class="text-black badge p-badge rounded-pill">
                                         {{ $platform['value'] }}
                                         @if (!$loop->last)
                                             ,
@@ -170,8 +348,8 @@
 
                     </div>
 
-                    <div class="d-flex align-items-center pt-4">
-                        <h1 class="design-title text-black">{{ $project->row_two_title }}</h1>
+                    <div class="pt-4 d-flex align-items-center">
+                        <h1 class="text-black design-title">{{ $project->row_two_title }}</h1>
                         <span class="line ms-2"></span>
                     </div>
 
@@ -180,7 +358,7 @@
                         {!! $project->row_two_description !!}
                     </p>
 
-                    <div class="text-start pt-3">
+                    <div class="pt-3 text-start">
 
                         @if (!empty($technologys) && is_array($technologys))
                             <h6 class="mb-2">
@@ -209,8 +387,10 @@
                             </h6>
                         @endif
                     </div>
-                    <hr />
-                    <div class="pb-3">
+                    <div class="py-3 d-flex align-items-center">
+                        <span class="line "></span>
+                    </div>
+                    <div class="">
 
                         <h6 class="mb-2">
                             Project Duration: <strong>{{ $project->duration }}</strong>
@@ -221,14 +401,6 @@
                             <a href="javascript:;"><strong class="text-black" data-bs-toggle="tooltip"
                                     data-bs-placement="top" title="See Our Legends">{{ $project->team }}</strong></a>
                         </h6>
-
-                    </div>
-
-                    <div class="">
-                        <a href="{{ $project->row_two_button_link }}" class="btn-common-three animated mt-3"
-                            data-animation-in="fadeInUp">
-                            {{ $project->row_two_button_name }}
-                        </a>
                     </div>
 
                 </div>
@@ -253,9 +425,9 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="text-center pt-3 ps-5">
-                        <a href="" style="border-bottom: 1px solid #fff" class="explore-now-btn"
-                            data-animation-in="fadeInUp">
+                    <div class="pt-3 text-center ps-5">
+                        <a href="{{ route('pricing') }}" style="border-bottom: 1px solid #fff;"
+                            class="explore-now-btn" data-animation-in="fadeInUp">
                             Our General Pricing
                         </a>
                     </div>
@@ -271,8 +443,8 @@
             <div class="row">
                 <div class="col-xs-12 text-start ps-lg-0 ps-2">
                     <div class="section__title" id="gallerySection">
-                        <div class="d-flex align-items-center pt-4">
-                            <h1 class="design-title text-black">{{ $project->gallery_title }}</h1>
+                        <div class="pt-4 d-flex align-items-center">
+                            <h1 class="text-black design-title">{{ $project->gallery_title }}</h1>
                             <span class="line ms-2"></span>
                         </div>
                         <p class="py-3">{!! $project->gallery_description !!}</p>
@@ -281,96 +453,56 @@
             </div>
 
             <div class="row gallery-box-area">
-                <div class="col-lg-2 px-0 gallery-box-sidebar">
-                    <div class="portfolio__filter filter__home p-0">
-                        <button class="filter-button" data-filter="all" data-text="All Site Images">
-                            All Pages
-                        </button>
-                        <button class="filter-button" data-filter="home-page" data-text="Home Page">
-                            Home Page
-                        </button>
-                        {{-- <button class="filter-button" data-filter="astel-page" data-text="Astel Page">
-                            Astell Page
-                        </button> --}}
-                        <button class="filter-button" data-filter="authentication" data-text="Authentication">
-                            Authentication
-                        </button>
-                        <button class="filter-button" data-filter="back-office" data-text="Admin Pages">
-                            Back Admin
-                        </button>
+                <div class="px-0 col-lg-12">
+                    <div class="mb-3 d-flex">
+                        <button class="tab-button active" data-target="all">All Pages</button>
+                        <button class="tab-button" data-target="slider">Gallery</button>
                     </div>
                 </div>
 
-                <div class="col-lg-10 px-0">
-                    <div class="d-flex justify-content-between align-items-center bg-light mb-2">
-                        <h5 class="py-3 ps-4 text-center mb-0" id="dynamic-title">
-                            All Pages
-                        </h5>
-                        {{-- <h5 class="py-3 pe-4 text-center mb-0">
-                            <i class="fa-regular fa-clock"></i> 25-11-2024
-                        </h5> --}}
-                    </div>
-
-                    <div class="portfolio__img row ps-4">
-                        <!-- Home Page Start -->
-                        @foreach ($galleryHomePages as $galleryHomePage)
-                            <div class="col-lg-3 col-md-3 px-1">
-                                <div class="filter p0 mb-2 home-page">
-                                    <a href="{{ !empty($galleryHomePage->image) ? url('storage/' . $galleryHomePage->image) : '' }}"
-                                        data-fancybox="home-gallery">
-                                        <img src="{{ !empty($galleryHomePage->image) ? url('storage/' . $galleryHomePage->image) : '' }}"
-                                            alt="Home Page Image" />
-                                    </a>
+                <div class="ps-0 col-lg-12">
+                    <!-- All Pages Tab -->
+                    <div class="tab-content" id="all">
+                        <div class="portfolio__img row gx-2">
+                            @foreach ($galleryItems as $item)
+                                <div class="col-lg-3 col-md-3">
+                                    <div class="mb-2">
+                                        <img class="h-auto w-100" style="object-fit: contain"
+                                            src="{{ !empty($item['image']) ? url('storage/' . $item['image']) : '' }}"
+                                            alt="{{ $item['alt'] }}" />
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
-                        <!-- Home Page End -->
-
-                        <!-- Astel Pages Start -->
-                        {{--
-                        <div class="col-lg-3 col-md-3 px-1">
-                            <div class="filter p0 mb-2 astel-page">
-                                <a href="./assets/images/New folder/Pages/astel-Home-hero.png" data-fancybox="astel-gallery">
-                                    <img src="./assets/images/New folder/Pages/astel-Home-hero.png" alt="Astel Page Image" />
-                                </a>
-                            </div>
+                            @endforeach
                         </div>
-                        --}}
-                        <!-- Astel Pages End -->
-
-                        <!-- Authentication Start -->
-                        @foreach ($galleryAuthentications as $galleryAuthentication)
-                            <div class="col-lg-3 col-md-3 px-1">
-                                <div class="filter p0 mb-2 authentication">
-                                    <a href="{{ !empty($galleryAuthentication->image) ? url('storage/' . $galleryAuthentication->image) : '' }}"
-                                        data-fancybox="authentication-gallery">
-                                        <img src="{{ !empty($galleryAuthentication->image) ? url('storage/' . $galleryAuthentication->image) : '' }}"
-                                            alt="Authentication Image" />
-                                    </a>
+                    </div>
+                    <!-- Slider Tab -->
+                    <div class="tab-content d-none ps-3" id="slider">
+                        <div class="text-center slick-slider">
+                            @foreach ($galleryItems as $item)
+                                <div class="slick-slide">
+                                    <div class="p-0 card porject-img">
+                                        <div class="p-0 card-body">
+                                            <img src="{{ !empty($item['image']) ? url('storage/' . $item['image']) : '' }}"
+                                                alt="{{ $item['alt'] }}" class="img-fluid" />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
-                        <!-- Authentication End -->
+                            @endforeach
+                        </div>
 
-                        <!-- Admin Gallery Start -->
-                        @foreach ($galleryAdmins as $galleryAdmin)
-                            <div class="col-lg-3 col-md-3 px-1">
-                                <div class="filter p0 mb-2 back-office">
-                                    <a href="{{ !empty($galleryAdmin->image) ? url('storage/' . $galleryAdmin->image) : '' }}"
-                                        data-fancybox="admin-gallery">
-                                        <img src="{{ !empty($galleryAdmin->image) ? url('storage/' . $galleryAdmin->image) : '' }}"
-                                            alt="Back Office Image" />
-                                    </a>
-                                </div>
-                            </div>
-                        @endforeach
-                        <!-- Admin Gallery End -->
+                        <!-- Custom Navigation Buttons -->
+                        <div class="">
+                            <button class="slick-prev-custom">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="slick-next-custom">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
                     </div>
 
                 </div>
-
             </div>
-
         </div>
     </section>
 
@@ -382,16 +514,24 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="text-white">
-                        <p class="build-badge">{{ $project->row_four_badge }}</p>
+                        {{-- <p class="build-badge">{{ $project->row_four_badge }}</p> --}}
+                        <p class="build-badge">About Project</p>
                         <h1 class="pt-4">{{ $project->row_four_title }}</h1>
                         <p class="pt-4">
                             {!! $project->row_four_description !!}
                         </p>
+                        <div class="mb-3">
+                            <a href="{{ $project->row_two_button_link }}" class=""
+                                style="border-bottom: 1px solid white; position: absolute;right: 66%;margin-top: -40px;"
+                                data-animation-in="fadeInUp">
+                                {{ $project->row_two_button_name }}
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="text-end">
-                        <a href="javascript:void(0)" class="explore-now-btn mt-5" onclick="toggleForm()"
+                        <a href="javascript:void(0)" class="mt-5 explore-now-btn" onclick="toggleForm()"
                             style="border-bottom: 1px solid #fff" id="toggleFormBtn" data-animation-in="fadeInUp">
                             I Want This {{ $project->name }}
                         </a>
@@ -408,13 +548,13 @@
                                 <div class="col-lg-8">
                                     <div class="row">
                                         <div class="mb-3 col-lg-6">
-                                            <label for="exampleFormControlInput1" class="form-label text-white">Name
+                                            <label for="exampleFormControlInput1" class="text-white form-label">Name
                                                 <span class="text-danger">*</span></label>
                                             <input type="text" name="name" class="form-control"
                                                 id="exampleFormControlInput1" placeholder="Jonson Hebit" required />
                                         </div>
                                         <div class="mb-3 col-lg-6">
-                                            <label for="exampleFormControlInput1" class="form-label text-white">Email
+                                            <label for="exampleFormControlInput1" class="text-white form-label">Email
                                                 <span class="text-danger">*</span></label>
                                             <input type="email" name="email" class="form-control"
                                                 id="exampleFormControlInput1" placeholder="Jonson@example.com"
@@ -422,16 +562,16 @@
                                         </div>
                                         <div class="mb-3 col-lg-6">
                                             <label for="exampleFormControlInput1"
-                                                class="form-label text-white">Phone</label>
+                                                class="text-white form-label">Phone</label>
                                             <input type="text" name="phone" class="form-control"
                                                 id="exampleFormControlInput1" placeholder="+880 1585864658" />
                                         </div>
                                         <div class="mb-3 col-lg-6">
-                                            <label for="exampleFormControlInput1" class="form-label text-white">Your
+                                            <label for="exampleFormControlInput1" class="text-white form-label">Your
                                                 Message <span class="text-danger">*</span></label>
                                             <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3" required></textarea>
                                         </div>
-                                        <div class="mb-3 pt-3 col-lg-12">
+                                        <div class="pt-3 mb-3 col-lg-12">
                                             <div class="checkbox-wrapper-want-this">
 
                                                 <input class="inp-cbx" value="1" name="complete_template"
@@ -449,7 +589,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
-                                            <button type="submit" class="btn-common-two w-100 mt-4">
+                                            <button type="submit" class="mt-4 btn-common-two w-100">
                                                 Send This Request
                                             </button>
                                         </div>
@@ -466,13 +606,13 @@
     <!-- Row Four -->
 
     {{-- Row Five  --}}
-    <section style="background-color: #eee">
-        <div class="container-fluid py-5">
+    {{-- <section style="background-color: #eee">
+        <div class="py-5 container-fluid">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
                         <div class="d-flex align-items-center">
-                            <h1 class="design-title text-black">{{ $project->row_five_title }}</h1>
+                            <h1 class="text-black design-title">{{ $project->row_five_title }}</h1>
                             <span class="line ms-2"></span>
                         </div>
                     </div>
@@ -486,8 +626,79 @@
                 </div>
             </div>
         </div>
+    </section> --}}
+    {{-- Row Five --}}
+    <section style="background-color: #eee">
+        <div class="container py-5">
+            <div class="py-4 d-flex align-items-center">
+                <h1 class="text-black design-title">Our Others Project</h1>
+                <span class="line ms-2"></span>
+            </div>
+            <div class="text-center slick-slider-related">
+                <div class="slick-slide">
+                    <div class="row justify-content-center align-items-center g-2">
+                        <div class="col-12">
+                            <div class="border row align-items-center releted-items">
+                                <div class="px-0 col-lg-3 releted-img-box ps-3">
+                                    <div class="img-one">
+                                        <img src="http://127.0.0.1:8000/storage/project/row_two_image/r3wk3q3dFk1739680053.jpg"
+                                            class="img-fluid rounded-3" alt="">
+                                    </div>
+                                    <div class="img-two">
+                                        <img src="https://elements-resized.envatousercontent.com/elements-cover-images/6a24307b-4afd-47f9-8a2c-9f77f5ac0072?w=433&cf_fit=scale-down&q=85&format=auto&s=e3ae27548eac2c15bc250dbeecd63d3e8b34acd26642b9fd97c04d8a868817aa"
+                                            class="img-fluid rounded-3" alt="">
+                                    </div>
+                                    <div class="img-three">
+                                        <img src="https://img.freepik.com/free-vector/realistic-glassmorphism-mobile-app-template_23-2149441713.jpg"
+                                            class="img-fluid rounded-3" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="row">
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-lg-8">
+                                            <div class="">
+                                                <img class="img-fluid" width="200"
+                                                    src="http://127.0.0.1:8000/storage/project/logo/75deAxaUdu1739303934.png"
+                                                    alt="">
+                                            </div>
+                                            <div class="pt-3">
+                                                <h3 class="text-start animated site-text fw-bold"
+                                                    data-animation-in="fadeInLeft" data-delay-in="0.2">
+                                                    Tech Focus
+                                                </h3>
+                                                <p class="text-start">Tech Focus, developed by NGen IT that offers
+                                                    a
+                                                    comprehensive product search experience, enabling buyers to
+                                                    connect
+                                                    with top manufacturers across
+                                                    six key industrial sectors.</p>
+                                            </div>
+                                            <div class="pt-3 text-start">
+                                                <a href="#" class=" btn-common-three animated"
+                                                    data-animation-in="fadeInUp">
+                                                    View <i class="fas fa-arrow-right-long ps-2"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Custom Navigation Buttons -->
+            <div class="">
+                <button class="slick-prev-custom-related ">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slick-next-custom-related ">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
     </section>
-    {{-- Row Five  --}}
 
     @include('frontend.pages.client')
     <!-- Partner Section End -->
@@ -505,107 +716,19 @@
             });
         </script>
         <script>
-            $("[data-fancybox='home-gallery'], [data-fancybox='authentication-gallery'], [data-fancybox='admin-gallery']")
-                .fancybox({
-                    loop: true, // Enable looping through images
-                    buttons: ["zoom", "slideShow", "thumbs", "close"], // Add zoom, slideshow, thumbnails, and close button
-                    transitionEffect: "fade", // Fade transition effect
-                    caption: function(instance, item) {
-                        return $(this).find('img').attr('alt'); // Display the alt text as the caption
-                    }
-                });
-        </script>
-        <script>
-            // 1. querySelector
-            var containerEl = document.querySelector("ul.container");
-            var mixer = mixitup(containerEl, {
-                animation: {
-                    effects: "fade translateZ(-100px)",
-                    effectsIn: "fade translateY(-100%)",
-                    easing: "cubic-bezier(0.645, 0.045, 0.355, 1)",
-                },
-            });
-
-            // fancybox insilaze & options //
-            $("[data-fancybox]").fancybox({
-                /* "TRICK" selector - group only visible items */
-                selector: ".mix:visible a",
-                loop: true,
-                hash: true,
-                transitionEffect: "slide",
-                /* zoom VS next */
-                clickContent: function(current, event) {
-                    return current.type === "image" ? "next" : false;
-                },
-                // Customize buttons
-                buttons: [
-                    "zoom", // Enables the zoom button (if you want it)
-                    "slideShow", // Optional: Adds a slideshow button
-                    "thumbs", // Optional: Adds thumbnail navigation
-                    "close", // Adds the close (cross) button
-                    "share", // Optional: Adds share button
-                    "fullScreen", // Optional: Adds fullscreen button
-                    "download" // Optional: Adds a download button
-                ],
-                // Optional: Customize the close button style (e.g., positioning)
-                closeClickOutside: true // Close when clicking outside the modal
-            });
-        </script>
-
-        <script>
             $(document).ready(function() {
-                // Initially show only the first 4 items and set "all" as active
-                $(".filter").hide(); // Hide all items initially
-                $(".filter").show(); // Show only the first 4 items
-                $(".filter-button[data-filter='all']").addClass("active");
+                $('.tab-button').on('click', function() {
+                    const target = $(this).data('target');
 
-                $(".filter-button").click(function() {
-                    var value = $(this).attr("data-filter");
+                    // Toggle active button
+                    $('.tab-button').removeClass('active');
+                    $(this).addClass('active');
 
-                    if (value === "all") {
-                        // Show only the first 4 items for "all"
-                        $(".filter").hide("1000");
-                        $(".filter").show("1000");
-                    } else {
-                        // Show items matching the selected filter
-                        $(".filter")
-                            .not("." + value)
-                            .hide("3000");
-                        $(".filter")
-                            .filter("." + value)
-                            .show("3000");
-                    }
-
-                    // Update active button class
-                    $(".filter-button").removeClass("active");
-                    $(this).addClass("active");
+                    // Show selected tab and hide others
+                    $('.tab-content').addClass('d-none');
+                    $('#' + target).removeClass('d-none');
                 });
             });
-            document.addEventListener("DOMContentLoaded", function() {
-                const buttons = document.querySelectorAll(".filter-button");
-                const dynamicTitle = document.getElementById("dynamic-title");
-
-                buttons.forEach((button) => {
-                    button.addEventListener("click", function() {
-                        const newText = button.getAttribute("data-text");
-                        dynamicTitle.textContent = newText;
-                    });
-                });
-            });
-        </script>
-
-        <script>
-            $(document).ready(function() {
-                $(".carousel").slick({
-                    slidesToShow: 3,
-                    margin: 10,
-                    gap: 10,
-                    dots: true,
-                    centerMode: true,
-                });
-            });
-
-            // Slick version 1.5.8
         </script>
         <script>
             $(document).ready(function() {
@@ -614,49 +737,59 @@
                 });
             });
         </script>
+        <script>
+            $(document).ready(function() {
+                // Initialize slick slider
+                const $slider = $('.slick-slider');
 
-        {{-- <script>
-            $(".partners-carousel").slick({
-                speed: 5000, // Control the speed of continuous scrolling
-                autoplay: true, // Enable autoplay
-                autoplaySpeed: 0, // Make it seamless
-                cssEase: "linear", // Smooth linear animation
-                slidesToShow: 8, // Number of slides visible
-                slidesToScroll: 1, // Number of slides to scroll at once
-                infinite: true, // Enable infinite scrolling
-                swipeToSlide: true, // Allow swiping directly to a slide
-                centerMode: true, // Center the current slide
-                focusOnSelect: true, // Select slide on focus
-                pauseOnHover: false, // Prevent pausing on hover
-                pauseOnFocus: false, // Prevent pausing on focus
-                arrows: false, // Disable navigation arrows
-                draggable: true, // Enable dragging with mouse
-                responsive: [{
-                        breakpoint: 750,
-                        settings: {
-                            slidesToShow: 3, // Adjust slides for small screens
-                        },
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 2, // Adjust slides for very small screens
-                        },
-                    },
-                ],
-            });
-        </script> --}}
+                if (!$slider.hasClass('slick-initialized')) {
+                    $slider.slick({
+                        centerMode: true,
+                        centerPadding: '60px',
+                        slidesToShow: 1,
+                        arrows: false, // Disable default arrows
+                        dots: true,
+                        autoplay: true, // Enable autoplay
+                        autoplaySpeed: 2000, // 2 seconds per slide
+                    });
+                }
 
-        <!-- JavaScript (Bootstrap) -->
-        {{-- <script>
-            // Initialize tooltips
-            var tooltipTriggerList = [].slice.call(
-                document.querySelectorAll('[data-bs-toggle="tooltip"]')
-            );
-            tooltipTriggerList.forEach(function(tooltipTriggerEl) {
-                new bootstrap.Tooltip(tooltipTriggerEl);
+                // Custom "Previous" button functionality
+                $(document).on('click', '.slick-prev-custom', function() {
+                    $slider.slick('slickPrev');
+                });
+
+                $(document).on('click', '.slick-next-custom', function() {
+                    $slider.slick('slickNext');
+                });
             });
-        </script> --}}
+        </script>
+        <script>
+            $(document).ready(function() {
+                // Initialize slick slider
+                const $slider = $('.slick-slider-related');
+
+                if (!$slider.hasClass('slick-initialized')) {
+                    $slider.slick({
+                        centerMode: true,
+                        slidesToShow: 1,
+                        arrows: false, // Disable default arrows
+                        dots: true,
+                        autoplay: true, // Enable autoplay
+                        autoplaySpeed: 2000, // 2 seconds per slide
+                    });
+                }
+
+                // Custom "Previous" button functionality
+                $(document).on('click', '.slick-prev-custom-related', function() {
+                    $slider.slick('slickPrev');
+                });
+
+                $(document).on('click', '.slick-next-custom-related', function() {
+                    $slider.slick('slickNext');
+                });
+            });
+        </script>
     @endpush
 
 </x-frontend-app-layout>

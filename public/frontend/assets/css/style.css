@@ -2175,7 +2175,7 @@ a.btn-mod {
 }
 .portfolio__img img {
     width: 100%;
-    height: 480px;
+    /* height: 480px; */
     object-fit: cover;
     padding: 6px;
     border: 1px solid #eeee;
@@ -2463,7 +2463,7 @@ a.btn-mod {
 }
 
 .portfolio__img {
-    height: 488px;
+    /* height: 488px; */
     overflow: auto;
     width: 100%;
     margin: auto;
@@ -2478,10 +2478,76 @@ a.btn-mod {
     margin-top: -12px;
 }
 
+.tab-button {
+    padding: 5px 25px;
+}
+.sticky-col {
+    position: sticky;
+    top: 20px; /* adjust spacing from top */
+    align-self: flex-start; /* optional, helps in flex environments */
+}
+.scroll-container {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+.custom-image-card {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    border-radius: 0.5rem;
+    width: 100%; /* Ensure full width */
+}
+
+.custom-image-wrapper {
+    position: relative;
+    display: block;
+    width: 100%; /* Ensure wrapper spans full width */
+}
+
+.custom-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+    border-radius: 0.5rem;
+    object-fit: cover;
+}
+
+.custom-image-wrapper:hover .custom-image {
+    transform: scale(1.05);
+}
+
+.custom-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0.4rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none; /* Prevent accidental click outside the link */
+}
+
+.custom-image-wrapper:hover .custom-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.tab-button.active {
+    background-color: #333;
+    color: #fff;
+    border: 0;
+    padding: 5px 25px;
+}
 .gallery-box-area {
-    border-right: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     border-radius: 5px !important;
 }
 .gallery-box-sidebar {
@@ -3106,12 +3172,56 @@ a.btn-mod {
 }
 @media only screen and (max-width: 1000px) {
     .banner__slider {
-      margin-top: -75px;
+        margin-top: -75px;
     }
-  }
+}
 
-  @media only screen and (min-width: 1001px) {
+@media only screen and (min-width: 1001px) {
     .banner__slider {
-      margin-top: 0px;
+        margin-top: 0px;
     }
-  }
+}
+:root {
+    --stack-cards-gap: 40px;
+    --space-sm: 40px;
+}
+/* .intro {
+    height: 100vh;
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+} */
+
+.section-stack {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+
+.stack-cards {
+    --stack-cards-gap: 40px;
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.stack-cards__item {
+    position: sticky;
+    top: var(--space-sm);
+    transform-origin: center top;
+    background: #efefef;
+    width: 100%;
+    height: 400px;
+    border: 1px solid lightgrey;
+    border-radius: 1.5rem;
+    padding: 1.5rem 2rem;
+    margin: 0 0 2em 0;
+    transition: transform 0.3s ease;
+}

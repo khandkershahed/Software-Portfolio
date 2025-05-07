@@ -232,16 +232,3 @@ var mixer = mixitup(containerEl, {
   },
 });
 
-// fancybox insilaze & options //
-$("[data-fancybox]").fancybox({
-  /* "TRICK" selector - group only visible items */
-  selector: ".mix:visible a",
-  loop: true,
-  hash: true,
-  transitionEffect: "slide",
-  /* zoom VS next////////////////////
-  clickContent - i modify the deafult - now when you click on the image you go to the next image - i more like this approach than zoom on desktop (This idea was in the classic/first lightbox) */
-  clickContent: function (current, event) {
-    return current.type === "image" ? "next" : false;
-  },
-});
