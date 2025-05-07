@@ -8,7 +8,7 @@
     <section>
         <div class="px-0 container-fluid">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12">fr
                     <div class="contact-section">
                         <div class="d-flex">
                             <img class="w-100 img-fluid"
@@ -26,27 +26,31 @@
         <div class="container my-5 mb-0">
             <!-- Tab navigation for categorys -->
             <ul class="nav nav-tabs projects-tabs" id="myTab" role="tablist">
-                @foreach ($categorys as $index => $category)
+                @php $activeSet = false; @endphp
+                @foreach ($categorys as $category)
                     @php $hasProjects = $category->projects->isNotEmpty(); @endphp
                     @if ($hasProjects)
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link {{ $index === 0 ? 'active' : '' }}" id="category-{{ $category->id }}-tab"
+                            <a class="nav-link {{ !$activeSet ? 'active' : '' }}" id="category-{{ $category->id }}-tab"
                                 data-bs-toggle="tab" href="#category-{{ $category->id }}" role="tab"
                                 aria-controls="category-{{ $category->id }}"
-                                aria-selected="{{ $index === 0 ? 'true' : 'false' }}">
+                                aria-selected="{{ !$activeSet ? 'true' : 'false' }}">
                                 {{ $category->name }}
                             </a>
                         </li>
+                        @php $activeSet = true; @endphp
                     @endif
                 @endforeach
+
             </ul>
 
             <!-- Tab content for each category -->
             <div class="tab-content" id="myTabContent">
+                @php $tabactiveSet = false; @endphp
                 @foreach ($categorys as $index => $category)
                     @php $hasProjects = $category->projects->isNotEmpty(); @endphp
                     @if ($hasProjects)
-                        <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}"
+                        <div class="tab-pane fade {{ !$tabactiveSet ? 'show active' : '' }}"
                             id="category-{{ $category->id }}" role="tabpanel"
                             aria-labelledby="category-{{ $category->id }}-tab">
                             <div class="mt-5 row">
@@ -81,6 +85,7 @@
                                 @endforeach
                             </div>
                         </div>
+                        @php $tabactiveSet = true; @endphp
                     @endif
                 @endforeach
             </div>
@@ -88,8 +93,11 @@
         </div>
     </section>
 
+<<<<<<< HEAD
     {{-- Project Section End --}}
 
+=======
+>>>>>>> 09775f2f1867c93dce3d3a0b8efd2ab20fc57761
     @include('frontend.pages.partner')
 
     @include('frontend.pages.client')
@@ -97,6 +105,159 @@
 
     @push('scripts')
         <script>
+<<<<<<< HEAD
+=======
+            (function() {
+                var StackCards = function(element) {
+                    this.element = element;
+                    this.items = this.element.querySelectorAll(".js-stack-cards__item");
+                    this.scrollingFn = false;
+                    this.scrolling = false;
+                    if (this.items.length === 0) return;
+                    initStackCardsEffect(this);
+                    initStackCardsResize(this);
+                };
+
+                function initStackCardsEffect(element) {
+                    setStackCards(element);
+                    var observer = new IntersectionObserver(stackCardsCallback.bind(element), {
+                        threshold: [0, 1],
+                    });
+                    observer.observe(element.element);
+                }
+
+                function initStackCardsResize(element) {
+                    element.element.addEventListener("resize-stack-cards", function() {
+                        setStackCards(element);
+                        animateStackCards.bind(element);
+                    });
+                }
+
+                function stackCardsCallback(entries) {
+                    if (entries[0].isIntersecting) {
+                        if (this.scrollingFn) return;
+                        stackCardsInitEvent(this);
+                    } else {
+                        if (!this.scrollingFn) return;
+                        window.removeEventListener("scroll", this.scrollingFn);
+                        this.scrollingFn = false;
+                    }
+                }
+
+                function stackCardsInitEvent(element) {
+                    element.scrollingFn = stackCardsScrolling.bind(element);
+                    window.addEventListener("scroll", element.scrollingFn);
+                }
+
+                function stackCardsScrolling() {
+                    if (this.scrolling) return;
+                    this.scrolling = true;
+                    window.requestAnimationFrame(animateStackCards.bind(this));
+                }
+
+                function setStackCards(element) {
+                    if (!element.items.length) return;
+
+                    element.marginY = getComputedStyle(element.element).getPropertyValue("--stack-cards-gap");
+                    getIntegerFromProperty(element);
+                    element.elementHeight = element.element.offsetHeight;
+
+                    var cardStyle = getComputedStyle(element.items[0]);
+                    element.cardTop = Math.floor(parseFloat(cardStyle.getPropertyValue("top")));
+                    element.cardHeight = Math.floor(parseFloat(cardStyle.getPropertyValue("height")));
+                    element.windowHeight = window.innerHeight;
+
+                    if (isNaN(element.marginY)) {
+                        element.element.style.paddingBottom = "0px";
+                    } else {
+                        element.element.style.paddingBottom =
+                            element.marginY * (element.items.length - 1) + "px";
+                    }
+
+                    for (var i = 0; i < element.items.length; i++) {
+                        if (isNaN(element.marginY)) {
+                            element.items[i].style.transform = "none";
+                        } else {
+                            element.items[i].style.transform = "translateY(" + element.marginY * i + "px)";
+                        }
+                    }
+                }
+
+                function getIntegerFromProperty(element) {
+                    var node = document.createElement("div");
+                    node.setAttribute(
+                        "style",
+                        "opacity:0; visibility: hidden; position: absolute; height:" + element.marginY
+                    );
+                    element.element.appendChild(node);
+                    element.marginY = parseInt(getComputedStyle(node).getPropertyValue("height"));
+                    element.element.removeChild(node);
+                }
+
+                function animateStackCards() {
+                    if (isNaN(this.marginY)) {
+                        this.scrolling = false;
+                        return;
+                    }
+
+                    var top = this.element.getBoundingClientRect().top;
+
+                    if (
+                        this.cardTop -
+                        top +
+                        this.windowHeight -
+                        this.elementHeight -
+                        this.cardHeight +
+                        this.marginY +
+                        this.marginY * this.items.length > 0
+                    ) {
+                        this.scrolling = false;
+                        return;
+                    }
+
+                    for (var i = 0; i < this.items.length; i++) {
+                        var scrolling = this.cardTop - top - i * (this.cardHeight + this.marginY);
+                        if (scrolling > 0) {
+                            var scaling =
+                                i == this.items.length - 1 ?
+                                1 :
+                                (this.cardHeight - scrolling * 0.05) / this.cardHeight;
+                            this.items[i].style.transform =
+                                "translateY(" + this.marginY * i + "px) scale(" + scaling + ")";
+                        } else {
+                            this.items[i].style.transform = "translateY(" + this.marginY * i + "px)";
+                        }
+                    }
+
+                    this.scrolling = false;
+                }
+
+                // Initialize all stack cards on page load
+                document.addEventListener("DOMContentLoaded", function() {
+                    var cards = document.querySelectorAll(".js-stack-cards");
+                    cards.forEach(card => new StackCards(card));
+                });
+
+                // Re-init on Bootstrap tab show
+                document.addEventListener('DOMContentLoaded', function() {
+                    const tabLinks = document.querySelectorAll('[data-bs-toggle="tab"]');
+                    tabLinks.forEach(tab => {
+                        tab.addEventListener('shown.bs.tab', function(event) {
+                            const activePane = document.querySelector(event.target.getAttribute(
+                                'href'));
+                            if (!activePane) return;
+                            const stackCards = activePane.querySelectorAll('.js-stack-cards');
+                            stackCards.forEach(stack => new StackCards(stack));
+                        });
+                    });
+                });
+            })();
+        </script>
+
+
+
+        <script>
+>>>>>>> 09775f2f1867c93dce3d3a0b8efd2ab20fc57761
             $(document).ready(function() {
                 $(".slick-slider-projects").slick({
                     slidesToShow: 1,
