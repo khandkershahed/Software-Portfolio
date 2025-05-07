@@ -63,12 +63,9 @@
                                 </header>
 
                                 <ul class="plan-features">
-                                    <li>5 Page Include</li>
-                                    <li>1 MySQL Databases (Backups)</li>
-                                    <li>2 Month Maintanance</li>
-                                    <li>Content Upload not include</li>
-                                    <li>Graphics design include</li>
-                                    <li>1/30 (monthly) Support</li>
+                                    @foreach ($price_plan->pricing as $price_plan_pricing)
+                                        <li>{{ optional($price_plan_pricing->planModule)->title }}</li>
+                                    @endforeach
                                 </ul>
 
                                 <div class="plan-select"><a href="">Select Plan</a></div>
@@ -229,12 +226,9 @@
                                 </header>
 
                                 <ul class="plan-features">
-                                    <li>20 Pages Included</li>
-                                    <li>10 MySQL Databases (Backups)</li>
-                                    <li>12 Months Maintenance</li>
-                                    <li>Content Upload Included</li>
-                                    <li>Advanced Graphics Design Included</li>
-                                    <li>10/30 (monthly) Support</li>
+                                    @foreach ($lastprice_plan->pricing as $lastprice_plan_pricing)
+                                        <li>{{ optional($lastprice_plan_pricing->planModule)->title }}</li>
+                                    @endforeach
                                 </ul>
 
                                 <div class="plan-select"><a href="">Select Plan</a></div>
