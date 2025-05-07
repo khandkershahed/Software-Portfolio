@@ -24,10 +24,10 @@
                 @foreach ($categorys as $index => $category)
                     @if ($category->projects->count() > 0)
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link {{ $index === 0 ? 'active' : '' }}" id="category-{{ $category->id }}-tab"
+                            <a class="nav-link {{ $index === 0 && $category->projects->count() > 0 ? 'active' : '' }}" id="category-{{ $category->id }}-tab"
                                 data-bs-toggle="tab" href="#category-{{ $category->id }}" role="tab"
                                 aria-controls="category-{{ $category->id }}"
-                                aria-selected="{{ $index === 0 ? 'true' : 'false' }}">
+                                aria-selected="{{ $index === 0 && $category->projects->count() > 0 ? 'true' : 'false' }}">
                                 {{ $category->name }}
                             </a>
                         </li>
@@ -38,7 +38,7 @@
             <!-- Tab content for each category -->
             <div class="tab-content" id="myTabContent">
                 @foreach ($categorys as $index => $category)
-                    <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}" id="category-{{ $category->id }}"
+                    <div class="tab-pane fade {{ $index === 0 && $category->projects->count() > 0 ? 'show active' : '' }}" id="category-{{ $category->id }}"
                         role="tabpanel" aria-labelledby="category-{{ $category->id }}-tab">
                         <div class="mt-5 row">
                             @foreach ($category->projects as $project)
