@@ -92,17 +92,6 @@
         </div>
     </section>
 
-    <section>
-        <div class="container">
-            <div class="row">
-
-            </div>
-        </div>
-    </section>
-
-
-    {{-- Project Section End --}}
-
     @include('frontend.pages.partner')
 
     @include('frontend.pages.client')
@@ -264,6 +253,27 @@
                 }
             })();
         </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const tabLinks = document.querySelectorAll('[data-bs-toggle="tab"]');
+
+                tabLinks.forEach(tab => {
+                    tab.addEventListener('shown.bs.tab', function(event) {
+                        // Find all stack-cards in the active tab and trigger resize
+                        const activePane = document.querySelector(event.target.getAttribute('href'));
+                        if (!activePane) return;
+
+                        const stackCards = activePane.querySelectorAll('.js-stack-cards');
+                        const customEvent = new CustomEvent('resize-stack-cards');
+
+                        stackCards.forEach(stack => {
+                            stack.dispatchEvent(customEvent);
+                        });
+                    });
+                });
+            });
+        </script>
+
         <script>
             $(document).ready(function() {
                 $(".slick-slider-projects").slick({
