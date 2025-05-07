@@ -4,12 +4,6 @@
         .site-text p {
             color: #001624 !important;
         }
-
-        .stack-cards__item {
-            position: relative;
-            height: 300px;
-            /* Ensure height exists */
-        }
     </style>
     <section>
         <div class="px-0 container-fluid">
@@ -111,6 +105,7 @@
                     this.items = this.element.querySelectorAll(".js-stack-cards__item");
                     this.scrollingFn = false;
                     this.scrolling = false;
+                    if (this.items.length === 0) return;
                     initStackCardsEffect(this);
                     initStackCardsResize(this);
                 };
@@ -153,6 +148,8 @@
                 }
 
                 function setStackCards(element) {
+                    if (!element.items.length) return;
+
                     element.marginY = getComputedStyle(element.element).getPropertyValue("--stack-cards-gap");
                     getIntegerFromProperty(element);
                     element.elementHeight = element.element.offsetHeight;
@@ -200,12 +197,11 @@
                     if (
                         this.cardTop -
                         top +
-                        this.element.windowHeight -
+                        this.windowHeight -
                         this.elementHeight -
                         this.cardHeight +
                         this.marginY +
-                        this.marginY * this.items.length >
-                        0
+                        this.marginY * this.items.length > 0
                     ) {
                         this.scrolling = false;
                         return;
@@ -228,55 +224,28 @@
                     this.scrolling = false;
                 }
 
-                var stackCards = document.getElementsByClassName("js-stack-cards"),
-                    intersectionObserverSupported =
-                    "IntersectionObserver" in window &&
-                    "IntersectionObserverEntry" in window &&
-                    "intersectionRatio" in window.IntersectionObserverEntry.prototype,
-                    reducedMotion = false;
+                // Initialize all stack cards on page load
+                document.addEventListener("DOMContentLoaded", function() {
+                    var cards = document.querySelectorAll(".js-stack-cards");
+                    cards.forEach(card => new StackCards(card));
+                });
 
-                if (stackCards.length > 0 && intersectionObserverSupported && !reducedMotion) {
-                    var stackCardsArray = [];
-                    for (var i = 0; i < stackCards.length; i++) {
-                        (function(i) {
-                            stackCardsArray.push(new StackCards(stackCards[i]));
-                        })(i);
-                    }
-
-                    var resizingId = false,
-                        customEvent = new CustomEvent("resize-stack-cards");
-
-                    window.addEventListener("resize", function() {
-                        clearTimeout(resizingId);
-                        resizingId = setTimeout(doneResizing, 500);
-                    });
-
-                    function doneResizing() {
-                        for (var i = 0; i < stackCardsArray.length; i++) {
-                            stackCardsArray[i].element.dispatchEvent(customEvent);
-                        }
-                    }
-                }
-            })();
-        </script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const tabLinks = document.querySelectorAll('[data-bs-toggle="tab"]');
-
-                tabLinks.forEach(tab => {
-                    tab.addEventListener('shown.bs.tab', function (event) {
-                        const activePane = document.querySelector(event.target.getAttribute('href'));
-                        if (!activePane) return;
-
-                        const stackCards = activePane.querySelectorAll('.js-stack-cards');
-
-                        stackCards.forEach(stack => {
-                            new StackCards(stack); // re-init instead of resize
+                // Re-init on Bootstrap tab show
+                document.addEventListener('DOMContentLoaded', function() {
+                    const tabLinks = document.querySelectorAll('[data-bs-toggle="tab"]');
+                    tabLinks.forEach(tab => {
+                        tab.addEventListener('shown.bs.tab', function(event) {
+                            const activePane = document.querySelector(event.target.getAttribute(
+                                'href'));
+                            if (!activePane) return;
+                            const stackCards = activePane.querySelectorAll('.js-stack-cards');
+                            stackCards.forEach(stack => new StackCards(stack));
                         });
                     });
                 });
-            });
+            })();
         </script>
+
 
 
         <script>
