@@ -19,9 +19,9 @@
 
     <section>
         <div class="container my-5 mb-0">
-            <!-- Tab navigation for categories -->
+            <!-- Tab navigation for categorys -->
             <ul class="nav nav-tabs projects-tabs" id="myTab" role="tablist">
-                @foreach ($categories as $index => $category)
+                @foreach ($categorys as $index => $category)
                     @php $hasProjects = $category->projects->isNotEmpty(); @endphp
                     @if ($hasProjects)
                         <li class="nav-item" role="presentation">
@@ -38,7 +38,7 @@
 
             <!-- Tab content for each category -->
             <div class="tab-content" id="myTabContent">
-                @foreach ($categories as $index => $category)
+                @foreach ($categorys as $index => $category)
                     @php $hasProjects = $category->projects->isNotEmpty(); @endphp
                     @if ($hasProjects)
                         <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}"
