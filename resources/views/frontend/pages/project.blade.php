@@ -17,114 +17,6 @@
         </div>
     </section>
 
-    {{-- Project Section Start --}}
-    {{-- <section>
-        <div class="container">
-            <div class="py-5 row">
-                <div class="col-lg-6">
-
-                    @foreach ($categorys as $index => $category)
-                        {{-- <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}" id="category-{{ $category->id }}"
-                        role="tabpanel" aria-labelledby="category-{{ $category->id }}-tab">
-                        <div class="mt-5 row">
-                        @foreach ($category->projects as $project)
-                            <div class="col-md-6">
-                                    <a href="{{ route('projects.details', $project->slug) }}">
-                                        <div class="mb-3 border-0 shadow-sm card">
-
-                                            <div class="slick-slider-projects" style="height: 300px; overflow:hidden;">
-                                                <div class="image-container">
-                                                    <img src="{{ !empty($project->image_one) ? url('storage/' . $project->image_one) : '' }}"
-                                                        class="card-img-top zoom-effect" alt="dadavaai template one" />
-                                                </div>
-                                                <div class="image-container">
-                                                    <img src="{{ !empty($project->image_two) ? url('storage/' . $project->image_two) : '' }}"
-                                                        class="card-img-top zoom-effect" alt="dadavaai template one" />
-                                                </div>
-                                                <div class="image-container">
-                                                    <img src="{{ !empty($project->image_three) ? url('storage/' . $project->image_three) : '' }}"
-                                                        class="card-img-top zoom-effect" alt="dadavaai template one" />
-                                                </div>
-                                            </div>
-
-                                            <div class="card-body bg-light">
-                                                <h5 class="card-title">{{ $project->name }}</h5>
-                                                <p class="card-text">{{ $project->name }}</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            <div class="mb-5 custom-image-card">
-                                <div class="custom-image-wrapper">
-                                    <img class="custom-image img-fluid"
-                                        src="{{ !empty($project->image_three) ? url('storage/' . $project->image_three) : '' }}"
-                                        alt="">
-                                    <div class="py-5 text-center card-body bg-light">
-                                        <h5 class="card-title">{{ $project->name }}</h5>
-                                        <p class="card-text">{{ $project->name }}</p>
-                                    </div>
-                                    <a href="#" class="custom-overlay">View More</a>
-                                </div>
-                            </div>
-                        @endforeach
-                        {{-- </div>
-                    </div>
-                    @endforeach
-
-                    {{-- <div class="mb-5 custom-image-card">
-                        <div class="custom-image-wrapper">
-                            <img class="custom-image img-fluid"
-                                src="https://theme.madsparrow.me/osty/wp-content/uploads/2024/12/Serene-Floral-Portrait.webp"
-                                alt="">
-                            <a href="#" class="custom-overlay">Explore</a>
-                        </div>
-                    </div>
-
-                    <div class="mb-5 custom-image-card">
-                        <div class="custom-image-wrapper">
-                            <img class="custom-image img-fluid"
-                                src="https://theme.madsparrow.me/osty/wp-content/uploads/2024/12/Serene-Floral-Portrait.webp"
-                                alt="">
-                            <a href="#" class="custom-overlay">More Info</a>
-                        </div>
-                    </div>
-
-                    <div class="mb-5 custom-image-card">
-                        <div class="custom-image-wrapper">
-                            <img class="custom-image img-fluid"
-                                src="https://theme.madsparrow.me/osty/wp-content/uploads/2024/12/Serene-Floral-Portrait.webp"
-                                alt="">
-                            <a href="#" class="custom-overlay">Open</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 sticky-col">
-                    <h1>Objectives</h1>
-                    <h4 class="pt-3"> Project Overview</h4>
-                    <p>We collaborated with Envato to create a visually striking and engaging brand identity that aligns
-                        with their core values. Our team focused on delivering a seamless and user-friendly experience
-                        while maintaining a bold and modern aesthetic.</p>
-                    <h4> Project Overview</h4>
-                    <p>We collaborated with Envato to create a visually striking and engaging brand identity that aligns
-                        with their core values. Our team focused on delivering a seamless and user-friendly experience
-                        while maintaining a bold and modern aesthetic.</p>
-                    <h4> Project Overview</h4>
-                    <p>We collaborated with Envato to create a visually striking and engaging brand identity that aligns
-                        with their core values. Our team focused on delivering a seamless and user-friendly experience
-                        while maintaining a bold and modern aesthetic.</p>
-                    <h4> Project Overview</h4>
-                    <p>We collaborated with Envato to create a visually striking and engaging brand identity that aligns
-                        with their core values. Our team focused on delivering a seamless and user-friendly experience
-                        while maintaining a bold and modern aesthetic.</p>
-                    <h4> Project Overview</h4>
-                    <p>We collaborated with Envato to create a visually striking and engaging brand identity that aligns
-                        with their core values. Our team focused on delivering a seamless and user-friendly experience
-                        while maintaining a bold and modern aesthetic.</p>
-                </div>
-
-            </div>
-        </div>
-    </section> --}}
     <section>
         <div class="container my-5 mb-0">
             <!-- Tab navigation for categories -->
@@ -148,7 +40,7 @@
                         role="tabpanel" aria-labelledby="category-{{ $category->id }}-tab">
                         <div class="mt-5 row">
                             @foreach ($category->projects as $project)
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <a href="{{ route('projects.details', $project->slug) }}">
                                         <div class="mb-3 border-0 shadow-sm card">
 
@@ -173,6 +65,29 @@
                                             </div>
                                         </div>
                                     </a>
+                                </div> --}}
+                                <div class="col-lg-12">
+                                    <div class="section-stack">
+                                        <ul class="stack-cards js-stack-cards">
+                                            <li class="stack-cards__item js-stack-cards__item">
+                                                <a href="{{ route('projects.details', $project->slug) }}">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-lg-6">
+                                                            <div>
+                                                                <img class="img-fluid"
+                                                                    src="{{ !empty($project->image_one) ? url('storage/' . $project->image_one) : '' }}"
+                                                                    alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <h1 class="site-text">{{ $project->name }}</h1>
+                                                            <p class="site-text">{{ $project->row_one_description }}</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             @endforeach
                         </div>
@@ -182,227 +97,11 @@
             </div>
         </div>
     </section>
-    {{-- <div class="intro">Scroll Down</div> --}}
 
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <section class="section-stack">
-                        <ul class="stack-cards js-stack-cards">
-                            <li class="stack-cards__item js-stack-cards__item">
-                                <a href="">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6">
-                                            <div>
-                                                <img class="img-fluid"
-                                                    src="http://127.0.0.1:8000/storage/project/image_three/ZmeJgTPrHt1734583744.png"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <h1 class="site-text">Site Title</h1>
-                                            <p class="site-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eveniet
-                                                ipsa
-                                                alias quidem nesciunt culpa laboriosam quaerat dolorem, reprehenderit
-                                                facilis dicta sint maxime nemo aliquam? Distinctio repellendus voluptas
-                                                facilis doloremque!</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="stack-cards__item js-stack-cards__item">
-                                <a href="">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6">
-                                            <div>
-                                                <img class="img-fluid"
-                                                    src="http://127.0.0.1:8000/storage/project/image_three/ZmeJgTPrHt1734583744.png"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <h1 class="site-text">Site Title</h1>
-                                            <p class="site-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eveniet
-                                                ipsa
-                                                alias quidem nesciunt culpa laboriosam quaerat dolorem, reprehenderit
-                                                facilis dicta sint maxime nemo aliquam? Distinctio repellendus voluptas
-                                                facilis doloremque!</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="stack-cards__item js-stack-cards__item">
-                                <a href="">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6">
-                                            <div>
-                                                <img class="img-fluid"
-                                                    src="http://127.0.0.1:8000/storage/project/image_three/ZmeJgTPrHt1734583744.png"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <h1 class="site-text">Site Title</h1>
-                                            <p class="site-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eveniet
-                                                ipsa
-                                                alias quidem nesciunt culpa laboriosam quaerat dolorem, reprehenderit
-                                                facilis dicta sint maxime nemo aliquam? Distinctio repellendus voluptas
-                                                facilis doloremque!</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="stack-cards__item js-stack-cards__item">
-                                <a href="">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6">
-                                            <div>
-                                                <img class="img-fluid"
-                                                    src="http://127.0.0.1:8000/storage/project/image_three/ZmeJgTPrHt1734583744.png"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <h1 class="site-text">Site Title</h1>
-                                            <p class="site-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eveniet
-                                                ipsa
-                                                alias quidem nesciunt culpa laboriosam quaerat dolorem, reprehenderit
-                                                facilis dicta sint maxime nemo aliquam? Distinctio repellendus voluptas
-                                                facilis doloremque!</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="stack-cards__item js-stack-cards__item">
-                                <a href="">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6">
-                                            <div>
-                                                <img class="img-fluid"
-                                                    src="http://127.0.0.1:8000/storage/project/image_three/ZmeJgTPrHt1734583744.png"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <h1 class="site-text">Site Title</h1>
-                                            <p class="site-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eveniet
-                                                ipsa
-                                                alias quidem nesciunt culpa laboriosam quaerat dolorem, reprehenderit
-                                                facilis dicta sint maxime nemo aliquam? Distinctio repellendus voluptas
-                                                facilis doloremque!</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="stack-cards__item js-stack-cards__item">
-                                <a href="">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6">
-                                            <div>
-                                                <img class="img-fluid"
-                                                    src="http://127.0.0.1:8000/storage/project/image_three/ZmeJgTPrHt1734583744.png"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <h1 class="site-text">Site Title</h1>
-                                            <p class="site-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eveniet
-                                                ipsa
-                                                alias quidem nesciunt culpa laboriosam quaerat dolorem, reprehenderit
-                                                facilis dicta sint maxime nemo aliquam? Distinctio repellendus voluptas
-                                                facilis doloremque!</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="stack-cards__item js-stack-cards__item">
-                                <a href="">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6">
-                                            <div>
-                                                <img class="img-fluid"
-                                                    src="http://127.0.0.1:8000/storage/project/image_three/ZmeJgTPrHt1734583744.png"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <h1 class="site-text">Site Title</h1>
-                                            <p class="site-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eveniet
-                                                ipsa
-                                                alias quidem nesciunt culpa laboriosam quaerat dolorem, reprehenderit
-                                                facilis dicta sint maxime nemo aliquam? Distinctio repellendus voluptas
-                                                facilis doloremque!</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="stack-cards__item js-stack-cards__item">
-                                <a href="">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6">
-                                            <div>
-                                                <img class="img-fluid"
-                                                    src="http://127.0.0.1:8000/storage/project/image_three/ZmeJgTPrHt1734583744.png"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <h1 class="site-text">Site Title</h1>
-                                            <p class="site-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eveniet
-                                                ipsa
-                                                alias quidem nesciunt culpa laboriosam quaerat dolorem, reprehenderit
-                                                facilis dicta sint maxime nemo aliquam? Distinctio repellendus voluptas
-                                                facilis doloremque!</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="stack-cards__item js-stack-cards__item">
-                                <a href="">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6">
-                                            <div>
-                                                <img class="img-fluid"
-                                                    src="http://127.0.0.1:8000/storage/project/image_three/ZmeJgTPrHt1734583744.png"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <h1 class="site-text">Site Title</h1>
-                                            <p class="site-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eveniet
-                                                ipsa
-                                                alias quidem nesciunt culpa laboriosam quaerat dolorem, reprehenderit
-                                                facilis dicta sint maxime nemo aliquam? Distinctio repellendus voluptas
-                                                facilis doloremque!</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="stack-cards__item js-stack-cards__item">
-                                <a href="">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6">
-                                            <div>
-                                                <img class="img-fluid"
-                                                    src="http://127.0.0.1:8000/storage/project/image_three/ZmeJgTPrHt1734583744.png"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <h1 class="site-text">Site Title</h1>
-                                            <p class="site-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eveniet
-                                                ipsa
-                                                alias quidem nesciunt culpa laboriosam quaerat dolorem, reprehenderit
-                                                facilis dicta sint maxime nemo aliquam? Distinctio repellendus voluptas
-                                                facilis doloremque!</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
-                </div>
+
             </div>
         </div>
     </section>
