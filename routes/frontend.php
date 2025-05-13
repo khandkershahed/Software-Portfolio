@@ -33,8 +33,9 @@ Route::get('/privacy', [FrontendController::class, 'privacy'])->name('privacy');
 
 //Pricing
 Route::get('/pricing', [FrontendController::class, 'pricing'])->name('pricing');
+Route::get('/templates', [FrontendController::class, 'templates'])->name('templates');
 //Pricing Store
 Route::post('/pricing/store', [FrontendController::class, 'pricingStore'])->name('pricing.store');
 
 Route::get('plan/{slug}/subscribe', [FrontendController::class, 'planSubscribe'])
-        ->name('plan.subscribe');
+    ->name('plan.subscribe');

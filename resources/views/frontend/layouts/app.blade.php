@@ -13,13 +13,6 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendors/slick-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendors/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}" />
-    <style>
-        .nav-link {
-            /* color: rgb(0 0 0); */
-            font-weight: 600;
-            font-size: 20px;
-        }
-    </style>
 </head>
 
 <body>

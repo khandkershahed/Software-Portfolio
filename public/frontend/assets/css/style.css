@@ -8,7 +8,7 @@ body {
 }
 body {
     font-family: "Space Grotesk", sans-serif;
-    overflow: scroll; /* Enables scrolling */
+    overflow: scroll;
 }
 
 body::-webkit-scrollbar {
@@ -63,8 +63,12 @@ ul {
 .site-logo {
     width: 130px;
 }
+.nav-link {
+    font-weight: 400;
+    font-size: 18px;
+}
 .navbar-blur {
-    background-color: rgb(106 104 104 / 80%);
+    background-color: rgb(44 62 80 / 34%);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
@@ -1242,6 +1246,9 @@ ul {
 .site-text {
     color: #2c3e50;
 }
+.site-bg {
+    background-color: #2c3e50;
+}
 .shape-container::before {
     content: "";
     position: absolute;
@@ -1392,7 +1399,7 @@ ul {
     margin-bottom: 0px;
 }
 .query-inputs-box {
-    background: white ;
+    background: white;
     padding: 15px;
 }
 
@@ -3217,6 +3224,170 @@ a.btn-mod {
     transition: transform 0.3s ease;
 }
 
-#selected-options p{
+#selected-options p {
     margin-bottom: 0;
+}
+
+.full-container-dropdown {
+    transform: translate(0px, -2px);
+    border-radius: 0;
+    margin: 0;
+    margin-top: 3px;
+    border: 1px solid #dddddd;
+    padding: 0px 1px;
+    /* box-shadow: var(--custom-shadow); */
+}
+
+.glass-bg {
+    color: white;
+    background: rgba(255, 255, 255, 0.1); /* light translucent */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* for Safari */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+}
+/* Default icon style */
+.dropdown-icon {
+    font-size: 14px;
+    display: inline-block;
+    transition: transform 0.6s ease;
+}
+
+/* Rotate on hover */
+.cst-dropdown:hover .dropdown-icon {
+    transform: rotate(360deg);
+}
+
+/* Rotate on dropdown open */
+.nav-item.dropdown.show .dropdown-icon {
+    transform: rotate(360deg);
+}
+
+.dropdown-item {
+    border-left: 3px solid transparent;
+    transition: border-left 0.3s ease, background-color 0.3s ease;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    color: var(--bs-dropdown-link-hover-color);
+    background-color: var(--bs-dropdown-link-hover-bg);
+    border-left: 3px solid #2c3e50;
+}
+
+/* Custom tab container */
+.custom-tab-nav {
+    display: flex;
+    gap: 1rem;
+    border-bottom: none;
+    margin-bottom: 1rem;
+    padding-left: 0;
+    list-style: none;
+}
+
+/* Custom tab item */
+.custom-tab-item {
+    margin: 0;
+}
+
+/* Reset default button styles */
+.custom-tab-btn {
+    all: unset;
+    padding: 0.5rem 1.25rem;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    border: 2px solid #091b27;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.custom-tab-btn:hover {
+    background-color: #f2f2f2;
+}
+
+/* Active tab */
+.custom-tab-btn.active {
+    border: 2px solid transparent;
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+.image-overlay-section {
+    position: relative;
+    height: 350px; /* Fixed height */
+    overflow: hidden;
+}
+
+.image-overlay-section img {
+    object-fit: fill;
+    width: 100%;
+    height: 400px;
+}
+
+.overlay-title-common {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%;
+    padding: 1rem;
+}
+
+.overlay-title-common h1 {
+    font-size: 3rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    color: #fff;
+}
+
+.company-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border: 1px solid #2c3e50;
+    padding: 5px;
+    border-radius: 100%;
+}
+
+.btn-heart {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0a1d5b;
+    border: 0;
+    border-radius: 100%;
+}
+
+.btn-get {
+    background-color: #0a1d5b;
+    border: 0;
+    padding: 8px;
+}
+
+/* Show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+/* Optional: Smooth dropdown appearance */
+.dropdown-menu {
+    transition: all 0.3s ease;
+}
+
+/* Prevent Bootstrap JS from interfering (optional improvement) */
+.nav-item.dropdown > .nav-link {
+    pointer-events: none;
+}
+
+.nav-item.dropdown:hover > .nav-link {
+    pointer-events: auto;
 }

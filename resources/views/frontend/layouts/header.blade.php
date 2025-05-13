@@ -1,18 +1,18 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-0" id="navbar">
+    <nav class="py-0 navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
         <div class="container">
-            <a class="navbar-brand" href="{{route( 'home')}}">
+            <a class="navbar-brand" href="{{ route('home') }}">
                 <img class="img-fluid site-logo" src="{{ asset('frontend/assets/images/logo-white.png') }}"
                     alt="" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id2"
                 aria-controls="Id2">
                 <span class="fw-normal">
-                    <i class="fa-solid fa-bars text-black"></i>
+                    <i class="text-black fa-solid fa-bars"></i>
                 </span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="mb-2 navbar-nav ms-auto mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link {{ Route::current()->getName() == 'home' ? 'active' : '' }}"
                             href="{{ route('home') }}">Home</a>
@@ -25,6 +25,78 @@
                         <a class="nav-link {{ Route::current()->getName() == 'pricing' ? 'active' : '' }}"
                             href="{{ route('pricing') }}">Pricing</a>
                     </li>
+                    {{-- <li class="nav-item">
+                        <a class="nav-link {{ Route::current()->getName() == 'pricing' ? 'active' : '' }}"
+                            href="{{ route('pricing') }}" type="button" data-bs-toggle="dropdown"
+                            data-bs-auto-close="outside" aria-expanded="false">Template</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Menu item</a></li>
+                            <li><a class="dropdown-item" href="#">Menu item</a></li>
+                            <li><a class="dropdown-item" href="#">Menu item</a></li>
+                        </ul>
+                    </li> --}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link cst-dropdown" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Template <span class="dropdown-icon">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </a>
+                        <ul class="py-0 dropdown-menu rounded-0">
+                            <li><a class="py-2 dropdown-item" href="{{ route('templates') }}">Web Site</a></li>
+                            <li><a class="py-2 dropdown-item" href="#">Graphic</a></li>
+                            <li><a class="py-2 dropdown-item" href="#">Motion</a></li>
+                        </ul>
+                    </li>
+
+                    {{-- <li class="nav-item dropdown position-static" >
+                        <a class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                            Template
+                        </a>
+                        <ul class="bg-transparent border-0 dropdown-menu full-container-dropdown w-100">
+                            <div class="container glass-bg">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h1>Website Template</h1>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul>
+                                                    <li>asdasdad</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h1>Website Template</h1>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul>
+                                                    <li>asdasdad</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h1>Website Template</h1>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul>
+                                                    <li>asdasdad</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </ul>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link {{ Route::current()->getName() == 'about' ? 'active' : '' }}"
                             href="{{ route('about') }}">About</a>
@@ -62,14 +134,14 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <div class="footer-content pt-0">
+            <div class="pt-0 footer-content">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                         <div class="logo-widget footer-widget">
                             <figure class="logo-box">
-                                <a class="navbar-brand" href="{{route('home' )}}">
-                                    <img class="img-fluid site-logo" src="{{ asset('frontend/assets/images/logo-white.png') }}"
-                                        alt="" />
+                                <a class="navbar-brand" href="{{ route('home') }}">
+                                    <img class="img-fluid site-logo"
+                                        src="{{ asset('frontend/assets/images/logo-white.png') }}" alt="" />
                                 </a>
                             </figure>
                             <div class="text">

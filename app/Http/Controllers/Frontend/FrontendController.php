@@ -295,6 +295,7 @@ class FrontendController extends Controller
         return view('frontend.pages.query_page', $data);
     }
 
+
     //queryStore
     public function queryStore(Request $request)
     {
@@ -377,7 +378,10 @@ class FrontendController extends Controller
 
         return view('frontend.pages.pricing', $data);
     }
-
+    public function templates()
+    {
+        return view('frontend.templates'); // or whatever Blade view you're using
+    }
 
     //pricingStore
     public function pricingStore(Request $request)
@@ -436,5 +440,4 @@ class FrontendController extends Controller
         // $plan->increment('subscribers_count'); // Increment the subscriber count
         return redirect()->back()->with('success', 'You have successfully subscribed to the plan: ' . $plan->name);
     }
-
 }
