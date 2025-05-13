@@ -380,7 +380,11 @@ class FrontendController extends Controller
     }
     public function templates()
     {
-        return view('frontend.templates'); // or whatever Blade view you're using
+        return view('frontend.pages.templates'); // or whatever Blade view you're using
+    }
+    public function templateDetails($slug)
+    {
+        return view('frontend.pages.templateDetails'); // or whatever Blade view you're using
     }
 
     //pricingStore

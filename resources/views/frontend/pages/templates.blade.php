@@ -81,9 +81,11 @@
                                                     <span class="fw-bold">$5000</span>
                                                     <del>$8000</del>
                                                 </p>
-                                                <a class="btn-common-three animated w-100 rounded-3">
+                                                <a href="{{ route('template.details', ['slug' => 'barber-shop']) }}"
+                                                    class="btn-common-three animated w-100 rounded-3">
                                                     Get Now <i class="fas fa-arrow-right"></i>
                                                 </a>
+
                                             </div>
                                         </div>
                                     </div>
@@ -117,9 +119,11 @@
                                                     <span class="fw-bold">$500</span>
                                                     <del>$800</del>
                                                 </p>
-                                                <a class="btn-common-three animated w-100 rounded-3">
+                                                <a href="{{ route('template.details', ['slug' => 'barber-shop']) }}"
+                                                    class="btn-common-three animated w-100 rounded-3">
                                                     Get Now <i class="fas fa-arrow-right"></i>
                                                 </a>
+
                                             </div>
                                         </div>
                                     </div>
@@ -153,9 +157,11 @@
                                                     <span class="fw-bold">$500</span>
                                                     <del>$800</del>
                                                 </p>
-                                                <a class="btn-common-three animated w-100 rounded-3">
+                                                <a href="{{ route('template.details', ['slug' => 'barber-shop']) }}"
+                                                    class="btn-common-three animated w-100 rounded-3">
                                                     Get Now <i class="fas fa-arrow-right"></i>
                                                 </a>
+
                                             </div>
                                         </div>
                                     </div>
@@ -345,8 +351,8 @@
                     </div>
                     <div class="tab-pane fade" id="lms-tab-pane" role="tabpanel" aria-labelledby="lms-tab"
                         tabindex="0">...</div>
-                    <div class="tab-pane fade" id="portfolio-tab-pane" role="tabpanel" aria-labelledby="portfolio-tab"
-                        tabindex="0">...</div>
+                    <div class="tab-pane fade" id="portfolio-tab-pane" role="tabpanel"
+                        aria-labelledby="portfolio-tab" tabindex="0">...</div>
                     <div class="tab-pane fade" id="corporate-tab-pane" role="tabpanel"
                         aria-labelledby="corporate-tab" tabindex="0">...</div>
                 </div>
