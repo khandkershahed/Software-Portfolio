@@ -3391,3 +3391,46 @@ a.btn-mod {
 .nav-item.dropdown:hover > .nav-link {
     pointer-events: auto;
 }
+
+.splide__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    transition: .2s;
+    border-width: 2px !important;
+    margin: 10px 4px;
+}
+
+.splide--nav > .splide__track > .splide__list > .splide__slide.is-active {
+    box-shadow: 2px 3px 8px #000000a3;
+}
+
+.splide__slide img {
+    width: auto;
+    height: auto;
+    margin: auto;
+    display: block;
+    max-width: 100%;
+    border-radius: 14px !important;
+    max-height: 100%;
+}
+/* Slider CSS End  */
+.btn-singel{
+    background-color: #091b27;
+    color: white;
+}
+.btn-singel:hover{
+    background-color: #091b27;
+    color: white;
+}
+.template-details-tabs{
+    color: #091b27 !important;
+}
+.template-details-tabs.active{
+    border-radius: 0 !important;
+    color:#FFF !important;
+    background-color: #091b27 !important;
+}
