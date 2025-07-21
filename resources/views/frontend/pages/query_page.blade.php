@@ -7,7 +7,7 @@
                 <div class="col-lg-12">
                     <div class="contact-section">
                         <img src="{{ !empty($banner->image) && file_exists('storage/' . $banner->image) ? url('storage/' . $banner->image) : asset('images/no-banner.jpg') }}"
-                            alt="" />
+                            alt="banner" />
                     </div>
                 </div>
             </div>
