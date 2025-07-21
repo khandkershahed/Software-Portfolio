@@ -101,10 +101,10 @@
                         <a class="nav-link {{ Route::current()->getName() == 'about' ? 'active' : '' }}"
                             href="{{ route('about') }}">About</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link {{ Route::current()->getName() == 'contact' ? 'active' : '' }}"
                             href="{{ route('contact') }}">Contact</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link {{ Route::current()->getName() == 'query' ? 'active' : '' }}"
                             href="{{ route('query') }}">Query</a>

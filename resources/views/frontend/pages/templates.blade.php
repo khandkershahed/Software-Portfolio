@@ -3,7 +3,7 @@
         <div class="row">
             <div class="p-0 col-lg-12 position-relative">
                 <img class="w-100 img-fluid"
-                    src="https://themeforest.kreativdev.com/bookapp/demo/assets/images/work-bg-1.png" alt=""
+                    src="{{ asset('frontend/assets/images/templates.jpg') }}" alt=""
                     style="object-fit: cover">
 
                 <!-- Overlay Title -->
@@ -78,12 +78,12 @@
                                             </span>
                                             <div class="mt-3 d-flex justify-content-between align-items-center">
                                                 <p class="mb-0">
-                                                    <span class="fw-bold">$5000</span>
+                                                    <span class="fw-bold">$50000</span>
                                                     <del>$8000</del>
                                                 </p>
                                                 <a href="{{ route('template.details', ['slug' => 'barber-shop']) }}"
-                                                    class="btn-common-three animated w-100 rounded-3">
-                                                    Get Now <i class="fas fa-arrow-right"></i>
+                                                    class="btn-common-three animated rounded-3">
+                                                    Get Now <i class="fas fa-arrow-right ps-2"></i>
                                                 </a>
 
                                             </div>
@@ -121,7 +121,7 @@
                                                 </p>
                                                 <a href="{{ route('template.details', ['slug' => 'barber-shop']) }}"
                                                     class="btn-common-three animated w-100 rounded-3">
-                                                    Get Now <i class="fas fa-arrow-right"></i>
+                                                    Get Now <i class="fas fa-arrow-right ps-2"></i>
                                                 </a>
 
                                             </div>
@@ -159,7 +159,7 @@
                                                 </p>
                                                 <a href="{{ route('template.details', ['slug' => 'barber-shop']) }}"
                                                     class="btn-common-three animated w-100 rounded-3">
-                                                    Get Now <i class="fas fa-arrow-right"></i>
+                                                    Get Now <i class="fas fa-arrow-right ps-2"></i>
                                                 </a>
 
                                             </div>
@@ -196,7 +196,7 @@
                                                     <del>$800</del>
                                                 </p>
                                                 <a class="btn-common-three animated w-100 rounded-3">
-                                                    Get Now <i class="fas fa-arrow-right"></i>
+                                                    Get Now <i class="fas fa-arrow-right ps-2"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -232,7 +232,7 @@
                                                     <del>$800</del>
                                                 </p>
                                                 <a class="btn-common-three animated w-100 rounded-3">
-                                                    Get Now <i class="fas fa-arrow-right"></i>
+                                                    Get Now <i class="fas fa-arrow-right ps-2"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -268,7 +268,7 @@
                                                     <del>$800</del>
                                                 </p>
                                                 <a class="btn-common-three animated w-100 rounded-3">
-                                                    Get Now <i class="fas fa-arrow-right"></i>
+                                                    Get Now <i class="fas fa-arrow-right ps-2"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -304,7 +304,7 @@
                                                     <del>$800</del>
                                                 </p>
                                                 <a class="btn-common-three animated w-100 rounded-3">
-                                                    Get Now <i class="fas fa-arrow-right"></i>
+                                                    Get Now <i class="fas fa-arrow-right ps-2"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -340,7 +340,7 @@
                                                     <del>$800</del>
                                                 </p>
                                                 <a class="btn-common-three animated w-100 rounded-3">
-                                                    Get Now <i class="fas fa-arrow-right"></i>
+                                                    Get Now <i class="fas fa-arrow-right ps-2"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -360,4 +360,5 @@
             </div>
         </div>
     </div>
+
 </x-frontend-app-layout>

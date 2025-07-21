@@ -146,7 +146,7 @@
                                             <li>Responsive Design</li>
                                             <li>Content Upload</li>
                                             <li>Opt-In Form</li>
-                                            <li>Social Media Icons</li>
+                                            <li>Social Media Icons.</li>
                                         </ul>
                                         <p class="pt-3">Brandy Digital Marketing Agency Website UI Kit will help your Digital Marketing Agency services. Came with clean and professional style, you can easily edit and customize all elements with design component which can speed up your design process.</p>
                                     </div>

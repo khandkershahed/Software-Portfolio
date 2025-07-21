@@ -1,6 +1,5 @@
 <section class="banner__slider">
     <div class="slider stick-dots">
-
         @foreach ($banner as $item)
             <div class="slide slide-home">
                 <div class="slide__img">

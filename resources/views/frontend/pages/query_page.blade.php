@@ -58,7 +58,8 @@
                                     @endforeach
                                 </ul>
 
-                                <div class="plan-select"><a href="{{ route('plan.subscribe',$price_plan->slug) }}">Select Plan</a></div>
+                                <div class="plan-select"><a
+                                        href="{{ route('plan.subscribe', $price_plan->slug) }}">Select Plan</a></div>
 
                             </div>
                         @endforeach
@@ -208,7 +209,9 @@
                                     @endforeach
                                 </ul>
 
-                                <div class="plan-select"><a href="{{ route('plan.subscribe',$lastprice_plan->slug) }}">Select Plan</a></div>
+                                <div class="plan-select"><a
+                                        href="{{ route('plan.subscribe', $lastprice_plan->slug) }}">Select Plan</a>
+                                </div>
                             </div>
                         @endforeach
                     </div>
@@ -216,27 +219,18 @@
             </div>
         </div>
     </section>
-    <section class="pt-0 pb-0 page-section banner-section bg-dark light-content">
-        <div class="container relative">
-            <div class="row">
-                <div class="relative col-lg-6">
-                    <div class="banner-image-1">
-                        <img src="https://images.unsplash.com/photo-1662394757745-e5a6af92a06a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80"
+    <section class="bg-dark light-content">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="">
+                        <img class="img-fluid rounded-2" src="{{ asset('frontend/assets/images/project-one-img.jpg') }}"
                             alt="" />
-                    </div>
-                    <div class="banner-image-2">
-                        <img src="https://images.unsplash.com/photo-1609859419262-26d320fe40c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                            alt="" class="wow scaleOutIn animated" data-wow-duration="1.2s" data-wow-offset="70"
-                            style="
-                      visibility: visible;
-                      animation-duration: 1.2s;
-                      animation-name: scaleOutIn;
-                    " />
                     </div>
                 </div>
 
-                <div class="col-lg-5 offset-lg-1">
-                    <div class="mt-140 mt-lg-80 mt-md-60 mt-xs-30 mb-140 mb-lg-80">
+                <div class="col-lg-6">
+                    <div class="">
                         <div class="banner-content wow fadeInUpShort animated" data-wow-duration="1.2s"
                             style="
                       visibility: visible;
@@ -247,9 +241,8 @@
                                 Looking for exclusive digital services?
                             </h3>
                             <div class="banner-decription">
-                                Proin fringilla augue at maximus vestibulum. Nam
-                                pulvinar vitae porttitor. Integer non dapibus diam, ac
-                                eleifend lectus.
+                                Get tailored digital solutions designed to elevate your brand — from strategy to
+                                execution, we deliver results that matter.
                             </div>
                             <div class="local-scroll">
                                 <a href="{{ route('project') }}" class="btn btn-mod btn-w btn-large btn-round">View
@@ -261,5 +254,4 @@
             </div>
         </div>
     </section>
-
 </x-frontend-app-layout>
