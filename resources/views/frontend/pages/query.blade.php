@@ -1,51 +1,4 @@
-<style>
-    /* Hide the default checkbox */
-    .platform_input {
-        display: none;
-    }
 
-    /* Style the label to look like a button */
-    .platform_label {
-        width: 100%;
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: transparent;
-        border: 1px solid #001624;
-        color: #001624;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 14px;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    /* Change color on hover */
-    .platform_label:hover {
-        background-color: #001624;
-        transform: scale(1.05);
-        border: 1px solid #001624;
-        color: #ffff;
-
-    }
-
-    /* Checked state */
-    .platform_input:checked+.platform_label {
-        background-color: #001624;
-        border: 1px solid #001624;
-        color: #ffff;
-    }
-
-    .platform_input:checked+.platform_label:hover {
-        background-color: #001624;
-        border: 1px solid #001624;
-        color: #ffff;
-    }
-
-    /* Optional: Add some custom style to the SVG */
-    .platform_label svg {
-        margin-right: 8px;
-        fill: white;
-    }
-</style>
 <section class="py-5 bg-light">
     <div class="container">
         <form action="{{ route('query.store') }}" method="POST" enctype="multipart/form-data">
@@ -78,13 +31,6 @@
                             </div>
                         @endforeach
                     </div>
-
-                    {{-- <div style="position: relative; top: 340px;">
-                        <a href="{{ route('contact') }}" class="mt-3 w-100 btn-common-one animated"
-                            data-animation-in="fadeInUp">
-                            Contact us for more information
-                        </a>
-                    </div> --}}
                 </div>
 
                 <div class="col-lg-6 ">

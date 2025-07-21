@@ -8,10 +8,11 @@
         /* Dots container */
         .slick-dots {
             position: absolute;
-            bottom: 5px;
+            bottom: 35px;
             display: flex !important;
             justify-content: center;
             gap: 5px;
+            align-items: center;
         }
 
         /* Default (inactive) dot */
@@ -131,7 +132,7 @@
                                                                     {!! $project->row_one_description !!}
                                                                 </p>
                                                                 <button type="submit"
-                                                                    class="btn-common-three animated rounded-3"
+                                                                    class="mt-4 btn-common-three animated rounded-3"
                                                                     data-animation-in="fadeInUp">
                                                                     View Details <i class="fas fa-arrow-right-long ps-3"
                                                                         aria-hidden="true"></i>
@@ -171,7 +172,7 @@
                     speed: 2000,
                     autoplay: true,
                     autoplaySpeed: 2000,
-                    arrows: true,
+                    arrows: false,
                     dots: true,
                     draggable: true,
                     swipe: true,
