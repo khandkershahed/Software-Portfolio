@@ -35,7 +35,7 @@ class PageBannerController extends Controller
     {
         // Validate the incoming request data
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         $uploadedFiles = [];
@@ -99,7 +99,7 @@ class PageBannerController extends Controller
     {
         // Validate the incoming request data
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         $item = PageBanner::findOrFail($id);
