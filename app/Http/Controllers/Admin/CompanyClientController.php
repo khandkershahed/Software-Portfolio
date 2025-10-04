@@ -61,14 +61,14 @@ class CompanyClientController extends Controller
         // Create the event in the database
         CompanyClient::create([
 
-            'company_name'       => $request->company_name,
-            'company_website'       => $request->company_website,
-            'status'      => $request->status,
+            'company_name'    => $request->company_name,
+            'company_website' => $request->company_website,
+            'status'          => $request->status,
 
-            'logo'       => $uploadedFiles['logo']['status'] == 1 ? $uploadedFiles['logo']['file_path'] : null,
-            'banner_image'       => $uploadedFiles['banner_image']['status'] == 1 ? $uploadedFiles['banner_image']['file_path'] : null,
+            'logo'            => $uploadedFiles['logo']['status']         == 1 ? $uploadedFiles['logo']['file_path']        : null,
+            'banner_image'    => $uploadedFiles['banner_image']['status'] == 1 ? $uploadedFiles['banner_image']['file_path'] : null,
 
-            'created_by'  => Auth::guard('admin')->user()->id,
+            'created_by'      => Auth::guard('admin')->user()->id,
         ]);
 
         return redirect()->route('admin.company-client.index')->with('success', 'Data Inserted Successfully!');

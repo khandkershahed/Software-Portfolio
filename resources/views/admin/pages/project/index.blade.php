@@ -135,7 +135,7 @@
                                     style="width: 70%;height: 45px;" alt="">
                             </td>
 
-                            <td class="text-start">{{ $item->category->name }}</td>
+                            <td class="text-start">{{ optional($item->category)->name }}</td>
                             <td class="text-start">{{ $item->name }}</td>
 
                             <td class="text-start">

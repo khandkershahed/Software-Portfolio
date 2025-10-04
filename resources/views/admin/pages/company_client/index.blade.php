@@ -143,7 +143,7 @@
 
                             <td class="text-start">{{ $item->company_name }}</td>
                             <td class="text-start">{{ $item->company_website }}</td>
-                            <td class="text-start">{{ $item->created_by }}</td>
+                            <td class="text-start">{{ optional($item->createdBy)->name }}</td>
 
                             <td class="text-start">
                                 <!-- Toggle Switch with ON/OFF Text -->
