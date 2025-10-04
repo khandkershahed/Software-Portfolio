@@ -34,8 +34,8 @@ class CompanyClientController extends Controller
     {
         // Validate the incoming request data
         $request->validate([
-            'logo' => 'image|mimes:jpeg,png,jpg,gif|max:1024',
-            'banner_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'logo' => 'image|mimes:jpeg,png,jpg,gif,webp|max:1024',
+            'banner_image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         $uploadedFiles = [];
@@ -98,8 +98,8 @@ class CompanyClientController extends Controller
     {
         // Validate the incoming request data
         $request->validate([
-            'logo' => 'image|mimes:jpeg,png,jpg,gif|max:1024',
-            'banner_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'logo' => 'image|mimes:jpeg,png,jpg,gif,webp|max:1024',
+            'banner_image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         $item = CompanyClient::findOrFail($id);

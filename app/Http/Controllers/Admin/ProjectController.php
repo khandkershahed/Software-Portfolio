@@ -35,13 +35,13 @@ class ProjectController extends Controller
     {
         // Validate the incoming request data
         $request->validate([
-            'logo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'image_one' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'image_two' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'image_three' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'banner_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'row_one_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'row_two_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'logo' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'image_one' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'image_two' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'image_three' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'banner_image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'row_one_image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'row_two_image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         $uploadedFiles = [];
@@ -156,13 +156,13 @@ class ProjectController extends Controller
     {
         // Validate the incoming request data
         $request->validate([
-            'logo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'image_one' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'image_two' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'image_three' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'banner_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'row_one_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'row_two_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'logo' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'image_one' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'image_two' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'image_three' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'banner_image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'row_one_image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'row_two_image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         $item = Project::findOrFail($id);
