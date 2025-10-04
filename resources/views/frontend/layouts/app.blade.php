@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendors/slick.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendors/slick-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendors/animate.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css?v=' . time()) }}" />
 </head>
 
 <body>
