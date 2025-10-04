@@ -7,7 +7,7 @@
 
                 <!-- Overlay Title -->
                 <div class="text-center overlay-title-common">
-                    <h1 class="text-white fw-bold">Web Templates</h1>
+                    <h1 class="text-white fw-bold">Graphic Templates</h1>
                 </div>
             </div>
         </div>
