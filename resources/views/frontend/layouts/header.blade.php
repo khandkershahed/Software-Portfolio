@@ -35,7 +35,7 @@
                             <li><a class="dropdown-item" href="#">Menu item</a></li>
                         </ul>
                     </li> --}}
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link cst-dropdown" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Template <span class="dropdown-icon">
@@ -47,6 +47,20 @@
                             <li><a class="py-2 dropdown-item" href="#">Graphic</a></li>
                             <li><a class="py-2 dropdown-item" href="#">Motion</a></li>
                         </ul>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::current()->getName() == 'templates' ? 'active' : '' }}"
+                            href="{{ route('templates') }}" >
+                            Graphic 
+                            <!-- <span class="dropdown-icon">
+                                <i class="fas fa-plus"></i>
+                            </span> -->
+                        </a>
+                        <!-- <ul class="py-0 dropdown-menu rounded-0">
+                            <li><a class="py-2 dropdown-item" href="{{ route('templates') }}">Web Site</a></li>
+                            <li><a class="py-2 dropdown-item" href="#">Graphic</a></li>
+                            <li><a class="py-2 dropdown-item" href="#">Motion</a></li>
+                        </ul> -->
                     </li>
 
                     {{-- <li class="nav-item dropdown position-static" >
