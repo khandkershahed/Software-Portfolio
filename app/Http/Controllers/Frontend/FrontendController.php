@@ -52,7 +52,7 @@ class FrontendController extends Controller
         $banner = PageBanner::where('status', 'active')->where('page_name', 'homeslider')->get();
         $item = HomePage::latest('id')->first();
         $company_datas = CompanyData::where('status', 'active')->latest()->get();
-        $company_clients = CompanyClient::where('status', 'active')->latest()->get();
+        $company_clients = CompanyClient::where('status', 'active')->orderBy('id', 'ASC')->get();
         $services = Service::where('status', 'active')->latest()->get();
 
         $catgorys = Category::where('status', 'active')->where('parent_id', null)->latest()->get();
@@ -108,7 +108,7 @@ class FrontendController extends Controller
     //All Project
     public function project()
     {
-        $company_clients = CompanyClient::where('status', 'active')->latest()->get();
+        $company_clients = CompanyClient::where('status', 'active')->orderBy('id', 'ASC')->get();
         $item = HomePage::latest('id')->first();
         $banner = PageBanner::where('page_name', 'allproject')->first();
 
@@ -171,7 +171,7 @@ class FrontendController extends Controller
             ]);
         }
 
-        $company_clients = CompanyClient::where('status', 'active')->latest()->get();
+        $company_clients = CompanyClient::where('status', 'active')->orderBy('id', 'ASC')->get();
         $item = HomePage::latest('id')->first();
 
         return view('frontend.pages.project_details', compact('project', 'company_clients', 'item', 'allprojects', 'galleryItems'));
@@ -372,7 +372,7 @@ class FrontendController extends Controller
                 ->latest()
                 ->take(1)
                 ->get(),
-            'company_clients' => CompanyClient::where('status', 'active')->latest()->get(),
+            'company_clients' => CompanyClient::where('status', 'active')->orderBy('id', 'ASC')->get(),
             'item'            => HomePage::latest('id')->first(),
         ];
 
