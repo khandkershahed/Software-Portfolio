@@ -193,45 +193,45 @@
                                 {{-- @foreach ($allprojects as $allproject)
                                     <div class="col-lg-12">
                                         <a href="{{ route('projects.details', $allproject->slug) }}" class="">
-                                            <h4 class="p-3 mb-3 text-center animated sub-title site-text"
-                                                data-animation-in="fadeInLeft">
-                                                {{ $allproject->name }}
-                                            </h4>
-                                        </a>
-                                    </div>
-                                @endforeach --}}
-                                <div class="col-lg-12">
-                                    <h5 class="p-3 mb-3 text-start animated sub-title site-text"
-                                        data-animation-in="fadeInLeft">
-                                        Mobile Ready
-                                    </h5>
-                                    <h5 class="p-3 mb-3 text-start animated sub-title site-text"
-                                        data-animation-in="fadeInLeft">
-                                        Blazing Fast Site
-                                    </h5>
-                                    <h5 class="p-3 mb-3 text-start animated sub-title site-text"
-                                        data-animation-in="fadeInLeft">
-                                        SEO Optimized
-                                    </h5>
-                                    <h5 class="p-3 mb-3 text-start animated sub-title site-text"
-                                        data-animation-in="fadeInLeft">
-                                        Secure & Ready To Use
-                                    </h5>
-                                    <h5 class="p-3 mb-3 text-start animated sub-title site-text"
-                                        data-animation-in="fadeInLeft">
-                                        Clean Code & Structured
-                                    </h5>
-                                    <h5 class="p-3 mb-3 text-start animated sub-title site-text"
-                                        data-animation-in="fadeInLeft">
-                                        Accessibility Ready
-                                    </h5>
-                                </div>
+                                <h4 class="p-3 mb-3 text-center animated sub-title site-text"
+                                    data-animation-in="fadeInLeft">
+                                    {{ $allproject->name }}
+                                </h4>
+                                </a>
+                            </div>
+                            @endforeach --}}
+                            <div class="col-lg-12">
+                                <h5 class="p-3 mb-3 text-start animated sub-title site-text"
+                                    data-animation-in="fadeInLeft">
+                                    Mobile Ready
+                                </h5>
+                                <h5 class="p-3 mb-3 text-start animated sub-title site-text"
+                                    data-animation-in="fadeInLeft">
+                                    Blazing Fast Site
+                                </h5>
+                                <h5 class="p-3 mb-3 text-start animated sub-title site-text"
+                                    data-animation-in="fadeInLeft">
+                                    SEO Optimized
+                                </h5>
+                                <h5 class="p-3 mb-3 text-start animated sub-title site-text"
+                                    data-animation-in="fadeInLeft">
+                                    Secure & Ready To Use
+                                </h5>
+                                <h5 class="p-3 mb-3 text-start animated sub-title site-text"
+                                    data-animation-in="fadeInLeft">
+                                    Clean Code & Structured
+                                </h5>
+                                <h5 class="p-3 mb-3 text-start animated sub-title site-text"
+                                    data-animation-in="fadeInLeft">
+                                    Accessibility Ready
+                                </h5>
                             </div>
                         </div>
                     </div>
-
                 </div>
+
             </div>
+        </div>
         </div>
     </section>
 
@@ -258,7 +258,7 @@
     <section class="py-5 pt-0">
         <div class="container py-5 pt-0 pb-0">
             <div class="mt-5 row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-12">
                     <div>
                         <img class="rounded-3 img-fluid"
                             src="{{ !empty($project->row_two_image) ? url('storage/' . $project->row_two_image) : '' }}"
@@ -271,7 +271,7 @@
 
                     </p>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-12">
 
                     <div class="">
                         <img class="img-fluid" width="200"
@@ -284,20 +284,20 @@
 
                         <div class="ps-2">
                             @php
-                                $platforms = json_decode($project->platform, true); // Decode to array
-                                $technologys = json_decode($project->technology, true); // Decode to array
-                                $plugins = json_decode($project->plugin, true); // Decode to array
+                            $platforms = json_decode($project->platform, true); // Decode to array
+                            $technologys = json_decode($project->technology, true); // Decode to array
+                            $plugins = json_decode($project->plugin, true); // Decode to array
                             @endphp
                             {{-- @dd($platforms) --}}
                             @if (!empty($platforms) && is_array($platforms))
-                                @foreach ($platforms as $id => $platform)
-                                    <span class="text-black badge p-badge rounded-pill">
-                                        {{ $platform['value'] }}
-                                        @if (!$loop->last)
-                                            ,
-                                        @endif
-                                    </span>
-                                @endforeach
+                            @foreach ($platforms as $id => $platform)
+                            <span class="text-black badge p-badge rounded-pill">
+                                {{ $platform['value'] }}
+                                @if (!$loop->last)
+                                ,
+                                @endif
+                            </span>
+                            @endforeach
                             @endif
                         </div>
 
@@ -316,30 +316,30 @@
                     <div class="pt-3 text-start">
 
                         @if (!empty($technologys) && is_array($technologys))
-                            <h6 class="mb-2">
-                                Technology:
-                                @foreach ($technologys as $id => $technology)
-                                    <strong class="pe-2">{{ $technology['value'] }}
-                                        @if (!$loop->last)
-                                            ,
-                                        @endif
-                                    </strong>
-                                @endforeach
-                            </h6>
+                        <h6 class="mb-2">
+                            Technology:
+                            @foreach ($technologys as $id => $technology)
+                            <strong class="pe-2">{{ $technology['value'] }}
+                                @if (!$loop->last)
+                                ,
+                                @endif
+                            </strong>
+                            @endforeach
+                        </h6>
                         @endif
 
                         @if (!empty($plugins) && is_array($plugins))
 
-                            <h6 class="mb-0">
-                                Plugins Used:
-                                @foreach ($plugins as $id => $plugin)
-                                    <strong class="pe-2">{{ $plugin['value'] }}
-                                        @if (!$loop->last)
-                                            ,
-                                        @endif
-                                    </strong>
-                                @endforeach
-                            </h6>
+                        <h6 class="mb-0">
+                            Plugins Used:
+                            @foreach ($plugins as $id => $plugin)
+                            <strong class="pe-2">{{ $plugin['value'] }}
+                                @if (!$loop->last)
+                                ,
+                                @endif
+                            </strong>
+                            @endforeach
+                        </h6>
                         @endif
                     </div>
                     <div class="py-3 d-flex align-items-center">
@@ -368,7 +368,7 @@
     <section class="py-5 contact-box-section">
         <div class="container py-5">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-12">
                     <div class="text-white">
                         <p class="">{{ $project->row_three_badge }}</p>
                         <h1 class="pt-2">
@@ -379,7 +379,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-12">
                     <div class="pt-3 text-center ps-5">
                         <a href="{{ route('pricing') }}" style="border-bottom: 1px solid #fff;"
                             class="explore-now-btn" data-animation-in="fadeInUp">
@@ -420,13 +420,13 @@
                     <div class="tab-content" id="all">
                         <div class="portfolio__img row gx-2">
                             @foreach ($galleryItems as $item)
-                                <div class="col-lg-3 col-md-3">
-                                    <div class="mb-2">
-                                        <img class="h-auto w-100" style="object-fit: contain"
-                                            src="{{ !empty($item['image']) ? url('storage/' . $item['image']) : '' }}"
-                                            alt="{{ $item['alt'] }}" />
-                                    </div>
+                            <div class="col-lg-3 col-md-3">
+                                <div class="mb-2">
+                                    <img class="h-auto w-100" style="object-fit: contain"
+                                        src="{{ !empty($item['image']) ? url('storage/' . $item['image']) : '' }}"
+                                        alt="{{ $item['alt'] }}" />
                                 </div>
+                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -434,14 +434,14 @@
                     <div class="tab-content d-none ps-3" id="slider">
                         <div class="text-center slick-slider">
                             @foreach ($galleryItems as $item)
-                                <div class="slick-slide">
-                                    <div class="p-0 card porject-img">
-                                        <div class="p-0 card-body">
-                                            <img src="{{ !empty($item['image']) ? url('storage/' . $item['image']) : '' }}"
-                                                alt="{{ $item['alt'] }}" class="img-fluid" />
-                                        </div>
+                            <div class="slick-slide">
+                                <div class="p-0 card porject-img">
+                                    <div class="p-0 card-body">
+                                        <img src="{{ !empty($item['image']) ? url('storage/' . $item['image']) : '' }}"
+                                            alt="{{ $item['alt'] }}" class="img-fluid" />
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
                         </div>
 
@@ -467,25 +467,27 @@
     <section class="py-5 cta-banners">
         <div class="container py-5">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-12">
                     <div class="text-white">
-                        {{-- <p class="build-badge">{{ $project->row_four_badge }}</p> --}}
-                        <p class="build-badge">About Project</p>
-                        <h1 class="pt-4">{{ $project->row_four_title }}</h1>
-                        <p class="pt-4">
-                            {!! $project->row_four_description !!}
-                        </p>
-                        <div class="mb-3">
-                            <a href="{{ $project->row_two_button_link }}" class=""
-                                style="border-bottom: 1px solid white; position: absolute; right: 53.4%;margin-top: -40px;"
-                                data-animation-in="fadeInUp">
-                                {{ $project->row_two_button_name }}
-                            </a>
+                        <!-- <p class="build-badge">{{ $project->row_four_badge }}</p> -->
+                        <div>
+                            <p class="build-badge">About Project</p>
+                            <h1 class="pt-4">{{ $project->row_four_title }}</h1>
+                            <p class="pt-4">
+                                {!! $project->row_four_description !!}
+                            </p>
                         </div>
                     </div>
+                    <div class="mb-3 d-none">
+                        <a href="{{ $project->row_two_button_link }}" class=""
+                            style="border-bottom: 1px solid white; position: absolute; right: 53.4%;margin-top: -40px;"
+                            data-animation-in="fadeInUp">
+                            {{ $project->row_two_button_name }}
+                        </a>
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="text-end">
+                <div class="col-lg-6 col-12">
+                    <div class="text-center text-lg-end">
                         <a href="javascript:void(0)" class=" btn-common-three animated" onclick="toggleForm()"
                             style="border-bottom: 1px solid #fff" id="toggleFormBtn" data-animation-in="fadeInUp">
                             I want this {{ $project->name }}
@@ -567,19 +569,19 @@
                     <div class="col-lg-12">
                         <div class="d-flex align-items-center">
                             <h1 class="text-black design-title">{{ $project->row_five_title }}</h1>
-                            <span class="line ms-2"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p class="pt-3">
-                            {!! $project->row_five_description !!}
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <span class="line ms-2"></span>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <p class="pt-3">
+                {!! $project->row_five_description !!}
+            </p>
         </div>
+    </div>
+    </div>
+    </div>
     </section> --}}
     {{-- Row Five --}}
     <section style="background-color: #eee">
@@ -791,92 +793,92 @@
     <!-- Partner Section End -->
 
     @push('scripts')
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                const toggleFormBtn = document.getElementById("toggleFormBtn");
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleFormBtn = document.getElementById("toggleFormBtn");
 
-                toggleFormBtn.addEventListener("click", function() {
-                    const formContainer = document.getElementById("formContainer");
-                    formContainer.style.display = "block";
-                    toggleFormBtn.style.display = "none";
-                });
+            toggleFormBtn.addEventListener("click", function() {
+                const formContainer = document.getElementById("formContainer");
+                formContainer.style.display = "block";
+                toggleFormBtn.style.display = "none";
             });
-        </script>
-        <script>
-            $(document).ready(function() {
-                $('.tab-button').on('click', function() {
-                    const target = $(this).data('target');
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.tab-button').on('click', function() {
+                const target = $(this).data('target');
 
-                    // Toggle active button
-                    $('.tab-button').removeClass('active');
-                    $(this).addClass('active');
+                // Toggle active button
+                $('.tab-button').removeClass('active');
+                $(this).addClass('active');
 
-                    // Show selected tab and hide others
-                    $('.tab-content').addClass('d-none');
-                    $('#' + target).removeClass('d-none');
-                });
+                // Show selected tab and hide others
+                $('.tab-content').addClass('d-none');
+                $('#' + target).removeClass('d-none');
             });
-        </script>
-        <script>
-            $(document).ready(function() {
-                $(".explore-now-btn").click(function() {
-                    $(".hidden-section").fadeToggle(1000); // Toggles the visibility of the section
-                });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(".explore-now-btn").click(function() {
+                $(".hidden-section").fadeToggle(1000); // Toggles the visibility of the section
             });
-        </script>
-        <script>
-            $(document).ready(function() {
-                // Initialize slick slider
-                const $slider = $('.slick-slider');
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Initialize slick slider
+            const $slider = $('.slick-slider');
 
-                if (!$slider.hasClass('slick-initialized')) {
-                    $slider.slick({
-                        centerMode: true,
-                        centerPadding: '60px',
-                        slidesToShow: 1,
-                        arrows: false, // Disable default arrows
-                        dots: true,
-                        autoplay: true, // Enable autoplay
-                        autoplaySpeed: 2000, // 2 seconds per slide
-                    });
-                }
-
-                // Custom "Previous" button functionality
-                $(document).on('click', '.slick-prev-custom', function() {
-                    $slider.slick('slickPrev');
+            if (!$slider.hasClass('slick-initialized')) {
+                $slider.slick({
+                    centerMode: true,
+                    centerPadding: '60px',
+                    slidesToShow: 1,
+                    arrows: false, // Disable default arrows
+                    dots: true,
+                    autoplay: true, // Enable autoplay
+                    autoplaySpeed: 2000, // 2 seconds per slide
                 });
+            }
 
-                $(document).on('click', '.slick-next-custom', function() {
-                    $slider.slick('slickNext');
-                });
+            // Custom "Previous" button functionality
+            $(document).on('click', '.slick-prev-custom', function() {
+                $slider.slick('slickPrev');
             });
-        </script>
-        <script>
-            $(document).ready(function() {
-                // Initialize slick slider
-                const $slider = $('.slick-slider-related');
 
-                if (!$slider.hasClass('slick-initialized')) {
-                    $slider.slick({
-                        centerMode: true,
-                        slidesToShow: 1,
-                        arrows: false, // Disable default arrows
-                        dots: true,
-                        autoplay: true, // Enable autoplay
-                        autoplaySpeed: 2000, // 2 seconds per slide
-                    });
-                }
-
-                // Custom "Previous" button functionality
-                $(document).on('click', '.slick-prev-custom-related', function() {
-                    $slider.slick('slickPrev');
-                });
-
-                $(document).on('click', '.slick-next-custom-related', function() {
-                    $slider.slick('slickNext');
-                });
+            $(document).on('click', '.slick-next-custom', function() {
+                $slider.slick('slickNext');
             });
-        </script>
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Initialize slick slider
+            const $slider = $('.slick-slider-related');
+
+            if (!$slider.hasClass('slick-initialized')) {
+                $slider.slick({
+                    centerMode: true,
+                    slidesToShow: 1,
+                    arrows: false, // Disable default arrows
+                    dots: true,
+                    autoplay: true, // Enable autoplay
+                    autoplaySpeed: 2000, // 2 seconds per slide
+                });
+            }
+
+            // Custom "Previous" button functionality
+            $(document).on('click', '.slick-prev-custom-related', function() {
+                $slider.slick('slickPrev');
+            });
+
+            $(document).on('click', '.slick-next-custom-related', function() {
+                $slider.slick('slickNext');
+            });
+        });
+    </script>
     @endpush
 
 </x-frontend-app-layout>

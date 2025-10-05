@@ -1,8 +1,21 @@
 <x-frontend-app-layout :title="'Project'">
 
+<div class="container-fluid image-overlay-section">
+        <div class="row">
+            <div class="p-0 col-lg-12 position-relative">
+                <img class="w-100 img-fluid" src="{{ !empty($banner->image) && file_exists('storage/' . $banner->image) ? url('storage/' . $banner->image) : asset('images/no-banner.jpg') }}"" alt=""
+                    style="object-fit: cover">
+
+                <!-- Overlay Title -->
+                <div class="text-center overlay-title-common">
+                    <h1 class="text-white fw-bold">Our Pricing Plan</h1>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Contact Section Start -->
-    <section>
-        <div class="container-fluid px-0">
+    <!-- <section>
+        <div class="px-0 container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="contact-section">
@@ -13,7 +26,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Pricing -->
 
     <section>
@@ -188,7 +201,7 @@
                                     </li>
                                 </ul>
                                 <div class="plan-select">
-                                    <button type="submit" class="my-4 px-4 py-2">Select Plan</button>
+                                    <button type="submit" class="px-4 py-2 my-4">Select Plan</button>
                                 </div>
                             </form>
 
@@ -241,13 +254,13 @@
                 <div class="col-lg-12">
                     <div class="pt-5">
                         <hr />
-                        <div class="d-flex justify-content-between align-items-center pt-4">
+                        <div class="pt-4 d-flex justify-content-between align-items-center price-check">
                             <div class="">
                                 <h5 class="">Need As like Dadabhaai:</h5>
                             </div>
                             <div>
                                 <form id="serviceForm" action="/submit" method="POST">
-                                    <div class="palatform_checkbox mb-2">
+                                    <div class="mb-2 palatform_checkbox">
                                         <input class="platform_input" id="platform_label-102" type="checkbox"
                                             value="Graphics Design" onclick="handleCheckboxClick()" />
                                         <label class="platform_label" for="platform_label-102">
@@ -261,7 +274,7 @@
                                     </div>
                                     <!-- If Checkbox cliked then show this btn -->
                                     <div id="quotationButton" style="display: none">
-                                        <button type="submit" class="btn-common-one animated mt-3 w-100">
+                                        <button type="submit" class="mt-3 btn-common-one animated w-100">
                                             Send Quotation
                                         </button>
                                     </div>

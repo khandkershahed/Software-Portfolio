@@ -8,7 +8,7 @@
                 <div class="col-lg-6">
                     <div class="py-5">
                         <div class="d-flex align-items-center">
-                            <h1 class="design-title text-black">
+                            <h1 class="text-black design-title">
                                 {{ optional($categoryOne)->name }}
                             </h1>
                             <span class="line ms-2"></span>
@@ -16,17 +16,17 @@
                         <p class="pt-3 text-black">
                             {!! optional($categoryOne)->description !!}
                         </p>
-                        <div class="row mt-4">
+                        <div class="mt-4 row">
 
                             @foreach (optional($categoryOne)->children as $header_category_child)
                                 <div class="col-lg-6">
 
                                     <div class="mb-3 shape_side_box">
-                                        <a href="{{ route('project') }}" class="btn btn-white shadow-sm arrow-btns">
+                                        <a href="{{ route('project') }}" class="shadow-sm btn btn-white arrow-btns">
                                             <i class="fa-solid fa-chevron-right pe-2"></i>
                                         </a>
                                         <a href="{{ route('project') }}"
-                                            class="btn btn-white shadow-sm services-btn w-75 text-start">
+                                            class="shadow-sm btn btn-white services-btn w-75 text-start">
                                             {{ $header_category_child->name }}
                                         </a>
                                     </div>
@@ -73,17 +73,17 @@
                         <p class="pt-3 grp-para">
                             {!! optional($categoryTwo)->description !!}
                         </p>
-                        <div class="row mt-4">
+                        <div class="mt-4 row">
 
                             @foreach (optional($categoryTwo)->children as $header_category_child_two)
                                 <div class="col-lg-6">
 
                                     <div class="mb-3 shape_side_box">
-                                        <button class="btn btn-white shadow-sm arrow-btns shape_side_btn">
+                                        <button class="shadow-sm btn btn-white arrow-btns shape_side_btn">
                                             <i class="fa-solid fa-chevron-right pe-2"></i>
                                         </button>
                                         <button
-                                            class="btn btn-white shadow-sm services-btn w-75 text-start shape_side_btn">
+                                            class="shadow-sm btn btn-white services-btn w-75 text-start shape_side_btn">
                                             {{ $header_category_child_two->name }}
                                         </button>
                                     </div>
@@ -112,7 +112,7 @@
                     <div class="col-lg-6">
                         <div class="py-5">
                             <div class="d-flex align-items-center">
-                                <h1 class="design-title text-black">
+                                <h1 class="text-black design-title">
                                     {{ optional($categoryOne)->name ?? 'Default Category One' }}
                                 </h1>
                                 <span class="line ms-2"></span>
@@ -120,15 +120,15 @@
                             <p class="pt-3 text-black">
                                 {!! optional($categoryOne)->description ?? 'Default Description' !!}
                             </p>
-                            <div class="row mt-4">
+                            <div class="mt-4 row">
                                 @foreach (optional($categoryOne)->children ?? [] as $header_category_child)
                                     <div class="col-lg-6">
                                         <div class="mb-3 shape_side_box">
-                                            <a href="{{ route('project') }}" class="btn btn-white shadow-sm arrow-btns">
+                                            <a href="{{ route('project') }}" class="shadow-sm btn btn-white arrow-btns">
                                                 <i class="fa-solid fa-chevron-right pe-2"></i>
                                             </a>
                                             <a href="{{ route('project') }}"
-                                                class="btn btn-white shadow-sm services-btn w-75 text-start">
+                                                class="shadow-sm btn btn-white services-btn w-75 text-start">
                                                 {{ $header_category_child->name }}
                                             </a>
                                         </div>
@@ -166,20 +166,20 @@
                         <div>
                             <div class="d-flex align-items-center">
                                 <h1 class="grp-title">{{ optional($categoryTwo)->name ?? 'Default Category Two' }}</h1>
-                                <span class="line ms-2"></span>
+                                <span class="ms-2 line-white"></span>
                             </div>
                             <p class="pt-3 grp-para">
                                 {!! optional($categoryTwo)->description ?? 'Default Description' !!}
                             </p>
-                            <div class="row mt-4">
+                            <div class="mt-4 row">
                                 @foreach (optional($categoryTwo)->children ?? [] as $header_category_child_two)
                                     <div class="col-lg-6">
                                         <div class="mb-3 shape_side_box">
-                                            <a href="{{ route('project') }}" class="btn btn-white shadow-sm arrow-btns shape_side_btn">
+                                            <a href="{{ route('project') }}" class="shadow-sm btn btn-white arrow-btns shape_side_btn">
                                                 <i class="fa-solid fa-chevron-right pe-2"></i>
                                             </a>
                                             <a href="{{ route('project') }}"
-                                                class="btn btn-white shadow-sm services-btn w-75 text-start shape_side_btn">
+                                                class="shadow-sm btn btn-white services-btn w-75 text-start shape_side_btn">
                                                 {{ $header_category_child_two->name }}
                                             </a>
                                         </div>

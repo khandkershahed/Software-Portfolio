@@ -1,5 +1,5 @@
 
-<section class="py-5 bg-light">
+<section class="py-0 py-lg-5 bg-light">
     <div class="container">
         <form action="{{ route('query.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -185,7 +185,7 @@
                         </div>
                     </div>
 
-                    <div class="pt-5 mb-3" style="position: relative; top: 120px;">
+                    <div class="pt-0 mb-3 pt-lg-5 query-btn">
                         <button type="submit" class="mt-5 btn-common-three animated w-100 rounded-3"
                             data-animation-in="fadeInUp">
                             Submit Query <i class="fas fa-arrow-right-long ps-3"></i>

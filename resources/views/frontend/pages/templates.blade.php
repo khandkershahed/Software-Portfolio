@@ -22,7 +22,8 @@
             </div>
             <div class="col-lg-12">
                 <div class="d-flex justify-content-center">
-                    <ul class="custom-tab-nav" id="myTab" role="tablist">
+                    <ul class="overflow-auto custom-tab-nav d-flex flex-nowrap" id="myTab" role="tablist"
+                        style="gap: 10px; scrollbar-width: thin; -ms-overflow-style: none;">
                         <li class="custom-tab-item" role="presentation">
                             <button class="custom-tab-btn active" id="socialMediaPost" data-bs-toggle="tab"
                                 data-bs-target="#socialMediaPost-pane" type="button" role="tab"
@@ -45,6 +46,7 @@
                         </li>
                     </ul>
                 </div>
+
 
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="socialMediaPost-pane" role="tabpanel"

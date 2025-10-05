@@ -1,10 +1,10 @@
-<section class="py-3 shadow-sm">
+<section class="py-0 shadow-sm py-lg-3">
     <div class="container px-0 py-3">
         <div class="row align-items-center">
-            <div class="col-lg-3 col-12">
-                <h1 class="text-black design-title">Our Partners</h1>
+            <div class="col-lg-4 col-12">
+                <h1 class="mb-0 text-black design-title">Our Valued Clients</h1>
             </div>
-            <div class="col-lg-9 col-12">
+            <div class="col-lg-8 col-12">
                 <div class="partners-carousel">
                     @foreach ($company_clients as $company_client)
                     <div class="px-3 text-center partner-logo-box">

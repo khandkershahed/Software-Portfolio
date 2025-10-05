@@ -8,7 +8,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id2"
                 aria-controls="Id2">
                 <span class="fw-normal">
-                    <i class="text-black fa-solid fa-bars"></i>
+                    <i class="text-white fa-solid fa-bars fs-2"></i>
                 </span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -27,13 +27,13 @@
                     </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link {{ Route::current()->getName() == 'pricing' ? 'active' : '' }}"
-                            href="{{ route('pricing') }}" type="button" data-bs-toggle="dropdown"
-                            data-bs-auto-close="outside" aria-expanded="false">Template</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Menu item</a></li>
-                            <li><a class="dropdown-item" href="#">Menu item</a></li>
-                            <li><a class="dropdown-item" href="#">Menu item</a></li>
-                        </ul>
+                    href="{{ route('pricing') }}" type="button" data-bs-toggle="dropdown"
+                    data-bs-auto-close="outside" aria-expanded="false">Template</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                    </ul>
                     </li> --}}
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link cst-dropdown" href="#" role="button" data-bs-toggle="dropdown"
@@ -50,8 +50,8 @@
                     </li> -->
                     <li class="nav-item">
                         <a class="nav-link {{ Route::current()->getName() == 'templates' ? 'active' : '' }}"
-                            href="{{ route('templates') }}" >
-                            Graphic 
+                            href="{{ route('templates') }}">
+                            Graphic
                             <!-- <span class="dropdown-icon">
                                 <i class="fas fa-plus"></i>
                             </span> -->
@@ -117,7 +117,7 @@
                     </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link {{ Route::current()->getName() == 'contact' ? 'active' : '' }}"
-                            href="{{ route('contact') }}">Contact</a>
+                    href="{{ route('contact') }}">Contact</a>
                     </li> --}}
                     <li class="nav-item">
                         <a class="nav-link {{ Route::current()->getName() == 'query' ? 'active' : '' }}"

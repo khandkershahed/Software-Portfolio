@@ -126,17 +126,19 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
-                                                                <h1 class="site-text">{{ $project->name }}</h1>
-                                                                <p class="site-text"
-                                                                    style="text-align: justify;font-size:18px; color:#001624 !important;">
-                                                                    {!! $project->row_one_description !!}
-                                                                </p>
-                                                                <button type="submit"
-                                                                    class="mt-4 btn-common-three animated rounded-3"
-                                                                    data-animation-in="fadeInUp">
-                                                                    View Details <i class="fas fa-arrow-right-long ps-3"
-                                                                        aria-hidden="true"></i>
-                                                                </button>
+                                                                <div class="project-category">
+                                                                    <h1 class="site-text">{{ $project->name }}</h1>
+                                                                    <p class="site-text"
+                                                                        style="text-align: justify;font-size:18px; color:#001624 !important;">
+                                                                        {!! $project->row_one_description !!}
+                                                                    </p>
+                                                                    <button type="submit"
+                                                                        class="mt-4 btn-common-three animated rounded-3"
+                                                                        data-animation-in="fadeInUp">
+                                                                        View Details <i class="fas fa-arrow-right-long ps-3"
+                                                                            aria-hidden="true"></i>
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </a>
