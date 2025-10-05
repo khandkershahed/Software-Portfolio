@@ -2,7 +2,7 @@
     <div class="container">
         <div class="footer-content">
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                <div class="col-lg-3 footer-column">
                     <div class="logo-widget footer-widget">
                         <figure class="logo-box">
                             <a class="navbar-brand" href="{{ route('home') }}">
@@ -20,43 +20,66 @@
                         </div>
                         <ul class="footer-social">
                             @if (!empty(optional($setting)->facebook_url))
-                                <li>
-                                    <a href="{{ optional($setting)->facebook_url }}"><i class="fab fa-facebook-f"></i></a>
-                                </li>
+                            <li>
+                                <a href="{{ optional($setting)->facebook_url }}"><i class="fab fa-facebook-f"></i></a>
+                            </li>
                             @endif
                             @if (!empty(optional($setting)->linkedin_url))
-                                <li>
-                                    <a href="{{ optional($setting)->linkedin_url }}"><i class="fab fa-linkedin-in"></i></a>
-                                </li>
+                            <li>
+                                <a href="{{ optional($setting)->linkedin_url }}"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
                             @endif
                             @if (!empty(optional($setting)->github_url))
-                                <li>
-                                    <a href="{{ optional($setting)->github_url }}"><i class="fab fa-github"></i></a>
-                                </li>
+                            <li>
+                                <a href="{{ optional($setting)->github_url }}"><i class="fab fa-github"></i></a>
+                            </li>
                             @endif
                             @if (!empty(optional($setting)->youtube_url))
-                                <li>
-                                    <a href="{{ optional($setting)->youtube_url }}"><i class="fab fa-youtube"></i></a>
-                                </li>
+                            <li>
+                                <a href="{{ optional($setting)->youtube_url }}"><i class="fab fa-youtube"></i></a>
+                            </li>
                             @endif
                         </ul>
                     </div>
                 </div>
+                @php
+                $totalProjects = count($project);
+                $half = ceil($totalProjects / 2);
+                $projectsFirstHalf = $project->take($half);
+                $projectsSecondHalf = $project->slice($half);
+                @endphp
 
-
-                <div class="col-lg-3 col-md-6 col-sm-12 offset-lg-2 footer-column">
+                <div class="col-lg-3 footer-column">
                     <div class="service-widget footer-widget">
                         <div class="footer-title">Projects</div>
                         <ul class="list">
-                            @foreach ($project as $allproject)
-                                <li><a
-                                        href="{{ route('projects.details', $allproject->slug) }}">{{ $allproject->name }}</a>
-                                </li>
+                            @foreach ($projectsFirstHalf as $allproject)
+                            <li>
+                                <a href="{{ route('projects.details', $allproject->slug) }}">
+                                    {{ $allproject->name }}
+                                </a>
+                            </li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 footer-widget">
+
+                <div class="col-lg-3 footer-column">
+                    <div class="service-widget footer-widget">
+                        <div class="footer-title">&nbsp;</div> {{-- optional empty title to align --}}
+                        <ul class="list">
+                            @foreach ($projectsSecondHalf as $allproject)
+                            <li>
+                                <a href="{{ route('projects.details', $allproject->slug) }}">
+                                    {{ $allproject->name }}
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 footer-widget">
                     <div class="contact-widget footer-widget">
                         <div class="footer-title">Contacts</div>
                         <div class="text">
@@ -75,12 +98,12 @@
 <div class="footer-bottom">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 column">
+            <div class="col-lg-6 col-12 column">
                 <div class="copyright">
                     <a href="#">NGen IT</a> &copy; 2024 All Right Reserved
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 column">
+            <div class="col-lg-6 col-12 column">
                 <ul class="footer-nav">
                     <li><a href="{{ route('term') }}">Terms of Service</a></li>
                     <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
