@@ -100,7 +100,7 @@
         <div class="row">
             <div class="col-lg-6 col-12 column">
                 <div class="copyright">
-                    <a href="#">NGen IT</a> &copy; 2024 All Right Reserved
+                    <a href="#">NGen IT</a> &copy; {{date('Y')}} All Right Reserved
                 </div>
             </div>
             <div class="col-lg-6 col-12 column">
