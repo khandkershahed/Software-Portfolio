@@ -61,6 +61,7 @@
                                     <option value="about" @selected($item->page_name == 'about')>About US</option>
                                     <option value="contact" @selected($item->page_name == 'contact')>Contact US</option>
                                     <option value="query" @selected($item->page_name == 'query')>Query</option>
+                                     <option value="grphaics" @selected($item->page_name == 'grphaics')>Graphics</option>
                                     <option value="terms" @selected($item->page_name == 'terms')>Terms </option>
                                     <option value="privacy" @selected($item->page_name == 'privacy')>Privacy</option>
                                     <option value="pricing" @selected($item->page_name == 'pricing')>Pricing Plan</option>

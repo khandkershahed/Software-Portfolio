@@ -60,6 +60,7 @@
                                     <option value="about">About US</option>
                                     <option value="contact">Contact US</option>
                                     <option value="query">Query</option>
+                                    <option value="grphaics">Graphics</option>
                                     <option value="terms">Terms </option>
                                     <option value="privacy">Privacy</option>
                                     <option value="pricing">Pricing Plan</option>

@@ -380,7 +380,10 @@ class FrontendController extends Controller
     }
     public function templates()
     {
-        return view('frontend.pages.templates'); // or whatever Blade view you're using
+        $data = [
+            'banner'  => PageBanner::where('page_name', 'grphaics')->latest()->first(),
+        ];
+        return view('frontend.pages.templates',$data); // or whatever Blade view you're using
     }
     public function templateDetails($slug)
     {

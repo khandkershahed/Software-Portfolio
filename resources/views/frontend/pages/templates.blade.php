@@ -2,7 +2,7 @@
     <div class="container-fluid image-overlay-section">
         <div class="row">
             <div class="p-0 col-lg-12 position-relative">
-                <img class="w-100 img-fluid" src="{{ asset('frontend/assets/images/templates.jpg') }}" alt=""
+                <img class="w-100 img-fluid" src="{{ !empty($banner->image) && file_exists('storage/' . $banner->image) ? url('storage/' . $banner->image) : asset('frontend/assets/images/templates.jpg') }}" alt=""
                     style="object-fit: cover">
 
                 <!-- Overlay Title -->
