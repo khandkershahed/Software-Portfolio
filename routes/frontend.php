@@ -33,7 +33,7 @@ Route::get('/privacy', [FrontendController::class, 'privacy'])->name('privacy');
 
 //Pricing
 Route::get('/pricing', [FrontendController::class, 'pricing'])->name('pricing');
-Route::get('/templates', [FrontendController::class, 'templates'])->name('templates');
+Route::get('/graphics', [FrontendController::class, 'templates'])->name('templates');
 Route::get('/template/{slug}', [FrontendController::class, 'templateDetails'])->name('template.details');
 //Pricing Store
 Route::post('/pricing/store', [FrontendController::class, 'pricingStore'])->name('pricing.store');
